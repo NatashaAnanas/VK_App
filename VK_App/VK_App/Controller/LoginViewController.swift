@@ -10,7 +10,7 @@ import UIKit
 /// Страница входа
 final class LoginViewController: UIViewController {
     
-    // MARK: - Private Constant
+    // MARK: - Private Constants
     private enum Constant {
         static let loginText = "nata"
     }

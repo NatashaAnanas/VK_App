@@ -10,7 +10,7 @@ import UIKit
 /// Страница с группами
 final class GroupViewController: UIViewController {
 
-    // MARK: - Private Constant
+    // MARK: - Private Constants
     private enum Constant {
         static let groupIDCellText = "group"
     }
@@ -21,7 +21,7 @@ final class GroupViewController: UIViewController {
     }
 }
 
-// MARK: - Подписываемся на делегаты UITableViewDelegate, UITableViewDataSource
+// MARK: - UITableViewDelegate, UITableViewDataSource
 extension GroupViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         5

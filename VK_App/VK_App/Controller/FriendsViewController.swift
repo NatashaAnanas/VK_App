@@ -10,7 +10,7 @@ import UIKit
 /// Страница с друзьями
 final class FriendsViewController: UIViewController {
     
-    // MARK: - Private Constant
+    // MARK: - Private Constants
     private enum Constant {
         static let friendIDCellText = "friend"
         static let birthdayIDCellText = "day"

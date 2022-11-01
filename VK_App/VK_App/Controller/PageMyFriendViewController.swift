@@ -10,7 +10,7 @@ import UIKit
 /// Страница пользователя(друга)
 final class PageMyFriendViewController: UIViewController {
     
-    // MARK: - Private Constant
+    // MARK: - Private Constants
     private enum Constant {
         static let pageOneIDText = "page1"
         static let pageButtonIDText = "buttonCell"
@@ -29,10 +29,9 @@ final class PageMyFriendViewController: UIViewController {
     }
 }
 
-// MARK: - Подписываемся на делегаты UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
+// MARK: - UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 extension PageMyFriendViewController: UICollectionViewDelegate,
-                                      UICollectionViewDataSource,
-                                      UICollectionViewDelegateFlowLayout {
+                                      UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         Constant.cellTypes.count
@@ -61,6 +60,10 @@ extension PageMyFriendViewController: UICollectionViewDelegate,
             return cell
         }
     }
+}
+
+// MARK: - UICollectionViewDelegateFlowLayout
+extension PageMyFriendViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,

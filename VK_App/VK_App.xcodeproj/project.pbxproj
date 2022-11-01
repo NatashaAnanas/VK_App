@@ -103,11 +103,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 41549B942910053400F8331A /* Build configuration list for PBXNativeTarget "VK_App" */;
 			buildPhases = (
-				41549B972910054C00F8331A /* SwiftLint */,
 				41549B7C2910053200F8331A /* Sources */,
 				41549B7D2910053200F8331A /* Frameworks */,
 				41549B7E2910053200F8331A /* Resources */,
 				41549B982910059E00F8331A /* SwiftFormat */,
+				41549B972910054C00F8331A /* SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -200,7 +200,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "";
+			shellScript = "
+
+";
 		};
 /* End PBXShellScriptBuildPhase section */
 

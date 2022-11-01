@@ -1,16 +1,12 @@
-//
-//  EntryViewController.swift
-//  VK_App
-//
-//  Created by Анастасия Козлова on 01.11.2022.
-//
+// EntryViewController.swift
+// Copyright © RoadMap. All rights reserved.
 
 import UIKit
 
 /// Контроллер входа
 final class EntryViewController: UIViewController {
-
     // MARK: - Life cycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }

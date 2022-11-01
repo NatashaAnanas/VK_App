@@ -24,7 +24,7 @@ final class MyGroupViewController: UIViewController {
 // MARK: - Подписываемся на делегаты UITableViewDelegate, UITableViewDataSource
 extension MyGroupViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        1
+        5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

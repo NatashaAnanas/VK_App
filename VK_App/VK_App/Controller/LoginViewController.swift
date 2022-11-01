@@ -45,7 +45,7 @@ final class LoginViewController: UIViewController {
         }
     }
     
-    // MARK: - Private Method
+    // MARK: - Private Methods
     private func addObserver() {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(keyBoardWillShow(notification: )),

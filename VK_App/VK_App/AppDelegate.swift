@@ -7,8 +7,9 @@
 
 import UIKit
 
-@main
-class AppDelegate: UIResponder, UIApplicationDelegate {
+/// AppDelegate
+@main 
+final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(
         _ application: UIApplication,

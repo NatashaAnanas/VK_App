@@ -18,10 +18,6 @@ final class LoginViewController: UIViewController {
 
     // MARK: - Life cycle
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         addObserver()
@@ -31,14 +27,35 @@ final class LoginViewController: UIViewController {
         super.viewWillDisappear(animated)
         removeObserver()
     }
-
+    
     override func shouldPerformSegue(withIdentifier _: String, sender _: Any?) -> Bool {
         let login = emailTextField.text
         guard login == Constant.loginText else { return false }
         return true
     }
-
+    
     // MARK: - Private Methods
+    
+    @objc private func keyBoardWillShow(notification: Notification) {
+        guard let info = notification.userInfo as? NSDictionary,
+              let keyboard = info.value(forKey: UIResponder.keyboardFrameEndUserInfoKey)
+                as? NSValue else { return }
+        
+        let kbSize = keyboard.cgRectValue.size
+        let contentInset = UIEdgeInsets(top: 0.0, left: 0.0, bottom: kbSize.height, right: 0.0)
+        
+        bigScrollView.contentInset = contentInset
+        bigScrollView.scrollIndicatorInsets = contentInset
+    }
+    
+    @objc private func keyBoardWillHide(notification _: Notification) {
+        bigScrollView.contentInset = UIEdgeInsets.zero
+        bigScrollView.scrollIndicatorInsets = UIEdgeInsets.zero
+    }
+    
+    @objc private func hideKeyboardAction() {
+        bigScrollView.endEditing(true)
+    }
 
     private func addObserver() {
         NotificationCenter.default.addObserver(
@@ -63,23 +80,6 @@ final class LoginViewController: UIViewController {
         bigScrollView.addGestureRecognizer(tabGesture)
     }
 
-    @objc private func keyBoardWillShow(notification: Notification) {
-        guard let info = notification.userInfo as? NSDictionary else { return }
-        guard let keyboard = info.value(forKey: UIResponder.keyboardFrameEndUserInfoKey)
-            as? NSValue else { return }
-        let kbSize = keyboard.cgRectValue.size
-
-        let contentInset = UIEdgeInsets(top: 0.0, left: 0.0, bottom: kbSize.height, right: 0.0)
-
-        bigScrollView.contentInset = contentInset
-        bigScrollView.scrollIndicatorInsets = contentInset
-    }
-
-    @objc private func keyBoardWillHide(notification _: Notification) {
-        bigScrollView.contentInset = UIEdgeInsets.zero
-        bigScrollView.scrollIndicatorInsets = UIEdgeInsets.zero
-    }
-
     private func removeObserver() {
         NotificationCenter.default.removeObserver(
             self,
@@ -91,9 +91,5 @@ final class LoginViewController: UIViewController {
             name: UIResponder.keyboardWillHideNotification,
             object: nil
         )
-    }
-
-    @objc private func hideKeyboardAction() {
-        bigScrollView.endEditing(true)
     }
 }

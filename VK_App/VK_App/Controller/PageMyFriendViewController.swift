@@ -17,12 +17,6 @@ final class PageMyFriendViewController: UIViewController {
         case name
         case buttons
     }
-
-    // MARK: - Life cycle
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
 }
 
 // MARK: - UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout

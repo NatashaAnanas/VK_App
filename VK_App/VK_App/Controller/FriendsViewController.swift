@@ -21,15 +21,9 @@ final class FriendsViewController: UIViewController {
         case birthday
         case myFriends
     }
-
-    // MARK: - Life cycle
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
 }
 
-// MARK: - Подписываемся на делегаты UITableViewDelegate, UITableViewDataSource
+// MARK: - UITableViewDelegate, UITableViewDataSource
 
 extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in _: UITableView) -> Int {

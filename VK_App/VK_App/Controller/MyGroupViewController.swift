@@ -10,12 +10,6 @@ final class MyGroupViewController: UIViewController {
     private enum Constant {
         static let myGroupIDCellText = "myGroup"
     }
-
-    // MARK: - Life cycle
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
 }
 
 // MARK: - UITableViewDelegate, UITableViewDataSource

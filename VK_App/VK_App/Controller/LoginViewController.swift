@@ -28,6 +28,8 @@ final class LoginViewController: UIViewController {
         removeObserver()
     }
     
+    // MARK: - Public Methods
+    
     override func shouldPerformSegue(withIdentifier _: String, sender _: Any?) -> Bool {
         let login = emailTextField.text
         guard login == Constant.loginText else { return false }

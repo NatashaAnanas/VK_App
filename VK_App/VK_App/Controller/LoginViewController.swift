@@ -3,7 +3,7 @@
 
 import UIKit
 
-/// Страница входа
+/// Экран входа
 final class LoginViewController: UIViewController {
     // MARK: - Private Constants
 
@@ -34,11 +34,8 @@ final class LoginViewController: UIViewController {
 
     override func shouldPerformSegue(withIdentifier _: String, sender _: Any?) -> Bool {
         let login = emailTextField.text
-        if login == Constant.loginText {
-            return true
-        } else {
-            return false
-        }
+        guard login == Constant.loginText else { return false }
+        return true
     }
 
     // MARK: - Private Methods
@@ -57,7 +54,11 @@ final class LoginViewController: UIViewController {
             name: UIResponder.keyboardWillHideNotification,
             object: nil
         )
-
+        
+        setUpAction()
+    }
+    
+    private func setUpAction() {
         let tabGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboardAction))
         bigScrollView.addGestureRecognizer(tabGesture)
     }

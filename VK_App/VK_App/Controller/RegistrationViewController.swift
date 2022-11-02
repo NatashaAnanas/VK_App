@@ -3,7 +3,7 @@
 
 import UIKit
 
-/// Страница регистрации
+/// Экран регистрации
 final class RegistrationViewController: UIViewController {
     // MARK: - Life cycle
 

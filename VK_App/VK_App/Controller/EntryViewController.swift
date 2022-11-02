@@ -3,7 +3,7 @@
 
 import UIKit
 
-/// Контроллер входа
+/// Экран подтверждения аккаунта
 final class EntryViewController: UIViewController {
     // MARK: - Life cycle
 

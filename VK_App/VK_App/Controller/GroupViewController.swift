@@ -3,7 +3,7 @@
 
 import UIKit
 
-/// Страница с группами
+/// Экран с группами
 final class GroupViewController: UIViewController {
     // MARK: - Private Constants
 

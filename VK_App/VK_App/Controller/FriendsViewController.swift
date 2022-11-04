@@ -14,6 +14,7 @@ final class FriendsViewController: UIViewController {
         static let birthdayText = "Дни рождения"
         static let friendText = "Мои друзья"
         static let friendSegueText = "friendSegue"
+        static let emptyString = ""
         static let cellTypes: [CellTypes] = [.addFriend, .birthday, .myFriends]
     }
 
@@ -23,22 +24,21 @@ final class FriendsViewController: UIViewController {
         case myFriends
     }
 
+    // MARK: - Private Propery
     private let user = User()
 
-    // MARK: - Private Propery
-
     private var numberOfImage = Int()
-
+    
     // MARK: - Public Methods
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         guard segue.identifier == Constant.friendSegueText,
               let cell = sender as? FriendsTableViewCell,
               let destanation = segue.destination as? PageMyFriendViewController else { return }
-
-        destanation.fiendNameText = cell.friendNameLabel.text ?? ""
-        destanation.friendImageView.image = cell.friendImageView.image
+        
+        destanation.fiendNameText = cell.infoUsers.first ?? Constant.emptyString
+        destanation.friendImageView.image = UIImage(named: cell.infoUsers.last ?? Constant.emptyString)
     }
 }
 

@@ -34,7 +34,7 @@ extension NewGroupViewController: UITableViewDelegate, UITableViewDataSource {
         let groupName = newGroup.names[indexPath.row]
         let imageName = newGroup.images[indexPath.row]
         let status = newGroup.statuses[indexPath.row]
-        cell.setUpUI(groupName: groupName, imageName: imageName, status: status)
+        cell.setupUI(groupName: groupName, imageName: imageName, status: status)
 
         return cell
     }

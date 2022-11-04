@@ -15,27 +15,27 @@ import UIKit
         return imageView
     }()
 
-    // MARK: - IBInspectable
+    // MARK: - Private Property
 
-    @IBInspectable var imageName: String = "" {
+    @IBInspectable private var imageName: String = "" {
         didSet {
             setImage(imageName: imageName)
         }
     }
 
-    @IBInspectable var shadowRadius: CGFloat = 7 {
+    @IBInspectable private var shadowRadius: CGFloat = 7 {
         didSet {
             updateShadowRadius()
         }
     }
 
-    @IBInspectable var shadowOpacity: Float = 0.7 {
+    @IBInspectable private var shadowOpacity: Float = 0.7 {
         didSet {
             updateShadowOpacity()
         }
     }
 
-    @IBInspectable var shadowColor: UIColor = .white {
+    @IBInspectable private var shadowColor: UIColor = .white {
         didSet {
             updateShadowColor()
         }

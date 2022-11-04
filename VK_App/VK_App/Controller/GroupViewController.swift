@@ -30,9 +30,9 @@ final class GroupViewController: UIViewController {
         showAlert(
             title: Constant.addGroupNameText,
             message: Constant.allGroupText
-        ) { alert in
-            guard let name = alert.textFields?.first?.text else { return }
-            self.group.names.insert(name, at: self.group.names.count)
+        ) { groupName in
+            guard let groupText = groupName else { return }
+            self.group.names.insert(groupText, at: self.group.names.count)
             self.group.images.insert(Constant.iconName, at: self.group.images.count)
             self.group.statuses.insert(Constant.emptyString, at: self.group.statuses.count)
             self.groupTableView.reloadData()
@@ -77,9 +77,4 @@ extension GroupViewController: UITableViewDelegate, UITableViewDataSource {
         group.statuses.remove(at: indexPath.row)
         tableView.deleteRows(at: [indexPath], with: .fade)
     }
-//    group.images.remove(at: indexPath.row)
-//    group.names.remove(at: indexPath.row)
-//    group.statuses.remove(at: indexPath.row)
-//    tableView.deleteRows(at: [indexPath], with: .fade)
-    
 }

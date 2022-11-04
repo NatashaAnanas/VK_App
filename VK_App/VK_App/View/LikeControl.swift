@@ -31,15 +31,15 @@ import UIKit
         return button
     }()
 
-    // MARK: - IBInspectable
+    // MARK: - Private Property
 
-    @IBInspectable var isLiked: Bool = false {
+    @IBInspectable private var isLiked: Bool = false {
         didSet {
             changeLikes()
         }
     }
 
-    @IBInspectable var likesCount: Float = 0 {
+    @IBInspectable private var likesCount: Float = 0 {
         didSet {
             changeLikeCount()
         }
@@ -116,7 +116,7 @@ import UIKit
     }
 
     private func changeLikeCount() {
-        likesLabel.text = String(Int(likesCount))
+        likesLabel.text = String(likesCount)
     }
 
     @objc private func likeButtonAction(sender: UIButton) {

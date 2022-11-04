@@ -49,8 +49,13 @@ func collectionView(
             withReuseIdentifier: Constant.pageOneIDText,
             for: indexPath
         ) as? FriendCollectionViewCell else { return UICollectionViewCell() }
-        cell.personNameLabel.text = fiendNameText
-        cell.personImageView.image = friendImageView.image
+        
+        guard let image = friendImageView.image else { return UICollectionViewCell()
+        }
+        cell.setUpUI(personName: fiendNameText, imageName: image)
+        
+//        cell.personNameLabel.text = fiendNameText
+//        cell.personImageView.image = friendImageView.image
         return cell
     case .buttons:
         let cell = collectionView.dequeueReusableCell(

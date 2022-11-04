@@ -7,7 +7,14 @@ import UIKit
 final class FriendCollectionViewCell: UICollectionViewCell {
     // MARK: - IBOutlet
 
-    @IBOutlet var personNameLabel: UILabel!
-    @IBOutlet var personImageView: UIImageView!
+    @IBOutlet private var personNameLabel: UILabel!
+    @IBOutlet private var personImageView: UIImageView!
     @IBOutlet private var likesControl: LikeControl!
+    
+    // MARK: - Public methods
+
+    func setUpUI(personName: String, imageName: UIImage) {
+        personImageView.image = imageName
+        personNameLabel.text = personName
+    }
 }

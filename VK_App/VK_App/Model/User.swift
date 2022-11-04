@@ -1,9 +1,5 @@
-//
-//  infoUser.swift
-//  VK_App
-//
-//  Created by Анастасия Козлова on 02.11.2022.
-//
+// User.swift
+// Copyright © RoadMap. All rights reserved.
 
 import Foundation
 

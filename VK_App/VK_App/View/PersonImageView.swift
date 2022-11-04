@@ -1,16 +1,12 @@
-//
-//  PersonImageView.swift
-//  VK_App
-//
-//  Created by Анастасия Козлова on 04.11.2022.
-//
+// PersonImageView.swift
+// Copyright © RoadMap. All rights reserved.
 
 import UIKit
 
 /// Настройка аватара пользователя + тень
 @IBDesignable final class PersonImageView: UIView {
-    
     // MARK: - Private Visual components
+
     private let personImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -20,6 +16,7 @@ import UIKit
     }()
 
     // MARK: - IBInspectable
+
     @IBInspectable var imageName: String = "" {
         didSet {
             setImage(imageName: imageName)
@@ -44,7 +41,8 @@ import UIKit
         }
     }
 
-    // MARK: - Life cycle
+    // MARK: - Init
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
@@ -56,11 +54,13 @@ import UIKit
     }
 
     // MARK: - Public Methods
+
     func setImage(imageName: String) {
         personImageView.image = UIImage(named: imageName)
     }
-    
+
     // MARK: - Private Methods
+
     private func setupView() {
         addSubview(personImageView)
         personImageView.frame = bounds

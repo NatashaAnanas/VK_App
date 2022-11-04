@@ -1,17 +1,13 @@
-//
-//  FriendCollectionViewCell.swift
-//  VK_App
-//
-//  Created by Анастасия Козлова on 03.11.2022.
-//
+// FriendCollectionViewCell.swift
+// Copyright © RoadMap. All rights reserved.
 
 import UIKit
 
 /// Ячейка шапка профиля друга
 final class FriendCollectionViewCell: UICollectionViewCell {
-    
     // MARK: - IBOutlet
-    @IBOutlet weak var personNameLabel: UILabel!
-    @IBOutlet weak var personImageView: UIImageView!
-    @IBOutlet private weak var likesControl: LikeControl!
+
+    @IBOutlet var personNameLabel: UILabel!
+    @IBOutlet var personImageView: UIImageView!
+    @IBOutlet private var likesControl: LikeControl!
 }

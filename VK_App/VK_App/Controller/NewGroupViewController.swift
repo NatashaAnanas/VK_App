@@ -1,4 +1,4 @@
-// MyGroupViewController.swift
+// NewGroupViewController.swift
 // Copyright © RoadMap. All rights reserved.
 
 import UIKit
@@ -11,8 +11,9 @@ final class NewGroupViewController: UIViewController {
         static let myGroupIDCellText = "myGroup"
         static let recGroupText = "Рекомендации"
     }
-    
+
     // MARK: - Private Property
+
     private let newGroup = NewGroup()
 }
 
@@ -24,10 +25,12 @@ extension NewGroupViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constant.myGroupIDCellText,
-       for: indexPath) as? NewGroupTableViewCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: Constant.myGroupIDCellText,
+            for: indexPath
+        ) as? NewGroupTableViewCell else { return UITableViewCell() }
         cell.selectionStyle = .none
-        
+
         let groupName = newGroup.names[indexPath.row]
         let imageName = newGroup.images[indexPath.row]
         let status = newGroup.statuses[indexPath.row]
@@ -35,8 +38,8 @@ extension NewGroupViewController: UITableViewDelegate, UITableViewDataSource {
 
         return cell
     }
-    
+
     func tableView(_: UITableView, titleForHeaderInSection section: Int) -> String? {
-            return Constant.recGroupText
+        Constant.recGroupText
     }
 }

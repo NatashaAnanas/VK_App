@@ -1,16 +1,12 @@
-//
-//  LikeControl.swift
-//  VK_App
-//
-//  Created by Анастасия Козлова on 03.11.2022.
-//
+// LikeControl.swift
+// Copyright © RoadMap. All rights reserved.
 
 import UIKit
 
 /// Создание UIControl - отображение и кол-во лайков
 @IBDesignable final class LikeControl: UIControl {
-    
     // MARK: - Private constants
+
     private enum Constants {
         static let heartButtonImageName = "heart"
         static let heartFillButtonImageName = "heart.fill"
@@ -18,6 +14,7 @@ import UIKit
     }
 
     // MARK: - Private Visual components
+
     private let likesLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
@@ -33,8 +30,9 @@ import UIKit
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
-    
+
     // MARK: - IBInspectable
+
     @IBInspectable var isLiked: Bool = false {
         didSet {
             changeLikes()
@@ -48,6 +46,7 @@ import UIKit
     }
 
     // MARK: - Life Cycle
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
@@ -59,6 +58,7 @@ import UIKit
     }
 
     // MARK: - Private methods
+
     private func setupView() {
         addSubview(likeButton)
         addSubview(likesLabel)
@@ -66,13 +66,15 @@ import UIKit
         setUpButtonConstraint()
         setUpLabelConstraint()
     }
-    
+
     private func createGestureRecognizer() {
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self,
-                                                          action: #selector(likeButtonAction(sender: )))
+        let tapGestureRecognizer = UITapGestureRecognizer(
+            target: self,
+            action: #selector(likeButtonAction(sender:))
+        )
         likeButton.addGestureRecognizer(tapGestureRecognizer)
     }
-    
+
     private func setUpButtonConstraint() {
         NSLayoutConstraint.activate([
             likeButton.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -81,7 +83,7 @@ import UIKit
             likeButton.heightAnchor.constraint(equalToConstant: 20)
         ])
     }
-    
+
     private func setUpLabelConstraint() {
         NSLayoutConstraint.activate([
             likesLabel.leadingAnchor.constraint(equalTo: likeButton.trailingAnchor, constant: 5),

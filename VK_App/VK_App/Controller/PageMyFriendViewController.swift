@@ -17,50 +17,49 @@ final class PageMyFriendViewController: UIViewController {
         case name
         case buttons
     }
-    
+
     var fiendNameText = String()
     var friendImageView = UIImageView()
-
 }
 
-// MARK: - UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
+// MARK: - UICollectionViewDelegate, UICollectionViewDataSource
 
 extension PageMyFriendViewController: UICollectionViewDelegate,
     UICollectionViewDataSource {
     func numberOfSections(in _: UICollectionView) -> Int {
-        Constant.cellTypes.count
-    }
+    Constant.cellTypes.count
+}
 
-    func collectionView(_: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        switch Constant.cellTypes[section] {
-        case .name:
-            return 1
-        case .buttons:
-            return 4
-        }
+func collectionView(_: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    switch Constant.cellTypes[section] {
+    case .name:
+        return 1
+    case .buttons:
+        return 4
     }
+}
 
-    func collectionView(
-        _ collectionView: UICollectionView,
-        cellForItemAt indexPath: IndexPath
-    ) -> UICollectionViewCell {
-        switch Constant.cellTypes[indexPath.section] {
-        case .name:
-            guard let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: Constant.pageOneIDText,
-                for: indexPath
-            ) as? FriendCollectionViewCell else { return UICollectionViewCell() }
-            cell.personNameLabel.text = fiendNameText
-            cell.personImageView.image = friendImageView.image
-            return cell
-        case .buttons:
-            let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: Constant.pageButtonIDText,
-                for: indexPath
-            )
-            return cell
-        }
+func collectionView(
+    _ collectionView: UICollectionView,
+    cellForItemAt indexPath: IndexPath
+) -> UICollectionViewCell {
+    switch Constant.cellTypes[indexPath.section] {
+    case .name:
+        guard let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: Constant.pageOneIDText,
+            for: indexPath
+        ) as? FriendCollectionViewCell else { return UICollectionViewCell() }
+        cell.personNameLabel.text = fiendNameText
+        cell.personImageView.image = friendImageView.image
+        return cell
+    case .buttons:
+        let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: Constant.pageButtonIDText,
+            for: indexPath
+        )
+        return cell
     }
+}
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout

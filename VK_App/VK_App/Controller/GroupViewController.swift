@@ -6,7 +6,7 @@ import UIKit
 /// Экран с группами
 final class GroupViewController: UIViewController {
     // MARK: - Private Constants
-    
+
     private enum Constant {
         static let groupIDCellText = "group"
         static let allGroupText = "Все группы"
@@ -15,19 +15,22 @@ final class GroupViewController: UIViewController {
         static let emptyString = ""
         static let iconName = "иконка"
     }
-    
+
     // MARK: - @IBOutlet
-    @IBOutlet private weak var groupTableView: UITableView!
-    
+
+    @IBOutlet private var groupTableView: UITableView!
+
     // MARK: - Private Property
+
     private var group = Group()
-    
+
     // MARK: - Private @IBAction
-    
+
     @IBAction private func addGroupAction(_ sender: Any) {
-        
-        showAlert(title: Constant.addGroupNameText,
-                  message: Constant.allGroupText) { alert in
+        showAlert(
+            title: Constant.addGroupNameText,
+            message: Constant.allGroupText
+        ) { alert in
             guard let name = alert.textFields?.first?.text else { return }
             self.group.names.insert(name, at: self.group.names.count)
             self.group.images.insert(Constant.iconName, at: self.group.images.count)
@@ -43,10 +46,14 @@ extension GroupViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         group.names.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constant.groupIDCellText,
-        for: indexPath) as? GroupTableViewCell else { return UITableViewCell() }
+        
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: Constant.groupIDCellText,
+            for: indexPath
+        ) as? GroupTableViewCell else { return UITableViewCell() }
+        
         cell.selectionStyle = .none
         let groupName = group.names[indexPath.row]
         let imageName = group.images[indexPath.row]
@@ -54,19 +61,25 @@ extension GroupViewController: UITableViewDelegate, UITableViewDataSource {
         cell.setUpUI(groupName: groupName, imageName: imageName, status: status)
         return cell
     }
-    
+
     func tableView(_: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return Constant.allGroupText
+        Constant.allGroupText
     }
+
+    func tableView(
+        _ tableView: UITableView,
+        commit editingStyle: UITableViewCell.EditingStyle,
+        forRowAt indexPath: IndexPath
+    ) {
+        guard editingStyle == .delete else { return }
+        group.images.remove(at: indexPath.row)
+        group.names.remove(at: indexPath.row)
+        group.statuses.remove(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .fade)
+    }
+//    group.images.remove(at: indexPath.row)
+//    group.names.remove(at: indexPath.row)
+//    group.statuses.remove(at: indexPath.row)
+//    tableView.deleteRows(at: [indexPath], with: .fade)
     
-    func tableView(_ tableView: UITableView,
-                   commit editingStyle: UITableViewCell.EditingStyle,
-                   forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            group.images.remove(at: indexPath.row)
-            group.names.remove(at: indexPath.row)
-            group.statuses.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        }
-    }
 }

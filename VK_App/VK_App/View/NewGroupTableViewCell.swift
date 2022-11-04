@@ -1,21 +1,18 @@
-//
-//  NewGroupTableViewCell.swift
-//  VK_App
-//
-//  Created by Анастасия Козлова on 02.11.2022.
-//
+// NewGroupTableViewCell.swift
+// Copyright © RoadMap. All rights reserved.
 
 import UIKit
 
 /// Ячейка с новой группой
 final class NewGroupTableViewCell: UITableViewCell {
-
     // MARK: - Private IBOutlets
-    @IBOutlet private weak var groupImageView: UIImageView!
-    @IBOutlet private weak var nameGroupLabel: UILabel!
-    @IBOutlet private weak var statusGroupLabel: UILabel!
-    
+
+    @IBOutlet private var groupImageView: UIImageView!
+    @IBOutlet private var nameGroupLabel: UILabel!
+    @IBOutlet private var statusGroupLabel: UILabel!
+
     // MARK: - Public methods
+
     func setUpUI(groupName: String, imageName: String, status: String) {
         groupImageView.image = UIImage(named: imageName)
         statusGroupLabel.text = status

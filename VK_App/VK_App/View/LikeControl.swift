@@ -1,5 +1,5 @@
 //
-//  UILikeControl.swift
+//  LikeControl.swift
 //  VK_App
 //
 //  Created by Анастасия Козлова on 03.11.2022.

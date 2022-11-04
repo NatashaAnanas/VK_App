@@ -37,27 +37,6 @@ final class LoginViewController: UIViewController {
     }
     
     // MARK: - Private Methods
-    
-    @objc private func keyBoardWillShow(notification: Notification) {
-        guard let info = notification.userInfo as? NSDictionary,
-              let keyboard = info.value(forKey: UIResponder.keyboardFrameEndUserInfoKey)
-                as? NSValue else { return }
-        
-        let kbSize = keyboard.cgRectValue.size
-        let contentInset = UIEdgeInsets(top: 0.0, left: 0.0, bottom: kbSize.height, right: 0.0)
-        
-        bigScrollView.contentInset = contentInset
-        bigScrollView.scrollIndicatorInsets = contentInset
-    }
-    
-    @objc private func keyBoardWillHide(notification _: Notification) {
-        bigScrollView.contentInset = UIEdgeInsets.zero
-        bigScrollView.scrollIndicatorInsets = UIEdgeInsets.zero
-    }
-    
-    @objc private func hideKeyboardAction() {
-        bigScrollView.endEditing(true)
-    }
 
     private func addObserver() {
         NotificationCenter.default.addObserver(
@@ -93,5 +72,26 @@ final class LoginViewController: UIViewController {
             name: UIResponder.keyboardWillHideNotification,
             object: nil
         )
+    }
+    
+    @objc private func keyBoardWillShow(notification: Notification) {
+        guard let info = notification.userInfo as? NSDictionary,
+              let keyboard = info.value(forKey: UIResponder.keyboardFrameEndUserInfoKey)
+                as? NSValue else { return }
+        
+        let kbSize = keyboard.cgRectValue.size
+        let contentInset = UIEdgeInsets(top: 0.0, left: 0.0, bottom: kbSize.height, right: 0.0)
+        
+        bigScrollView.contentInset = contentInset
+        bigScrollView.scrollIndicatorInsets = contentInset
+    }
+    
+    @objc private func keyBoardWillHide(notification _: Notification) {
+        bigScrollView.contentInset = UIEdgeInsets.zero
+        bigScrollView.scrollIndicatorInsets = UIEdgeInsets.zero
+    }
+    
+    @objc private func hideKeyboardAction() {
+        bigScrollView.endEditing(true)
     }
 }

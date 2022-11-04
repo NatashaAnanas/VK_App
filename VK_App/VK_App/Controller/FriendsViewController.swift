@@ -13,6 +13,7 @@ final class FriendsViewController: UIViewController {
         static let myFriendIDCellText = "myfriend"
         static let birthdayText = "Дни рождения"
         static let friendText = "Мои друзья"
+        static let friendSegueText = "friendSegue"
         static let cellTypes: [CellTypes] = [.addFriend, .birthday, .myFriends]
     }
 
@@ -21,8 +22,25 @@ final class FriendsViewController: UIViewController {
         case birthday
         case myFriends
     }
+    
+    private let user = User()
+    
+    // MARK: - Private Propery
+    
+    private var numberOfImage = Int()
+    
+    // MARK: - Public Methods
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        guard segue.identifier == Constant.friendSegueText,
+              let cell = sender as? FriendsTableViewCell,
+              let destanation = segue.destination as? PageMyFriendViewController else { return }
+        
+        destanation.fiendNameText = cell.friendNameLabel.text ?? ""
+        destanation.friendImageView.image = cell.friendImageView.image
+    }
 }
-
 // MARK: - UITableViewDelegate, UITableViewDataSource
 
 extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
@@ -37,7 +55,7 @@ extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
         case .birthday:
             return 1
         case .myFriends:
-            return 10
+            return user.names.count
         }
     }
 
@@ -56,10 +74,20 @@ extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
             )
             return cell
         case .myFriends:
-            let cell = tableView.dequeueReusableCell(
+            guard let cell = tableView.dequeueReusableCell(
                 withIdentifier: Constant.myFriendIDCellText,
                 for: indexPath
-            )
+            ) as? FriendsTableViewCell else { return UITableViewCell() }
+            
+            let name = user.names[indexPath.row]
+            let city = user.cities[indexPath.row]
+            let imageName = user.images[indexPath.row]
+            
+            cell.setUpUI(name: name, imageName: imageName, city: city)
+            
+//            cell.friendNameLabel.text = user.names[indexPath.row]
+//            cell.cityLabel.text = user.cities[indexPath.row]
+//            cell.friendImageView.image = UIImage(named: user.images[indexPath.row])
             return cell
         }
     }
@@ -73,5 +101,10 @@ extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
         default:
             return nil
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        numberOfImage = indexPath.row
+        print(numberOfImage)
     }
 }

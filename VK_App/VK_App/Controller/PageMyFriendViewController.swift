@@ -17,6 +17,10 @@ final class PageMyFriendViewController: UIViewController {
         case name
         case buttons
     }
+    
+    var fiendNameText = String()
+    var friendImageView = UIImageView()
+
 }
 
 // MARK: - UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
@@ -42,10 +46,12 @@ extension PageMyFriendViewController: UICollectionViewDelegate,
     ) -> UICollectionViewCell {
         switch Constant.cellTypes[indexPath.section] {
         case .name:
-            let cell = collectionView.dequeueReusableCell(
+            guard let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: Constant.pageOneIDText,
                 for: indexPath
-            )
+            ) as? FriendCollectionViewCell else { return UICollectionViewCell() }
+            cell.personNameLabel.text = fiendNameText
+            cell.personImageView.image = friendImageView.image
             return cell
         case .buttons:
             let cell = collectionView.dequeueReusableCell(

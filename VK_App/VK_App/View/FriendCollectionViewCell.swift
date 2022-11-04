@@ -5,7 +5,7 @@ import UIKit
 
 /// Ячейка шапка профиля друга
 final class FriendCollectionViewCell: UICollectionViewCell {
-    // MARK: - IBOutlet
+    // MARK: - Private IBOutlets
 
     @IBOutlet private var personNameLabel: UILabel!
     @IBOutlet private var personImageView: UIImageView!

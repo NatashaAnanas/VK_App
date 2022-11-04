@@ -11,7 +11,7 @@ final class FriendsTableViewCell: UITableViewCell {
         static let fatalErrorString = "init(coder:) has not been implemented"
     }
 
-    // MARK: - IBOutlets
+    // MARK: - Private IBOutlets
 
     @IBOutlet private var cityLabel: UILabel!
     @IBOutlet private var friendImageView: UIImageView!

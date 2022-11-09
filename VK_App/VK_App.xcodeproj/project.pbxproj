@@ -32,6 +32,7 @@
 		41E2518C29190105006690F8 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E2518B29190105006690F8 /* NewsTableViewCell.swift */; };
 		41E2518E291902F0006690F8 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E2518D291902F0006690F8 /* Post.swift */; };
 		41E25190291A898F006690F8 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E2518F291A898F006690F8 /* LoadingViewController.swift */; };
+		41E25192291BF602006690F8 /* NewGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E25191291BF601006690F8 /* NewGroup.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		41E2518B29190105006690F8 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		41E2518D291902F0006690F8 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		41E2518F291A898F006690F8 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
+		41E25191291BF601006690F8 /* NewGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGroup.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +132,7 @@
 				41E2517229128C50006690F8 /* User.swift */,
 				41E2517429128E27006690F8 /* Group.swift */,
 				41E2518D291902F0006690F8 /* Post.swift */,
+				41E25191291BF601006690F8 /* NewGroup.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 				41549BA72911512B00F8331A /* NewGroupViewController.swift in Sources */,
 				41E25178291290E8006690F8 /* FriendsTableViewCell.swift in Sources */,
 				41549B882910053200F8331A /* LoginViewController.swift in Sources */,
+				41E25192291BF602006690F8 /* NewGroup.swift in Sources */,
 				41E2518829148851006690F8 /* PersonImageView.swift in Sources */,
 				41549BA12910570900F8331A /* FriendsViewController.swift in Sources */,
 				41E25183291411F0006690F8 /* FriendCollectionViewCell.swift in Sources */,

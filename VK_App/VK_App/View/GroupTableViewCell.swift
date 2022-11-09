@@ -13,7 +13,7 @@ final class GroupTableViewCell: UITableViewCell {
 
     // MARK: - Public methods
 
-    func setUpUI(groupName: String, imageName: String, status: String) {
+    func configure(groupName: String, imageName: String, status: String) {
         groupImageView.image = UIImage(named: imageName)
         statusLabel.text = status
         nameGroupLabel.text = groupName

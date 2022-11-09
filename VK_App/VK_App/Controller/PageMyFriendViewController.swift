@@ -38,7 +38,7 @@ extension PageMyFriendViewController: UICollectionViewDelegate,
             return UICollectionViewCell()
         }
 
-        cell.setUpUI(personName: infoUser.0, imageName: infoUser.1)
+        cell.configure(personName: infoUser.0, imageName: infoUser.1)
         return cell
     }
 }

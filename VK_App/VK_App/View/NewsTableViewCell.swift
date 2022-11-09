@@ -66,11 +66,11 @@ final class NewsTableViewCell: UITableViewCell {
     }
 
     private func changeLikes() {
-        if isLiked {
-            addLike()
-        } else {
+        guard isLiked else {
             removeLike()
+            return
         }
+        addLike()
     }
 
     private func addLike() {

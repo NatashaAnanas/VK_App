@@ -3,7 +3,7 @@
 
 import UIKit
 
-/// Страница с  новыми группами
+/// Экран с новыми группами
 final class NewGroupViewController: UIViewController {
     // MARK: - Private Constants
 
@@ -32,9 +32,9 @@ extension NewGroupViewController: UITableViewDelegate, UITableViewDataSource {
         cell.selectionStyle = .none
 
         let groupName = newGroup.names[indexPath.row]
-        let imageName = newGroup.images[indexPath.row]
+        let imageName = newGroup.imageNames[indexPath.row]
         let status = newGroup.statuses[indexPath.row]
-        cell.setupUI(groupName: groupName, imageName: imageName, status: status)
+        cell.configure(groupName: groupName, imageName: imageName, status: status)
 
         return cell
     }

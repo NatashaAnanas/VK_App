@@ -13,7 +13,7 @@ final class FriendCollectionViewCell: UICollectionViewCell {
 
     // MARK: - Public methods
 
-    func setUpUI(personName: String, imageName: String) {
+    func configure(personName: String, imageName: String) {
         personImageView.image = UIImage(named: imageName)
         personNameLabel.text = personName
     }

@@ -3,9 +3,11 @@
 
 import UIKit
 
-typealias Info = [Character: [(String, String)]]
-/// Страница с друзьями
+/// Экран с друзьями
 final class FriendsViewController: UIViewController {
+    
+    typealias InfoMap = [Character: [(String, String)]]
+    
     // MARK: - Private Constants
 
     private enum Constants {
@@ -33,11 +35,11 @@ final class FriendsViewController: UIViewController {
     @IBOutlet weak var friendSearchBar: UISearchBar!
     // MARK: - Private Property
 
-    private var sectionsMap: Info = [:]
-    private var filteredFriendsMap: Info = [:]
+    private var sectionsMap: InfoMap = [:]
+    private var filteredFriendsMap: InfoMap = [:]
     private var sectionTitels: [Character] = []
     private let user = User()
-    private var numberOfImage = Int()
+    private var imageNumber = Int()
 
     // MARK: - Life Cycle
 
@@ -72,6 +74,14 @@ final class FriendsViewController: UIViewController {
         sectionTitels = Array(sectionsMap.keys)
         sectionTitels.sort()
     }
+    
+    private func goToPageVC(viewController: UIViewController) {
+        viewController.modalPresentationStyle = .formSheet
+        viewController.modalTransitionStyle = .flipHorizontal
+
+        present(viewController, animated: true)
+    }
+
 }
 
 // MARK: - UITableViewDelegate, UITableViewDataSource
@@ -117,7 +127,7 @@ extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
             else { return UITableViewCell() }
 
             let city = user.cities[indexPath.row]
-            cell.setUpUI(name: info.0, imageName: info.1, city: city)
+            cell.configure(name: info.0, imageName: info.1, city: city)
 
             return cell
         }
@@ -149,12 +159,8 @@ extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
             else { return }
             pageFriedVC.infoUser.0 = name.0
             pageFriedVC.infoUser.1 = name.1
-            
-            pageFriedVC.modalPresentationStyle = .formSheet
-            pageFriedVC.modalTransitionStyle = .flipHorizontal
-
-            present(pageFriedVC, animated: true)
         }
+        goToPageVC(viewController: pageFriedVC)
     }
 }
 

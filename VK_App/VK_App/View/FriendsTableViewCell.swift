@@ -20,7 +20,7 @@ final class FriendsTableViewCell: UITableViewCell {
 
     // MARK: - Public Methods
 
-    func setUpUI(name: String, imageName: String, city: String) {
+    func configure(name: String, imageName: String, city: String) {
         friendImageView.image = UIImage(named: imageName)
         friendNameLabel.text = name
         cityLabel.text = city

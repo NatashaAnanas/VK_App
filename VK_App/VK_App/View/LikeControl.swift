@@ -3,7 +3,7 @@
 
 import UIKit
 
-/// Создание UIControl - отображение и кол-во лайков
+/// Контрол лайков
 @IBDesignable final class LikeControl: UIControl {
     // MARK: - Private constants
 

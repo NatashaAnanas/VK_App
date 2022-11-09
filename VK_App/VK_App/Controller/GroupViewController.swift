@@ -33,7 +33,7 @@ final class GroupViewController: UIViewController {
         ) { groupName in
             guard let groupText = groupName else { return }
             self.group.names.insert(groupText, at: self.group.names.count)
-            self.group.images.insert(Constant.iconName, at: self.group.images.count)
+            self.group.imageNames.insert(Constant.iconName, at: self.group.imageNames.count)
             self.group.statuses.insert(Constant.emptyString, at: self.group.statuses.count)
             self.groupTableView.reloadData()
         }
@@ -55,9 +55,9 @@ extension GroupViewController: UITableViewDelegate, UITableViewDataSource {
 
         cell.selectionStyle = .none
         let groupName = group.names[indexPath.row]
-        let imageName = group.images[indexPath.row]
+        let imageName = group.imageNames[indexPath.row]
         let status = group.statuses[indexPath.row]
-        cell.setUpUI(groupName: groupName, imageName: imageName, status: status)
+        cell.configure(groupName: groupName, imageName: imageName, status: status)
         return cell
     }
 
@@ -71,7 +71,7 @@ extension GroupViewController: UITableViewDelegate, UITableViewDataSource {
         forRowAt indexPath: IndexPath
     ) {
         guard editingStyle == .delete else { return }
-        group.images.remove(at: indexPath.row)
+        group.imageNames.remove(at: indexPath.row)
         group.names.remove(at: indexPath.row)
         group.statuses.remove(at: indexPath.row)
         tableView.deleteRows(at: [indexPath], with: .fade)

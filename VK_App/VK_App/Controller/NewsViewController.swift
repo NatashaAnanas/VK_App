@@ -20,7 +20,7 @@ final class NewsViewController: UIViewController {
 
 extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-        post.images.count
+        post.imageNames.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -30,10 +30,10 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
         ) as? NewsTableViewCell else { return UITableViewCell() }
 
         let userName = post.names[indexPath.row]
-        let userImageName = post.images[indexPath.row]
+        let userImageName = post.imageNames[indexPath.row]
         let description = post.statuses[indexPath.row]
         let date = post.date[indexPath.row]
-        let imagePostName = post.images[indexPath.row]
+        let imagePostName = post.imageNames[indexPath.row]
 
         cell.setUpUI(
             userName: userName,

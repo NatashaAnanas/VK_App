@@ -33,8 +33,8 @@ final class FriendsViewController: UIViewController {
     @IBOutlet weak var friendSearchBar: UISearchBar!
     // MARK: - Private Property
 
-    private var sections: Info = [:]
-    private var filteredFriendsList: Info = [:]
+    private var sectionsMap: Info = [:]
+    private var filteredFriendsMap: Info = [:]
     private var sectionTitels: [Character] = []
     private let user = User()
     private var numberOfImage = Int()
@@ -58,18 +58,18 @@ final class FriendsViewController: UIViewController {
             guard let first = name.first else { return }
                     let imageName = user.images[index]
             
-            if sections[first] != nil {
-                sections[first]?.append((name, imageName))
+            if sectionsMap[first] != nil {
+                sectionsMap[first]?.append((name, imageName))
             } else {
-                sections[first] = [(name, imageName)]
+                sectionsMap[first] = [(name, imageName)]
             }
         }
-        filteredFriendsList = sections
+        filteredFriendsMap = sectionsMap
         createSectionTitels()
     }
     
     private func createSectionTitels() {
-        sectionTitels = Array(sections.keys)
+        sectionTitels = Array(sectionsMap.keys)
         sectionTitels.sort()
     }
 }
@@ -78,7 +78,7 @@ final class FriendsViewController: UIViewController {
 
 extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in _: UITableView) -> Int {
-        filteredFriendsList.count + 2
+        filteredFriendsMap.count + 2
     }
 
     func tableView(_: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -88,7 +88,7 @@ extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
         case 1:
             return 1
         default:
-            return filteredFriendsList[sectionTitels[section - 2]]?.count ?? 0
+            return filteredFriendsMap[sectionTitels[section - 2]]?.count ?? 0
         }
     }
 
@@ -113,7 +113,7 @@ extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
             ) as? FriendsTableViewCell else { return UITableViewCell() }
             
             guard
-                let info = filteredFriendsList[sectionTitels[indexPath.section - 2]]?[indexPath.row]
+                let info = filteredFriendsMap[sectionTitels[indexPath.section - 2]]?[indexPath.row]
             else { return UITableViewCell() }
 
             let city = user.cities[indexPath.row]
@@ -145,7 +145,7 @@ extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
             break
         default:
             guard
-                let name = filteredFriendsList[sectionTitels[indexPath.section - 2]]?[indexPath.row]
+                let name = filteredFriendsMap[sectionTitels[indexPath.section - 2]]?[indexPath.row]
             else { return }
             pageFriedVC.infoUser.0 = name.0
             pageFriedVC.infoUser.1 = name.1
@@ -162,27 +162,27 @@ extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension FriendsViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        filteredFriendsList = [:]
+        filteredFriendsMap = [:]
         
         guard
             !searchText.isEmpty
         else {
-            filteredFriendsList = sections
+            filteredFriendsMap = sectionsMap
             return
         }
-        for friends in sections {
+        for friends in sectionsMap {
             for newName in friends.value {
                 let firstChar = friends.key
                 if newName.0.lowercased().contains(searchText.lowercased()) {
-                    if filteredFriendsList[firstChar] != nil {
-                        filteredFriendsList[firstChar]?.append(newName)
+                    if filteredFriendsMap[firstChar] != nil {
+                        filteredFriendsMap[firstChar]?.append(newName)
                     } else {
-                        filteredFriendsList[firstChar] = [newName]
+                        filteredFriendsMap[firstChar] = [newName]
                     }
                 }
             }
         }
-        sectionTitels = Array(filteredFriendsList.keys)
+        sectionTitels = Array(filteredFriendsMap.keys)
         sectionTitels.sort()
         friendTableView.reloadData()
     }

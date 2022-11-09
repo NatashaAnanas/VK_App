@@ -29,16 +29,13 @@ final class FriendsViewController: UIViewController {
     // MARK: - Private IBOutlet
 
     @IBOutlet private var friendTableView: UITableView!
-    @IBOutlet private var searchBarFriend: UISearchBar!
 
+    @IBOutlet weak var friendSearchBar: UISearchBar!
     // MARK: - Private Property
 
     private var sections: Info = [:]
     private var filteredFriendsList: Info = [:]
     private var sectionTitels: [Character] = []
-
-    // MARK: - Private Propery
-
     private let user = User()
     private var numberOfImage = Int()
 
@@ -53,22 +50,27 @@ final class FriendsViewController: UIViewController {
     // MARK: - Private Methods
 
     private func setUpSearchBarDelegate() {
-        searchBarFriend.delegate = self
+        friendSearchBar.delegate = self
     }
-
+    
     private func createNameSection() {
         for (index, name) in user.names.enumerated() {
             guard let first = name.first else { return }
-            let imageName = user.images[index]
+                    let imageName = user.images[index]
+            
             if sections[first] != nil {
                 sections[first]?.append((name, imageName))
             } else {
                 sections[first] = [(name, imageName)]
             }
         }
+        filteredFriendsList = sections
+        createSectionTitels()
+    }
+    
+    private func createSectionTitels() {
         sectionTitels = Array(sections.keys)
         sectionTitels.sort()
-        filteredFriendsList = sections
     }
 }
 
@@ -159,26 +161,24 @@ extension FriendsViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         filteredFriendsList = [:]
 
-        if searchText.isEmpty {
+        guard !searchText.isEmpty else {
             filteredFriendsList = sections
-            sectionTitels = Array(filteredFriendsList.keys)
-            sectionTitels.sort()
-        } else {
-            for friends in sections {
-                for newName in friends.value {
-                    let firstChar = friends.key
-                    if newName.0.lowercased().contains(searchText.lowercased()) {
-                        if filteredFriendsList[firstChar] != nil {
-                            filteredFriendsList[firstChar]?.append(newName)
-                        } else {
-                            filteredFriendsList[firstChar] = [newName]
-                        }
+            return
+        }
+        for friends in sections {
+            for newName in friends.value {
+                let firstChar = friends.key
+                if newName.0.lowercased().contains(searchText.lowercased()) {
+                    if filteredFriendsList[firstChar] != nil {
+                        filteredFriendsList[firstChar]?.append(newName)
+                    } else {
+                        filteredFriendsList[firstChar] = [newName]
                     }
                 }
-                sectionTitels = Array(filteredFriendsList.keys)
-                sectionTitels.sort()
             }
         }
+        sectionTitels = Array(filteredFriendsList.keys)
+        sectionTitels.sort()
         friendTableView.reloadData()
     }
 }

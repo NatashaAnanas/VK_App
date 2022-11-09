@@ -16,7 +16,7 @@ final class GroupViewController: UIViewController {
         static let iconName = "иконка"
     }
 
-    // MARK: - @IBOutlet
+    // MARK: - Private @IBOutlet
 
     @IBOutlet private var groupTableView: UITableView!
 

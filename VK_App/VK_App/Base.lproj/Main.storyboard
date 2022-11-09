@@ -566,8 +566,8 @@
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="friendSearchBar" destination="Jke-df-PS8" id="E3e-zh-xpK"/>
                         <outlet property="friendTableView" destination="hzx-at-6c3" id="NB9-Lw-2s8"/>
-                        <outlet property="searchBarFriend" destination="Jke-df-PS8" id="v0h-3Z-872"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bUJ-qb-3JY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

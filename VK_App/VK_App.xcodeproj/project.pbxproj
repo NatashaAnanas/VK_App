@@ -24,7 +24,7 @@
 		41E25178291290E8006690F8 /* FriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E25177291290E8006690F8 /* FriendsTableViewCell.swift */; };
 		41E2517B291291C0006690F8 /* GroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E2517A291291C0006690F8 /* GroupTableViewCell.swift */; };
 		41E2517E29129CEB006690F8 /* NewGroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E2517D29129CEB006690F8 /* NewGroupTableViewCell.swift */; };
-		41E251802913B488006690F8 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E2517F2913B488006690F8 /* UIViewController+Alert.swift */; };
+		41E251802913B488006690F8 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E2517F2913B488006690F8 /* UIViewController+Extension.swift */; };
 		41E25183291411F0006690F8 /* FriendCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E25182291411F0006690F8 /* FriendCollectionViewCell.swift */; };
 		41E25186291449C9006690F8 /* LikeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E25185291449C9006690F8 /* LikeControl.swift */; };
 		41E2518829148851006690F8 /* PersonImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E2518729148851006690F8 /* PersonImageView.swift */; };
@@ -54,7 +54,7 @@
 		41E25177291290E8006690F8 /* FriendsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewCell.swift; sourceTree = "<group>"; };
 		41E2517A291291C0006690F8 /* GroupTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTableViewCell.swift; sourceTree = "<group>"; };
 		41E2517D29129CEB006690F8 /* NewGroupTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGroupTableViewCell.swift; sourceTree = "<group>"; };
-		41E2517F2913B488006690F8 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
+		41E2517F2913B488006690F8 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		41E25182291411F0006690F8 /* FriendCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCollectionViewCell.swift; sourceTree = "<group>"; };
 		41E25185291449C9006690F8 /* LikeControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeControl.swift; sourceTree = "<group>"; };
 		41E2518729148851006690F8 /* PersonImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonImageView.swift; sourceTree = "<group>"; };
@@ -151,7 +151,7 @@
 		41E251812913B48F006690F8 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				41E2517F2913B488006690F8 /* UIViewController+Alert.swift */,
+				41E2517F2913B488006690F8 /* UIViewController+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -275,7 +275,7 @@
 				41E2517329128C50006690F8 /* User.swift in Sources */,
 				41E25186291449C9006690F8 /* LikeControl.swift in Sources */,
 				41E2517E29129CEB006690F8 /* NewGroupTableViewCell.swift in Sources */,
-				41E251802913B488006690F8 /* UIViewController+Alert.swift in Sources */,
+				41E251802913B488006690F8 /* UIViewController+Extension.swift in Sources */,
 				41549BA72911512B00F8331A /* NewGroupViewController.swift in Sources */,
 				41E25178291290E8006690F8 /* FriendsTableViewCell.swift in Sources */,
 				41549B882910053200F8331A /* LoginViewController.swift in Sources */,

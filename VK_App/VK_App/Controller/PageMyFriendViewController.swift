@@ -3,7 +3,7 @@
 
 import UIKit
 
-/// Страница пользователя(друга)
+/// Экран пользователя(друга)
 final class PageMyFriendViewController: UIViewController {
     // MARK: - Private Constants
 

@@ -27,58 +27,41 @@ final class LoginViewController: UIViewController {
         super.viewWillDisappear(animated)
         removeObserver()
     }
-    
+
     // MARK: - Public Methods
-    
+
     override func shouldPerformSegue(withIdentifier _: String, sender _: Any?) -> Bool {
         let login = emailTextField.text
-        guard login == Constant.loginText else { return false }
+        guard
+            login == Constant.loginText
+        else {
+            return false
+        }
         return true
     }
-    
+
     // MARK: - Private Methods
-    
-    @objc private func keyBoardWillShow(notification: Notification) {
-        guard let info = notification.userInfo as? NSDictionary,
-              let keyboard = info.value(forKey: UIResponder.keyboardFrameEndUserInfoKey)
-                as? NSValue else { return }
-        
-        let kbSize = keyboard.cgRectValue.size
-        let contentInset = UIEdgeInsets(top: 0.0, left: 0.0, bottom: kbSize.height, right: 0.0)
-        
-        bigScrollView.contentInset = contentInset
-        bigScrollView.scrollIndicatorInsets = contentInset
-    }
-    
-    @objc private func keyBoardWillHide(notification _: Notification) {
-        bigScrollView.contentInset = UIEdgeInsets.zero
-        bigScrollView.scrollIndicatorInsets = UIEdgeInsets.zero
-    }
-    
-    @objc private func hideKeyboardAction() {
-        bigScrollView.endEditing(true)
-    }
 
     private func addObserver() {
         NotificationCenter.default.addObserver(
             self,
-            selector: #selector(keyBoardWillShow(notification:)),
+            selector: #selector(keyBoardWillShowAction(notification:)),
             name: UIResponder.keyboardWillShowNotification,
             object: nil
         )
 
         NotificationCenter.default.addObserver(
             self,
-            selector: #selector(keyBoardWillHide(notification:)),
+            selector: #selector(keyBoardWillHideAction(notification:)),
             name: UIResponder.keyboardWillHideNotification,
             object: nil
         )
-        
         setUpAction()
     }
-    
+
     private func setUpAction() {
-        let tabGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboardAction))
+        let tabGesture = UITapGestureRecognizer(target: self,
+                                                action: #selector(hideKeyboardAction))
         bigScrollView.addGestureRecognizer(tabGesture)
     }
 
@@ -93,5 +76,28 @@ final class LoginViewController: UIViewController {
             name: UIResponder.keyboardWillHideNotification,
             object: nil
         )
+    }
+
+    @objc private func keyBoardWillShowAction(notification: Notification) {
+        guard
+            let info = notification.userInfo as? NSDictionary,
+            let keyboard = info.value(forKey: UIResponder.keyboardFrameEndUserInfoKey)
+                as? NSValue
+        else { return }
+
+        let kbSize = keyboard.cgRectValue.size
+        let contentInset = UIEdgeInsets(top: 0.0, left: 0.0, bottom: kbSize.height, right: 0.0)
+
+        bigScrollView.contentInset = contentInset
+        bigScrollView.scrollIndicatorInsets = contentInset
+    }
+
+    @objc private func keyBoardWillHideAction(notification _: Notification) {
+        bigScrollView.contentInset = UIEdgeInsets.zero
+        bigScrollView.scrollIndicatorInsets = UIEdgeInsets.zero
+    }
+
+    @objc private func hideKeyboardAction() {
+        bigScrollView.endEditing(true)
     }
 }

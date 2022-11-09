@@ -3,57 +3,43 @@
 
 import UIKit
 
-/// Страница пользователя(друга)
+/// Экран пользователя(друга)
 final class PageMyFriendViewController: UIViewController {
     // MARK: - Private Constants
 
     private enum Constant {
         static let pageOneIDText = "page1"
         static let pageButtonIDText = "buttonCell"
-        static let cellTypes: [CellTypes] = [.name, .buttons]
     }
 
-    private enum CellTypes {
-        case name
-        case buttons
-    }
+    // MARK: - Public Propery
+
+    var infoUser: (String, String) = ("", "")
 }
 
-// MARK: - UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
+// MARK: - UICollectionViewDelegate, UICollectionViewDataSource
 
 extension PageMyFriendViewController: UICollectionViewDelegate,
     UICollectionViewDataSource {
-    func numberOfSections(in _: UICollectionView) -> Int {
-        Constant.cellTypes.count
-    }
-
     func collectionView(_: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        switch Constant.cellTypes[section] {
-        case .name:
-            return 1
-        case .buttons:
-            return 4
-        }
+        1
     }
 
     func collectionView(
         _ collectionView: UICollectionView,
         cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
-        switch Constant.cellTypes[indexPath.section] {
-        case .name:
+        guard
             let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: Constant.pageOneIDText,
                 for: indexPath
-            )
-            return cell
-        case .buttons:
-            let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: Constant.pageButtonIDText,
-                for: indexPath
-            )
-            return cell
+            ) as? FriendCollectionViewCell
+        else {
+            return UICollectionViewCell()
         }
+
+        cell.configure(personName: infoUser.0, imageName: infoUser.1)
+        return cell
     }
 }
 
@@ -65,11 +51,6 @@ extension PageMyFriendViewController: UICollectionViewDelegateFlowLayout {
         layout _: UICollectionViewLayout,
         sizeForItemAt indexPath: IndexPath
     ) -> CGSize {
-        switch Constant.cellTypes[indexPath.section] {
-        case .name:
-            return CGSize(width: view.bounds.width, height: 130)
-        case .buttons:
-            return CGSize(width: 80, height: 70)
-        }
+        CGSize(width: view.bounds.width, height: 130)
     }
 }

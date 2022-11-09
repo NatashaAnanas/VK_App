@@ -32,14 +32,19 @@ final class LoadingViewController: UIViewController {
 
     private func goToNextVC() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-            guard let loginVC = UIStoryboard(
-                name: Constants.mainText,
-                bundle: nil
-            ).instantiateViewController(withIdentifier: Constants.loginIDText)
-                as? LoginViewController else { return }
+            guard
+                let loginVC = UIStoryboard(
+                    name: Constants.mainText,
+                    bundle: nil
+                ).instantiateViewController(withIdentifier: Constants.loginIDText)
+                    as? LoginViewController
+            else {
+                return
+            }
+            
             loginVC.modalPresentationStyle = .fullScreen
             loginVC.modalTransitionStyle = .crossDissolve
-
+            
             self.present(loginVC, animated: true)
         }
     }

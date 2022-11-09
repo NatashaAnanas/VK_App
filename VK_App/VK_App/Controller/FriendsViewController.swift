@@ -160,8 +160,10 @@ extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
 extension FriendsViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         filteredFriendsList = [:]
-
-        guard !searchText.isEmpty else {
+        
+        guard
+            !searchText.isEmpty
+        else {
             filteredFriendsList = sections
             return
         }

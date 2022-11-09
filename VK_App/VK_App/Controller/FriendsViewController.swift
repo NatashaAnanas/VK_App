@@ -111,8 +111,9 @@ extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
                 withIdentifier: Constants.myFriendIDCellText,
                 for: indexPath
             ) as? FriendsTableViewCell else { return UITableViewCell() }
-
-            guard let info = filteredFriendsList[sectionTitels[indexPath.section - 2]]?[indexPath.row]
+            
+            guard
+                let info = filteredFriendsList[sectionTitels[indexPath.section - 2]]?[indexPath.row]
             else { return UITableViewCell() }
 
             let city = user.cities[indexPath.row]
@@ -143,10 +144,12 @@ extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
         case 0, 1:
             break
         default:
-            guard let name = filteredFriendsList[sectionTitels[indexPath.section - 2]]?[indexPath.row] else { return }
+            guard
+                let name = filteredFriendsList[sectionTitels[indexPath.section - 2]]?[indexPath.row]
+            else { return }
             pageFriedVC.infoUser.0 = name.0
             pageFriedVC.infoUser.1 = name.1
-
+            
             pageFriedVC.modalPresentationStyle = .formSheet
             pageFriedVC.modalTransitionStyle = .flipHorizontal
 

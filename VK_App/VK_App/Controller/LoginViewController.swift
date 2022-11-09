@@ -32,7 +32,11 @@ final class LoginViewController: UIViewController {
 
     override func shouldPerformSegue(withIdentifier _: String, sender _: Any?) -> Bool {
         let login = emailTextField.text
-        guard login == Constant.loginText else { return false }
+        guard
+            login == Constant.loginText
+        else {
+            return false
+        }
         return true
     }
 
@@ -56,7 +60,8 @@ final class LoginViewController: UIViewController {
     }
 
     private func setUpAction() {
-        let tabGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboardAction))
+        let tabGesture = UITapGestureRecognizer(target: self,
+                                                action: #selector(hideKeyboardAction))
         bigScrollView.addGestureRecognizer(tabGesture)
     }
 
@@ -74,9 +79,11 @@ final class LoginViewController: UIViewController {
     }
 
     @objc private func keyBoardWillShowAction(notification: Notification) {
-        guard let info = notification.userInfo as? NSDictionary,
-              let keyboard = info.value(forKey: UIResponder.keyboardFrameEndUserInfoKey)
-              as? NSValue else { return }
+        guard
+            let info = notification.userInfo as? NSDictionary,
+            let keyboard = info.value(forKey: UIResponder.keyboardFrameEndUserInfoKey)
+                as? NSValue
+        else { return }
 
         let kbSize = keyboard.cgRectValue.size
         let contentInset = UIEdgeInsets(top: 0.0, left: 0.0, bottom: kbSize.height, right: 0.0)

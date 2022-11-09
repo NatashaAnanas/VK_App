@@ -21,3 +21,5 @@ extension UIViewController {
         present(alertController, animated: true)
     }
 }
+
+extension UIImageView {}

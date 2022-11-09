@@ -19,6 +19,7 @@ import UIKit
         let label = UILabel()
         label.textColor = .white
         label.text = Constants.zeroText
+        label.font = .systemFont(ofSize: 22)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -27,6 +28,9 @@ import UIKit
         let button = UIButton()
         button.tintColor = .white
         button.setImage(UIImage(systemName: Constants.heartButtonImageName), for: .normal)
+        button.setPreferredSymbolConfiguration(UIImage.SymbolConfiguration(
+            font: UIFont(descriptor: UIFontDescriptor(), size: 40)
+        ), forImageIn: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -73,14 +77,15 @@ import UIKit
             action: #selector(likeButtonAction(sender:))
         )
         likeButton.addGestureRecognizer(tapGestureRecognizer)
+        likeButton.isUserInteractionEnabled = true
     }
 
     private func setUpButtonConstraint() {
         NSLayoutConstraint.activate([
-            likeButton.leadingAnchor.constraint(equalTo: leadingAnchor),
+            likeButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
             likeButton.centerYAnchor.constraint(equalTo: centerYAnchor),
-            likeButton.widthAnchor.constraint(equalToConstant: 20),
-            likeButton.heightAnchor.constraint(equalToConstant: 20)
+            likeButton.widthAnchor.constraint(equalToConstant: 50),
+            likeButton.heightAnchor.constraint(equalToConstant: 40)
         ])
     }
 
@@ -104,9 +109,9 @@ import UIKit
     }
 
     private func addLike() {
-        likeButton.tintColor = .magenta
+        likeButton.tintColor = .red
         likeButton.setImage(UIImage(systemName: Constants.heartFillButtonImageName), for: .normal)
-        likesLabel.textColor = .magenta
+        likesLabel.textColor = .red
     }
 
     private func removeLike() {
@@ -116,10 +121,25 @@ import UIKit
     }
 
     private func changeLikeCount() {
-        likesLabel.text = String(likesCount)
+        likesLabel.text = String(Int(likesCount))
+    }
+
+    private func likeTabAction() {
+        likeButton.transform = CGAffineTransform(scaleX: 1.7, y: 1.7)
+        UIView.animate(
+            withDuration: 1.5,
+            delay: 0,
+            usingSpringWithDamping: 0.3,
+            initialSpringVelocity: 0.5,
+            options: .curveEaseInOut,
+            animations: {
+                self.likeButton.transform = .identity
+            }
+        )
     }
 
     @objc private func likeButtonAction(sender: UIButton) {
         isLiked.toggle()
+        likeTabAction()
     }
 }

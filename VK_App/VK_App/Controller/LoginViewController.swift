@@ -52,7 +52,6 @@ final class LoginViewController: UIViewController {
             name: UIResponder.keyboardWillHideNotification,
             object: nil
         )
-
         setUpAction()
     }
 

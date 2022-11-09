@@ -48,12 +48,11 @@ extension GroupViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         guard let cell = tableView.dequeueReusableCell(
             withIdentifier: Constant.groupIDCellText,
             for: indexPath
         ) as? GroupTableViewCell else { return UITableViewCell() }
-        
+
         cell.selectionStyle = .none
         let groupName = group.names[indexPath.row]
         let imageName = group.images[indexPath.row]

@@ -10,11 +10,11 @@ final class FriendCollectionViewCell: UICollectionViewCell {
     @IBOutlet private var personNameLabel: UILabel!
     @IBOutlet private var personImageView: UIImageView!
     @IBOutlet private var likesControl: LikeControl!
-    
+
     // MARK: - Public methods
 
-    func setUpUI(personName: String, imageName: UIImage) {
-        personImageView.image = imageName
+    func setUpUI(personName: String, imageName: String) {
+        personImageView.image = UIImage(named: imageName)
         personNameLabel.text = personName
     }
 }

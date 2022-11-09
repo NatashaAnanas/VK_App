@@ -66,6 +66,7 @@ import UIKit
         personImageView.frame = bounds
         personImageView.layer.cornerRadius = bounds.width / 2
         setupShadow()
+        createGestureRecognizer()
     }
 
     private func setupShadow() {
@@ -85,5 +86,28 @@ import UIKit
 
     private func updateShadowOpacity() {
         layer.shadowOpacity = shadowOpacity
+    }
+
+    private func createGestureRecognizer() {
+        let tapGestureRecognizer = UITapGestureRecognizer(
+            target: self,
+            action: #selector(photoTabAction)
+        )
+        personImageView.addGestureRecognizer(tapGestureRecognizer)
+        personImageView.isUserInteractionEnabled = true
+    }
+
+    @objc private func photoTabAction() {
+        personImageView.transform = CGAffineTransform(scaleX: 1.7, y: 1.7)
+        UIView.animate(
+            withDuration: 1.5,
+            delay: 0,
+            usingSpringWithDamping: 0.3,
+            initialSpringVelocity: 0.5,
+            options: .curveEaseInOut,
+            animations: {
+                self.personImageView.transform = .identity
+            }
+        )
     }
 }

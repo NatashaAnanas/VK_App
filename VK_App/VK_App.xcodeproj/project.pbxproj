@@ -28,6 +28,10 @@
 		41E25183291411F0006690F8 /* FriendCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E25182291411F0006690F8 /* FriendCollectionViewCell.swift */; };
 		41E25186291449C9006690F8 /* LikeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E25185291449C9006690F8 /* LikeControl.swift */; };
 		41E2518829148851006690F8 /* PersonImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E2518729148851006690F8 /* PersonImageView.swift */; };
+		41E2518A2918FC60006690F8 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E251892918FC60006690F8 /* NewsViewController.swift */; };
+		41E2518C29190105006690F8 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E2518B29190105006690F8 /* NewsTableViewCell.swift */; };
+		41E2518E291902F0006690F8 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E2518D291902F0006690F8 /* Post.swift */; };
+		41E25190291A898F006690F8 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E2518F291A898F006690F8 /* LoadingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +58,10 @@
 		41E25182291411F0006690F8 /* FriendCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCollectionViewCell.swift; sourceTree = "<group>"; };
 		41E25185291449C9006690F8 /* LikeControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeControl.swift; sourceTree = "<group>"; };
 		41E2518729148851006690F8 /* PersonImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonImageView.swift; sourceTree = "<group>"; };
+		41E251892918FC60006690F8 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
+		41E2518B29190105006690F8 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
+		41E2518D291902F0006690F8 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		41E2518F291A898F006690F8 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +118,8 @@
 				41549BA42911502100F8331A /* GroupViewController.swift */,
 				41549BA62911512A00F8331A /* NewGroupViewController.swift */,
 				4165B71729119AC900D34B8D /* EntryViewController.swift */,
+				41E251892918FC60006690F8 /* NewsViewController.swift */,
+				41E2518F291A898F006690F8 /* LoadingViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -119,6 +129,7 @@
 			children = (
 				41E2517229128C50006690F8 /* User.swift */,
 				41E2517429128E27006690F8 /* Group.swift */,
+				41E2518D291902F0006690F8 /* Post.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -132,6 +143,7 @@
 				41E2517D29129CEB006690F8 /* NewGroupTableViewCell.swift */,
 				41E25182291411F0006690F8 /* FriendCollectionViewCell.swift */,
 				41E2518729148851006690F8 /* PersonImageView.swift */,
+				41E2518B29190105006690F8 /* NewsTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -273,9 +285,13 @@
 				41549BA329107ECD00F8331A /* PageMyFriendViewController.swift in Sources */,
 				41549B842910053200F8331A /* AppDelegate.swift in Sources */,
 				4165B71829119ACA00D34B8D /* EntryViewController.swift in Sources */,
+				41E25190291A898F006690F8 /* LoadingViewController.swift in Sources */,
 				41549B862910053200F8331A /* SceneDelegate.swift in Sources */,
+				41E2518A2918FC60006690F8 /* NewsViewController.swift in Sources */,
 				41E2517B291291C0006690F8 /* GroupTableViewCell.swift in Sources */,
 				41549BA52911502200F8331A /* GroupViewController.swift in Sources */,
+				41E2518C29190105006690F8 /* NewsTableViewCell.swift in Sources */,
+				41E2518E291902F0006690F8 /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

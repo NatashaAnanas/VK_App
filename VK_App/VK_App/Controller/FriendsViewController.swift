@@ -3,42 +3,72 @@
 
 import UIKit
 
+typealias Info = [Character: [(String, String)]]
 /// Страница с друзьями
 final class FriendsViewController: UIViewController {
     // MARK: - Private Constants
 
-    private enum Constant {
+    private enum Constants {
         static let friendIDCellText = "friend"
         static let birthdayIDCellText = "day"
         static let myFriendIDCellText = "myfriend"
         static let birthdayText = "Дни рождения"
         static let friendText = "Мои друзья"
         static let friendSegueText = "friendSegue"
+        static let storyboardText = "Main"
         static let emptyString = ""
-        static let cellTypes: [CellTypes] = [.addFriend, .birthday, .myFriends]
+        static let cellTypes: [CellTypes] = [.addFriend, .birthday, .alfa]
     }
 
     private enum CellTypes {
         case addFriend
         case birthday
-        case myFriends
+        case alfa
     }
 
-    // MARK: - Private Propery
-    private let user = User()
+    // MARK: - Private IBOutlet
 
+    @IBOutlet private var friendTableView: UITableView!
+    @IBOutlet private var searchBarFriend: UISearchBar!
+
+    // MARK: - Private Property
+
+    private var sections: Info = [:]
+    private var filteredFriendsList: Info = [:]
+    private var sectionTitels: [Character] = []
+
+    // MARK: - Private Propery
+
+    private let user = User()
     private var numberOfImage = Int()
-    
-    // MARK: - Public Methods
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        super.prepare(for: segue, sender: sender)
-        guard segue.identifier == Constant.friendSegueText,
-              let cell = sender as? FriendsTableViewCell,
-              let destanation = segue.destination as? PageMyFriendViewController else { return }
-        
-        destanation.fiendNameText = cell.infoUsers.first ?? Constant.emptyString
-        destanation.friendImageView.image = UIImage(named: cell.infoUsers.last ?? Constant.emptyString)
+
+    // MARK: - Life Cycle
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        createNameSection()
+        setUpSearchBarDelegate()
+    }
+
+    // MARK: - Private Methods
+
+    private func setUpSearchBarDelegate() {
+        searchBarFriend.delegate = self
+    }
+
+    private func createNameSection() {
+        for (index, name) in user.names.enumerated() {
+            guard let first = name.first else { return }
+            let imageName = user.images[index]
+            if sections[first] != nil {
+                sections[first]?.append((name, imageName))
+            } else {
+                sections[first] = [(name, imageName)]
+            }
+        }
+        sectionTitels = Array(sections.keys)
+        sectionTitels.sort()
+        filteredFriendsList = sections
     }
 }
 
@@ -46,44 +76,45 @@ final class FriendsViewController: UIViewController {
 
 extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in _: UITableView) -> Int {
-        Constant.cellTypes.count
+        filteredFriendsList.count + 2
     }
 
     func tableView(_: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch Constant.cellTypes[section] {
-        case .addFriend:
+        switch section {
+        case 0:
             return 1
-        case .birthday:
+        case 1:
             return 1
-        case .myFriends:
-            return user.names.count
+        default:
+            return filteredFriendsList[sectionTitels[section - 2]]?.count ?? 0
         }
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch Constant.cellTypes[indexPath.section] {
-        case .addFriend:
+        switch indexPath.section {
+        case 0:
             let cell = tableView.dequeueReusableCell(
-                withIdentifier: Constant.friendIDCellText,
+                withIdentifier: Constants.friendIDCellText,
                 for: indexPath
             )
             return cell
-        case .birthday:
+        case 1:
             let cell = tableView.dequeueReusableCell(
-                withIdentifier: Constant.birthdayIDCellText,
+                withIdentifier: Constants.birthdayIDCellText,
                 for: indexPath
             )
             return cell
-        case .myFriends:
+        default:
             guard let cell = tableView.dequeueReusableCell(
-                withIdentifier: Constant.myFriendIDCellText,
+                withIdentifier: Constants.myFriendIDCellText,
                 for: indexPath
             ) as? FriendsTableViewCell else { return UITableViewCell() }
 
-            let name = user.names[indexPath.row]
+            guard let info = filteredFriendsList[sectionTitels[indexPath.section - 2]]?[indexPath.row]
+            else { return UITableViewCell() }
+
             let city = user.cities[indexPath.row]
-            let imageName = user.images[indexPath.row]
-            cell.setUpUI(name: name, imageName: imageName, city: city)
+            cell.setUpUI(name: info.0, imageName: info.1, city: city)
 
             return cell
         }
@@ -91,12 +122,63 @@ extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
-        case 1:
-            return Constant.birthdayText
-        case 2:
-            return Constant.friendText
-        default:
+        case 0:
             return nil
+        case 1:
+            return Constants.birthdayText
+        default:
+            return String(sectionTitels[section - 2])
         }
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let pageFriedVC = UIStoryboard(
+            name: Constants.storyboardText,
+            bundle: nil
+        ).instantiateViewController(withIdentifier: Constants.friendSegueText)
+            as? PageMyFriendViewController else { return }
+        switch indexPath.section {
+        case 0, 1:
+            break
+        default:
+            guard let name = filteredFriendsList[sectionTitels[indexPath.section - 2]]?[indexPath.row] else { return }
+            pageFriedVC.infoUser.0 = name.0
+            pageFriedVC.infoUser.1 = name.1
+
+            pageFriedVC.modalPresentationStyle = .formSheet
+            pageFriedVC.modalTransitionStyle = .flipHorizontal
+
+            present(pageFriedVC, animated: true)
+        }
+    }
+}
+
+// MARK: - UISearchBarDelegate
+
+extension FriendsViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        filteredFriendsList = [:]
+
+        if searchText.isEmpty {
+            filteredFriendsList = sections
+            sectionTitels = Array(filteredFriendsList.keys)
+            sectionTitels.sort()
+        } else {
+            for friends in sections {
+                for newName in friends.value {
+                    let firstChar = friends.key
+                    if newName.0.lowercased().contains(searchText.lowercased()) {
+                        if filteredFriendsList[firstChar] != nil {
+                            filteredFriendsList[firstChar]?.append(newName)
+                        } else {
+                            filteredFriendsList[firstChar] = [newName]
+                        }
+                    }
+                }
+                sectionTitels = Array(filteredFriendsList.keys)
+                sectionTitels.sort()
+            }
+        }
+        friendTableView.reloadData()
     }
 }

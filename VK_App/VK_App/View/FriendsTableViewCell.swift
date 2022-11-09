@@ -17,10 +17,6 @@ final class FriendsTableViewCell: UITableViewCell {
     @IBOutlet private var friendImageView: UIImageView!
     @IBOutlet private var friendNameLabel: UILabel!
     @IBOutlet private var shadowView: PersonImageView!
-    
-    // MARK: - Public property
-    
-    var infoUsers: [String] = []
 
     // MARK: - Public Methods
 
@@ -29,7 +25,5 @@ final class FriendsTableViewCell: UITableViewCell {
         friendNameLabel.text = name
         cityLabel.text = city
         shadowView.setImage(imageName: imageName)
-        infoUsers.append(name)
-        infoUsers.append(imageName)
     }
 }

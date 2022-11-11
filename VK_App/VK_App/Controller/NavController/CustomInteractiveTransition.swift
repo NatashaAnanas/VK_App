@@ -13,7 +13,6 @@ final class CustomInteractiveTransition: UIPercentDrivenInteractiveTransition {
     // MARK: - Public Prorerties
     var isStarted = false
     
-    // MARK: - Private Prorerties
     var viewController: UIViewController? {
         didSet {
             let recognizer = UIScreenEdgePanGestureRecognizer(
@@ -26,6 +25,7 @@ final class CustomInteractiveTransition: UIPercentDrivenInteractiveTransition {
         }
     }
     
+    // MARK: - Private Prorerties
     private var isFinished = false
         
     // MARK: - Private Methods

@@ -10,11 +10,23 @@ final class PageMyFriendViewController: UIViewController {
     private enum Constant {
         static let pageOneIDText = "page1"
         static let pageButtonIDText = "buttonCell"
+        static let segueIDText  = "segue"
     }
 
-    // MARK: - Public Propery
+    // MARK: - Public Properies
 
     var infoUser: (String, String) = ("", "")
+    var photoIndex = Int()
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        guard segue.identifier == Constant.segueIDText else { return }
+        
+        guard let destination = segue.destination as? PhotoAlbumViewController else { return }
+    
+        destination.photoIndex = photoIndex
+        destination.modalTransitionStyle = .crossDissolve
+    }
 }
 
 // MARK: - UICollectionViewDelegate, UICollectionViewDataSource

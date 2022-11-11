@@ -13,12 +13,15 @@
 		41549B8B2910053200F8331A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41549B892910053200F8331A /* Main.storyboard */; };
 		41549B902910053400F8331A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41549B8E2910053400F8331A /* LaunchScreen.storyboard */; };
 		41549B9D2910120900F8331A /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41549B9C2910120900F8331A /* Color.xcassets */; };
-		41549B9F2910471900F8331A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41549B9E2910471900F8331A /* Assets.xcassets */; };
 		41549BA12910570900F8331A /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41549BA02910570900F8331A /* FriendsViewController.swift */; };
 		41549BA329107ECD00F8331A /* PageMyFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41549BA229107ECC00F8331A /* PageMyFriendViewController.swift */; };
 		41549BA52911502200F8331A /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41549BA42911502100F8331A /* GroupViewController.swift */; };
 		41549BA72911512B00F8331A /* NewGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41549BA62911512A00F8331A /* NewGroupViewController.swift */; };
 		4165B71829119ACA00D34B8D /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4165B71729119AC900D34B8D /* EntryViewController.swift */; };
+		41DF863D291DAF0D00C536F5 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DF863C291DAF0C00C536F5 /* CustomNavigationController.swift */; };
+		41DF863F291DB11400C536F5 /* CustomPushAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DF863E291DB11400C536F5 /* CustomPushAnimation.swift */; };
+		41DF8641291DB71700C536F5 /* CustomPopAninator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DF8640291DB71700C536F5 /* CustomPopAninator.swift */; };
+		41DF8643291DB84400C536F5 /* CustomInteractiveTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DF8642291DB84400C536F5 /* CustomInteractiveTransition.swift */; };
 		41E2517329128C50006690F8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E2517229128C50006690F8 /* User.swift */; };
 		41E2517529128E27006690F8 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E2517429128E27006690F8 /* Group.swift */; };
 		41E25178291290E8006690F8 /* FriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E25177291290E8006690F8 /* FriendsTableViewCell.swift */; };
@@ -33,6 +36,9 @@
 		41E2518E291902F0006690F8 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E2518D291902F0006690F8 /* Post.swift */; };
 		41E25190291A898F006690F8 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E2518F291A898F006690F8 /* LoadingViewController.swift */; };
 		41E25192291BF602006690F8 /* NewGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E25191291BF601006690F8 /* NewGroup.swift */; };
+		41E25194291D0DB3006690F8 /* PhotoAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E25193291D0DB2006690F8 /* PhotoAlbumViewController.swift */; };
+		41E25196291D0FD1006690F8 /* FriendAlbumPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E25195291D0FD1006690F8 /* FriendAlbumPhotoView.swift */; };
+		41E25198291D62DC006690F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41E25197291D62DC006690F8 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,12 +50,15 @@
 		41549B8F2910053400F8331A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		41549B912910053400F8331A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		41549B9C2910120900F8331A /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
-		41549B9E2910471900F8331A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../../.Trash/Assets.xcassets; sourceTree = "<group>"; };
 		41549BA02910570900F8331A /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 		41549BA229107ECC00F8331A /* PageMyFriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageMyFriendViewController.swift; sourceTree = "<group>"; };
 		41549BA42911502100F8331A /* GroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
 		41549BA62911512A00F8331A /* NewGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGroupViewController.swift; sourceTree = "<group>"; };
 		4165B71729119AC900D34B8D /* EntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
+		41DF863C291DAF0C00C536F5 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
+		41DF863E291DB11400C536F5 /* CustomPushAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPushAnimation.swift; sourceTree = "<group>"; };
+		41DF8640291DB71700C536F5 /* CustomPopAninator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopAninator.swift; sourceTree = "<group>"; };
+		41DF8642291DB84400C536F5 /* CustomInteractiveTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInteractiveTransition.swift; sourceTree = "<group>"; };
 		41E2517229128C50006690F8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		41E2517429128E27006690F8 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		41E25177291290E8006690F8 /* FriendsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewCell.swift; sourceTree = "<group>"; };
@@ -64,6 +73,9 @@
 		41E2518D291902F0006690F8 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		41E2518F291A898F006690F8 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		41E25191291BF601006690F8 /* NewGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGroup.swift; sourceTree = "<group>"; };
+		41E25193291D0DB2006690F8 /* PhotoAlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAlbumViewController.swift; sourceTree = "<group>"; };
+		41E25195291D0FD1006690F8 /* FriendAlbumPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendAlbumPhotoView.swift; sourceTree = "<group>"; };
+		41E25197291D62DC006690F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,7 +94,7 @@
 			children = (
 				41549B822910053200F8331A /* VK_App */,
 				41549B9C2910120900F8331A /* Color.xcassets */,
-				41549B9E2910471900F8331A /* Assets.xcassets */,
+				41E25197291D62DC006690F8 /* Assets.xcassets */,
 				41549B812910053200F8331A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -114,16 +126,53 @@
 		41549B9929100D3100F8331A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				41DF863B291DAEE700C536F5 /* NavController */,
+				41DF863A291DAEDA00C536F5 /* News */,
+				41DF8639291DAEC100C536F5 /* Friend */,
+				41DF8638291DAEA300C536F5 /* Group */,
 				41549B872910053200F8331A /* LoginViewController.swift */,
-				41549BA02910570900F8331A /* FriendsViewController.swift */,
-				41549BA229107ECC00F8331A /* PageMyFriendViewController.swift */,
-				41549BA42911502100F8331A /* GroupViewController.swift */,
-				41549BA62911512A00F8331A /* NewGroupViewController.swift */,
 				4165B71729119AC900D34B8D /* EntryViewController.swift */,
-				41E251892918FC60006690F8 /* NewsViewController.swift */,
 				41E2518F291A898F006690F8 /* LoadingViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		41DF8638291DAEA300C536F5 /* Group */ = {
+			isa = PBXGroup;
+			children = (
+				41549BA62911512A00F8331A /* NewGroupViewController.swift */,
+				41549BA42911502100F8331A /* GroupViewController.swift */,
+			);
+			path = Group;
+			sourceTree = "<group>";
+		};
+		41DF8639291DAEC100C536F5 /* Friend */ = {
+			isa = PBXGroup;
+			children = (
+				41E25193291D0DB2006690F8 /* PhotoAlbumViewController.swift */,
+				41549BA229107ECC00F8331A /* PageMyFriendViewController.swift */,
+				41549BA02910570900F8331A /* FriendsViewController.swift */,
+			);
+			path = Friend;
+			sourceTree = "<group>";
+		};
+		41DF863A291DAEDA00C536F5 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				41E251892918FC60006690F8 /* NewsViewController.swift */,
+			);
+			path = News;
+			sourceTree = "<group>";
+		};
+		41DF863B291DAEE700C536F5 /* NavController */ = {
+			isa = PBXGroup;
+			children = (
+				41DF863C291DAF0C00C536F5 /* CustomNavigationController.swift */,
+				41DF863E291DB11400C536F5 /* CustomPushAnimation.swift */,
+				41DF8640291DB71700C536F5 /* CustomPopAninator.swift */,
+				41DF8642291DB84400C536F5 /* CustomInteractiveTransition.swift */,
+			);
+			path = NavController;
 			sourceTree = "<group>";
 		};
 		41E2517029128C1C006690F8 /* Model */ = {
@@ -147,6 +196,7 @@
 				41E25182291411F0006690F8 /* FriendCollectionViewCell.swift */,
 				41E2518729148851006690F8 /* PersonImageView.swift */,
 				41E2518B29190105006690F8 /* NewsTableViewCell.swift */,
+				41E25195291D0FD1006690F8 /* FriendAlbumPhotoView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -221,8 +271,8 @@
 			files = (
 				41549B902910053400F8331A /* LaunchScreen.storyboard in Resources */,
 				41549B9D2910120900F8331A /* Color.xcassets in Resources */,
-				41549B9F2910471900F8331A /* Assets.xcassets in Resources */,
 				41549B8B2910053200F8331A /* Main.storyboard in Resources */,
+				41E25198291D62DC006690F8 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,17 +327,23 @@
 				41E2517529128E27006690F8 /* Group.swift in Sources */,
 				41E2517329128C50006690F8 /* User.swift in Sources */,
 				41E25186291449C9006690F8 /* LikeControl.swift in Sources */,
+				41DF863F291DB11400C536F5 /* CustomPushAnimation.swift in Sources */,
+				41DF8641291DB71700C536F5 /* CustomPopAninator.swift in Sources */,
+				41E25196291D0FD1006690F8 /* FriendAlbumPhotoView.swift in Sources */,
 				41E2517E29129CEB006690F8 /* NewGroupTableViewCell.swift in Sources */,
 				41E251802913B488006690F8 /* UIViewController+Extension.swift in Sources */,
 				41549BA72911512B00F8331A /* NewGroupViewController.swift in Sources */,
 				41E25178291290E8006690F8 /* FriendsTableViewCell.swift in Sources */,
 				41549B882910053200F8331A /* LoginViewController.swift in Sources */,
+				41E25194291D0DB3006690F8 /* PhotoAlbumViewController.swift in Sources */,
 				41E25192291BF602006690F8 /* NewGroup.swift in Sources */,
 				41E2518829148851006690F8 /* PersonImageView.swift in Sources */,
 				41549BA12910570900F8331A /* FriendsViewController.swift in Sources */,
 				41E25183291411F0006690F8 /* FriendCollectionViewCell.swift in Sources */,
+				41DF8643291DB84400C536F5 /* CustomInteractiveTransition.swift in Sources */,
 				41549BA329107ECD00F8331A /* PageMyFriendViewController.swift in Sources */,
 				41549B842910053200F8331A /* AppDelegate.swift in Sources */,
+				41DF863D291DAF0D00C536F5 /* CustomNavigationController.swift in Sources */,
 				4165B71829119ACA00D34B8D /* EntryViewController.swift in Sources */,
 				41E25190291A898F006690F8 /* LoadingViewController.swift in Sources */,
 				41549B862910053200F8331A /* SceneDelegate.swift in Sources */,

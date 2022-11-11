@@ -16,6 +16,11 @@ final class CustomNavigationController: UINavigationController {
     // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupDelegate()
+    }
+    
+    // MARK: - Private Methods
+    private func setupDelegate() {
         delegate = self
     }
 }

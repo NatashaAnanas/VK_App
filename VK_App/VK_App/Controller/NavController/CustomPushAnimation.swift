@@ -9,6 +9,8 @@ import UIKit
 
 /// Кастомный Push переход
 final class CustomPushAnimator: NSObject, UIViewControllerAnimatedTransitioning {
+    
+    // MARK: Public Methods
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         0.6
     }

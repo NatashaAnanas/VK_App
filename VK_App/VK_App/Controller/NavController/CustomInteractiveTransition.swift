@@ -7,7 +7,7 @@
 
 import UIKit
 
-/// CustomInteractiveTransition
+/// Кастомное закрытие экрана
 final class CustomInteractiveTransition: UIPercentDrivenInteractiveTransition {
     
     // MARK: - Public Prorerties
@@ -16,8 +16,11 @@ final class CustomInteractiveTransition: UIPercentDrivenInteractiveTransition {
     // MARK: - Private Prorerties
     var viewController: UIViewController? {
         didSet {
-            let recognizer = UIScreenEdgePanGestureRecognizer(target: self,
-                                                              action: #selector(handler(sender:)))
+            let recognizer = UIScreenEdgePanGestureRecognizer(
+                target: self,
+                action: #selector(handlerAction(sender:))
+            )
+            
             recognizer.edges = [.left]
             viewController?.view.addGestureRecognizer(recognizer)
         }
@@ -26,7 +29,7 @@ final class CustomInteractiveTransition: UIPercentDrivenInteractiveTransition {
     private var isFinished = false
         
     // MARK: - Private Methods
-    @objc private func handler(sender: UIScreenEdgePanGestureRecognizer) {
+    @objc private func handlerAction(sender: UIScreenEdgePanGestureRecognizer) {
         switch sender.state {
         case .began:
             isStarted = true

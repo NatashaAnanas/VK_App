@@ -18,7 +18,7 @@ final class FriendAlbumPhotoView: UIView {
         return image
     }()
     
-    // MARK: - Private Property
+    // MARK: - Private Properies
     private var photo: [UIImage] {
         let sortPhotoNames = photoNames.sorted { $0.0 < $1.0}
         return sortPhotoNames[photoIndex].1.map { UIImage(named: $0) ?? UIImage() }
@@ -33,9 +33,7 @@ final class FriendAlbumPhotoView: UIView {
     // MARK: - Life cycle
     override func awakeFromNib() {
         super.awakeFromNib()
-        addSubview()
-        setupConstraints()
-        createSwipeGesture()
+        setupSettings()
     }
     
     // MARK: - Public Metods
@@ -46,6 +44,13 @@ final class FriendAlbumPhotoView: UIView {
     }
     
     // MARK: - Private Metods
+    
+    private func setupSettings() {
+        addSubview()
+        setupConstraints()
+        createSwipeGesture()
+    }
+    
     private func addSubview() {
         addSubview(friendImageView)
     }

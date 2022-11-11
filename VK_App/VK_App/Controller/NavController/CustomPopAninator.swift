@@ -10,6 +10,8 @@ import UIKit
 /// Кастомный Pop переход
 
 final class CustomPopAnimator: NSObject, UIViewControllerAnimatedTransitioning {
+    
+    // MARK: Public Methods
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         0.6
     }

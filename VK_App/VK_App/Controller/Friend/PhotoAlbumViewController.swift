@@ -13,16 +13,16 @@ final class PhotoAlbumViewController: UIViewController {
     // MARK: - Private IBOutlet
     @IBOutlet var albumView: FriendAlbumPhotoView!
     
-    // MARK: - Private Property
-    private let user = User()
-    
-    // MARK: - Public Property
+    // MARK: - Public Properies
     var imageName = String()
     var photoIndex = Int()
+    
+    // MARK: - Private Properies
+    private let user = User()
     
     // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        albumView.updatePhoto(friend: user, imageName: "me", index: photoIndex)
+        albumView.updatePhoto(friend: user, imageName: imageName, index: photoIndex)
     }
 }

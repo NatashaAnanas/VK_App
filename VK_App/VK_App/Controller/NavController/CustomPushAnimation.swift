@@ -10,6 +10,13 @@ import UIKit
 /// Кастомный Push переход
 final class CustomPushAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     
+    
+    private enum Constant {
+        static let pageOneIDText = "pageOne"
+        static let pageButtonIDText = "buttonCell"
+        static let segueIDText  = "segue"
+    }
+    
     // MARK: Public Methods
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         0.6

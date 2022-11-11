@@ -58,7 +58,7 @@ final class FriendsViewController: UIViewController {
     private func createNameSection() {
         for (index, name) in user.names.enumerated() {
             guard let first = name.first else { return }
-            let imageName = user.images[index].0
+            let imageName = user.imageNames[index].0
             
             if sectionsMap[first] != nil {
                 sectionsMap[first]?.append((name, imageName))

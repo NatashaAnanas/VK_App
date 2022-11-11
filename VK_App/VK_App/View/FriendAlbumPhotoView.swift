@@ -19,7 +19,7 @@ final class FriendAlbumPhotoView: UIView {
     }()
     
     // MARK: - Private Properies
-    private var photo: [UIImage] {
+    private var photos: [UIImage] {
         let sortPhotoNames = photoNames.sorted { $0.0 < $1.0}
         return sortPhotoNames[photoIndex].1.map { UIImage(named: $0) ?? UIImage() }
     }
@@ -39,7 +39,7 @@ final class FriendAlbumPhotoView: UIView {
     // MARK: - Public Metods
     func updatePhoto(friend: User, imageName: String, index: Int) {
         friendImageView.image = UIImage(named: imageName)
-        photoNames = friend.images
+        photoNames = friend.imageNames
         photoIndex = index
     }
     
@@ -48,7 +48,7 @@ final class FriendAlbumPhotoView: UIView {
     private func setupSettings() {
         addSubview()
         setupConstraints()
-        createSwipeGesture()
+        createSwipeGestureRecognizer()
     }
     
     private func addSubview() {
@@ -64,7 +64,7 @@ final class FriendAlbumPhotoView: UIView {
         ])
     }
     
-    private func createSwipeGesture() {
+    private func createSwipeGestureRecognizer() {
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(swipeAction))
         swipeRight.direction = UISwipeGestureRecognizer.Direction.right
         addGestureRecognizer(swipeRight)
@@ -74,9 +74,9 @@ final class FriendAlbumPhotoView: UIView {
         addGestureRecognizer(swipeLeft)
     }
     
-    private func swipe(translationX: Int, increaseIndex: Int) {
+    private func setupSwipe(translationX: Int, increaseIndex: Int) {
         index += increaseIndex
-        guard index < photo.count, index >= 0 else {
+        guard index < photos.count, index >= 0 else {
             index -= increaseIndex
             return
         }
@@ -90,7 +90,7 @@ final class FriendAlbumPhotoView: UIView {
         } completion: { _ in
             self.friendImageView.layer.opacity = 1
             self.friendImageView.transform = .identity
-            self.friendImageView.image = self.photo[self.index]
+            self.friendImageView.image = self.photos[self.index]
         }
     }
     
@@ -98,9 +98,9 @@ final class FriendAlbumPhotoView: UIView {
         guard let swipeGesture = sender as? UISwipeGestureRecognizer else { return }
         switch swipeGesture.direction {
         case UISwipeGestureRecognizer.Direction.left:
-            swipe(translationX: -500, increaseIndex: 1)
+            setupSwipe(translationX: -500, increaseIndex: 1)
         case UISwipeGestureRecognizer.Direction.right:
-            swipe(translationX: 500, increaseIndex: -1)
+            setupSwipe(translationX: 500, increaseIndex: -1)
         default:
             break
         }

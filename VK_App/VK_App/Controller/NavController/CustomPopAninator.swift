@@ -7,9 +7,15 @@
 
 import UIKit
 
-/// Кастомный Pop переход
 
+/// Кастомный Pop переход
 final class CustomPopAnimator: NSObject, UIViewControllerAnimatedTransitioning {
+    
+    private enum Constant {
+        static let pageOneIDText = "pageOne"
+        static let pageButtonIDText = "buttonCell"
+        static let segueIDText  = "segue"
+    }
     
     // MARK: Public Methods
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {

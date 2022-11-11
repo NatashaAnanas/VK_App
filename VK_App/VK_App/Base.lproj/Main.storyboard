@@ -716,7 +716,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="cb4-3x-mgk"/>
                     <connections>
-                        <outlet property="albumView" destination="bMr-yp-IHi" id="9ef-v2-gll"/>
+                        <outlet property="friendAlbumPhotoView" destination="bMr-yp-IHi" id="9ef-v2-gll"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MYc-tb-kRs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

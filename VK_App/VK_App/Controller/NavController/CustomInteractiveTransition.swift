@@ -13,6 +13,7 @@ final class CustomInteractiveTransition: UIPercentDrivenInteractiveTransition {
     // MARK: - Public Prorerties
     var isStarted = false
     
+    // MARK: - Public Visual Component
     var viewController: UIViewController? {
         didSet {
             let recognizer = UIScreenEdgePanGestureRecognizer(

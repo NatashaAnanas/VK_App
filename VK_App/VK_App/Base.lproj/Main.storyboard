@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vzy-Bl-Xfr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kSD-bI-Z3c">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -189,7 +189,7 @@
             </objects>
             <point key="canvasLocation" x="-1790" y="802"/>
         </scene>
-        <!--Group View Controller-->
+        <!--Группы-->
         <scene sceneID="QAR-od-qNX">
             <objects>
                 <viewController id="bD4-Fd-K2x" customClass="GroupViewController" customModule="VK_App" customModuleProvider="target" sceneMemberID="viewController">
@@ -263,11 +263,11 @@
                             <constraint firstItem="lIV-Kd-F1E" firstAttribute="top" secondItem="DNJ-fF-4Zb" secondAttribute="top" id="hdS-Gf-6Qp"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="qmh-Ec-S6S">
+                    <navigationItem key="navigationItem" title="Группы" id="qmh-Ec-S6S">
                         <rightBarButtonItems>
                             <barButtonItem title="Item" image="person.2" catalog="system" id="HpX-xL-5gy">
                                 <connections>
-                                    <segue destination="fyZ-q1-CJz" kind="modal" modalPresentationStyle="pageSheet" id="2jg-6m-lX3"/>
+                                    <segue destination="fyZ-q1-CJz" kind="show" id="2jg-6m-lX3"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem systemItem="add" id="cXk-v6-xLZ">
@@ -290,11 +290,11 @@
             <objects>
                 <viewController id="fyZ-q1-CJz" customClass="NewGroupViewController" customModule="VK_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5yR-Xl-VH5">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ZF1-M1-kAO">
-                                <rect key="frame" x="0.0" y="44" width="414" height="798"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" name="Gray Main"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="myGroup" rowHeight="90" id="qez-Fh-545" customClass="NewGroupTableViewCell" customModule="VK_App" customModuleProvider="target">
@@ -363,7 +363,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8pt-5g-Miz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2388.4057971014495" y="1526.7857142857142"/>
+            <point key="canvasLocation" x="2552" y="1527"/>
         </scene>
         <!--Друзья-->
         <scene sceneID="TEW-nK-BHN">
@@ -572,7 +572,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bUJ-qb-3JY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1673.913043478261" y="801.5625"/>
+            <point key="canvasLocation" x="1638" y="802"/>
         </scene>
         <!--Page My Friend View Controller-->
         <scene sceneID="yOr-HU-Wkw">
@@ -592,7 +592,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="page1" id="CGD-Hl-6bl" customClass="FriendCollectionViewCell" customModule="VK_App" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="pageOne" id="CGD-Hl-6bl" customClass="FriendCollectionViewCell" customModule="VK_App" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="550"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="UA4-tj-Czf">
@@ -662,6 +662,7 @@
                                             <outlet property="likesControl" destination="0E9-0V-Zv5" id="hGQ-qA-iQ5"/>
                                             <outlet property="personImageView" destination="T26-xa-3wD" id="CSf-dq-r2c"/>
                                             <outlet property="personNameLabel" destination="dCl-9i-bhM" id="hnk-e7-hGE"/>
+                                            <segue destination="Yz2-5p-ogh" kind="show" id="tdx-EQ-BSE"/>
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="buttonCell" id="Mxd-C1-jxH">
@@ -690,10 +691,37 @@
                             <constraint firstItem="8DD-Jw-tHi" firstAttribute="top" secondItem="4Oe-F2-mN4" secondAttribute="top" id="ac5-GY-8T9"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="ySH-nN-b6P"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ntf-mT-EBT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2528.985507246377" y="801.5625"/>
+            <point key="canvasLocation" x="2596" y="810"/>
+        </scene>
+        <!--Photo Album View Controller-->
+        <scene sceneID="d4x-GE-qGT">
+            <objects>
+                <viewController id="gjk-IB-GOR" customClass="PhotoAlbumViewController" customModule="VK_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XbD-2I-sPL">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bMr-yp-IHi" customClass="FriendAlbumPhotoView" customModule="VK_App" customModuleProvider="target">
+                                <rect key="frame" x="67" y="249" width="280" height="344"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" name="Gray Main"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="RKg-a7-smg"/>
+                        <color key="backgroundColor" name="Gray Main"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="cb4-3x-mgk"/>
+                    <connections>
+                        <outlet property="friendAlbumPhotoView" destination="bMr-yp-IHi" id="9ef-v2-gll"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MYc-tb-kRs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4490" y="810"/>
         </scene>
         <!--Loading View Controller-->
         <scene sceneID="Rcj-e9-Zsh">
@@ -795,7 +823,7 @@
                                     <constraint firstAttribute="height" constant="80" id="MLi-UQ-5CE"/>
                                 </constraints>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="me" translatesAutoresizingMaskIntoConstraints="NO" id="NmH-7x-NUA">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="me5" translatesAutoresizingMaskIntoConstraints="NO" id="NmH-7x-NUA">
                                 <rect key="frame" x="167" y="408" width="80" height="80"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -893,7 +921,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="lej-1h-3WF">
             <objects>
-                <tabBarController id="vzy-Bl-Xfr" sceneMemberID="viewController">
+                <tabBarController modalPresentationStyle="fullScreen" id="vzy-Bl-Xfr" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7Yd-3q-fod">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1101,7 +1129,7 @@
         <!--Сообщества-->
         <scene sceneID="iLx-fP-JvL">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rZA-nS-9Ea" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="rZA-nS-9Ea" customClass="CustomNavigationController" customModule="VK_App" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Сообщества" image="person.3.fill" catalog="system" selectedImage="person.3" id="8NP-od-3Ou">
                         <color key="badgeColor" name="White Color"/>
                     </tabBarItem>
@@ -1119,6 +1147,25 @@
             </objects>
             <point key="canvasLocation" x="838" y="1527"/>
         </scene>
+        <!--Custom Navigation Controller-->
+        <scene sceneID="RLU-uM-3JK">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Yz2-5p-ogh" customClass="CustomNavigationController" customModule="VK_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="gKn-rd-ePd"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5Xb-Ag-U4M">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="gjk-IB-GOR" kind="relationship" relationship="rootViewController" id="PFP-Q2-U4O"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ahU-6r-WRQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3614" y="810"/>
+        </scene>
     </scenes>
     <resources>
         <image name="apple1" width="360" height="360"/>
@@ -1129,7 +1176,7 @@
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="house" catalog="system" width="128" height="106"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
-        <image name="me" width="809" height="1080"/>
+        <image name="me5" width="960" height="1280"/>
         <image name="message" catalog="system" width="128" height="113"/>
         <image name="person.2" catalog="system" width="128" height="81"/>
         <image name="person.2.fill" catalog="system" width="128" height="80"/>

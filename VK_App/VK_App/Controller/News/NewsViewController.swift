@@ -11,7 +11,7 @@ final class NewsViewController: UIViewController {
         static let newsIDCellText = "news"
     }
 
-    // MARK: - Private Property
+    // MARK: - Private Properties
 
     private let post = Post()
 }

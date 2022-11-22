@@ -9,7 +9,8 @@ import Alamofire
 import Foundation
 
 /// Сетевой слой Alamofire
-struct NetworkService {
+struct VKNetworkService {
+    
     // MARK: - Private Constants
     private enum Constants {
         static let baseURL = "https://api.vk.com/method/"

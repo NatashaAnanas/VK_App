@@ -8,7 +8,7 @@
 import UIKit
 import WebKit
 
-/// WebKit - экран входа в вк
+/// Экран входа в вк
 class WKWebViewController: UIViewController {
     
     // MARK: - Private Constant
@@ -25,21 +25,32 @@ class WKWebViewController: UIViewController {
         static let clientIdIext = "client_id"
         static let displayText = "display"
         static let mobileText = "mobile"
+        static let redirectUriText = "redirect_uri"
+        static let httpsText = "https://oauth.vk.com/blank.html"
+        static let scopeText = "scope"
+        static let numberText = "262150"
+        static let responseTypeText = "response_type"
+        static let tokenText = "token"
+        static let vText = "v"
+        static let versionText = "5.68"
     }
     
     // MARK: - Private Visual Components
     private let wkWebView = WKWebView()
-    private let networkService = NetworkService()
+    private let networkService = VKNetworkService()
     
     // MARK: - Private Properties
     private var userId = Session.instance.userId
     
+    // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         createWkWebView()
         addConstraintWkWebView()
         getURl()
     }
+    
+    // MARK: - Private Methods
     
     private func getURl() {
         var urlComponents = URLComponents()
@@ -49,14 +60,14 @@ class WKWebViewController: UIViewController {
         urlComponents.queryItems = [
             URLQueryItem(name: Constants.clientIdIext, value: userId),
             URLQueryItem(name: Constants.displayText, value: Constants.mobileText),
-            URLQueryItem(name: "redirect_uri", value: "https://oauth.vk.com/blank.html"),
-            URLQueryItem(name: "scope", value: "262150"),
-            URLQueryItem(name: "response_type", value: "token"),
-            URLQueryItem(name: "v", value: "5.68")
+            URLQueryItem(name: Constants.redirectUriText, value: Constants.httpsText),
+            URLQueryItem(name: Constants.scopeText, value: Constants.numberText),
+            URLQueryItem(name: Constants.responseTypeText, value: Constants.tokenText),
+            URLQueryItem(name: Constants.vText, value: Constants.versionText)
         ]
         guard let url = urlComponents.url else { return }
         let request = URLRequest(url: url)
-
+        
         wkWebView.load(request)
     }
     
@@ -76,6 +87,7 @@ class WKWebViewController: UIViewController {
     }
 }
 
+// MARK: - WKNavigationDelegate
 extension WKWebViewController: WKNavigationDelegate {
     func webView(
         _ webView: WKWebView,
@@ -100,9 +112,8 @@ extension WKWebViewController: WKNavigationDelegate {
             }
         if let token = params[Constants.accessTokenText] {
             Session.instance.token = token
-            print(token)
-
         }
+        
         decisionHandler(.cancel)
         performSegue(withIdentifier: Constants.tabBarID, sender: self)
     }

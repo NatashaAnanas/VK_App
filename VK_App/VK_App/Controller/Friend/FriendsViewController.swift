@@ -35,7 +35,7 @@ final class FriendsViewController: UIViewController {
     @IBOutlet weak var friendSearchBar: UISearchBar!
     // MARK: - Private Property
 
-    private let networkService = NetworkService()
+    private let networkService = VKNetworkService()
     private var sectionsMap: InfoMap = [:]
     private var filteredFriendsMap: InfoMap = [:]
     private var sectionTitels: [Character] = []

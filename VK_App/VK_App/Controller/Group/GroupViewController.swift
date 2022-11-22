@@ -22,7 +22,7 @@ final class GroupViewController: UIViewController {
     @IBOutlet private var groupTableView: UITableView!
 
     // MARK: - Private Property
-    private let networkService = NetworkService()
+    private let networkService = VKNetworkService()
     private var group = Group()
 
     override func viewDidLoad() {

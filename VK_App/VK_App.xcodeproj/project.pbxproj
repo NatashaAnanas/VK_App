@@ -19,7 +19,7 @@
 		41549BA72911512B00F8331A /* NewGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41549BA62911512A00F8331A /* NewGroupViewController.swift */; };
 		4165B71829119ACA00D34B8D /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4165B71729119AC900D34B8D /* EntryViewController.swift */; };
 		4171CC43292CBDB800AC007A /* WKWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4171CC42292CBDB800AC007A /* WKWebViewController.swift */; };
-		4171CC45292CF2B200AC007A /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4171CC44292CF2B100AC007A /* NetworkService.swift */; };
+		4171CC45292CF2B200AC007A /* VKNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4171CC44292CF2B100AC007A /* VKNetworkService.swift */; };
 		4178505B292B9D29006EF2E2 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4178505A292B9D29006EF2E2 /* Session.swift */; };
 		41DF863D291DAF0D00C536F5 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DF863C291DAF0C00C536F5 /* CustomNavigationController.swift */; };
 		41DF863F291DB11400C536F5 /* CustomPushAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DF863E291DB11400C536F5 /* CustomPushAnimation.swift */; };
@@ -60,7 +60,7 @@
 		41549BA62911512A00F8331A /* NewGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGroupViewController.swift; sourceTree = "<group>"; };
 		4165B71729119AC900D34B8D /* EntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
 		4171CC42292CBDB800AC007A /* WKWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKWebViewController.swift; sourceTree = "<group>"; };
-		4171CC44292CF2B100AC007A /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		4171CC44292CF2B100AC007A /* VKNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKNetworkService.swift; sourceTree = "<group>"; };
 		4178505A292B9D29006EF2E2 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		41DF863C291DAF0C00C536F5 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		41DF863E291DB11400C536F5 /* CustomPushAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPushAnimation.swift; sourceTree = "<group>"; };
@@ -164,7 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				4178505A292B9D29006EF2E2 /* Session.swift */,
-				4171CC44292CF2B100AC007A /* NetworkService.swift */,
+				4171CC44292CF2B100AC007A /* VKNetworkService.swift */,
 			);
 			path = Session;
 			sourceTree = "<group>";
@@ -416,7 +416,7 @@
 			files = (
 				41E2517529128E27006690F8 /* Group.swift in Sources */,
 				4178505B292B9D29006EF2E2 /* Session.swift in Sources */,
-				4171CC45292CF2B200AC007A /* NetworkService.swift in Sources */,
+				4171CC45292CF2B200AC007A /* VKNetworkService.swift in Sources */,
 				41E2517329128C50006690F8 /* User.swift in Sources */,
 				41E25186291449C9006690F8 /* LikeControl.swift in Sources */,
 				41DF863F291DB11400C536F5 /* CustomPushAnimation.swift in Sources */,

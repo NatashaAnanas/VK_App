@@ -7,7 +7,8 @@ import UIKit
 final class GroupViewController: UIViewController {
     // MARK: - Private Constants
 
-    private enum Constant {
+    private enum Constants {
+        static let itAnanasGroupText = "ananas"
         static let groupIDCellText = "group"
         static let allGroupText = "Все группы"
         static let addGroupNameText = "Введите название группы"
@@ -21,20 +22,26 @@ final class GroupViewController: UIViewController {
     @IBOutlet private var groupTableView: UITableView!
 
     // MARK: - Private Property
-
+    private let networkService = NetworkService()
     private var group = Group()
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        networkService.getGroups()
+        networkService.getGroups(group: Constants.itAnanasGroupText)
+    }
+    
     // MARK: - Private @IBAction
 
     @IBAction private func addGroupAction(_ sender: Any) {
         showAlert(
-            title: Constant.addGroupNameText,
-            message: Constant.allGroupText
+            title: Constants.addGroupNameText,
+            message: Constants.allGroupText
         ) { groupName in
             guard let groupText = groupName else { return }
             self.group.names.insert(groupText, at: self.group.names.count)
-            self.group.imageNames.insert(Constant.iconName, at: self.group.imageNames.count)
-            self.group.statuses.insert(Constant.emptyString, at: self.group.statuses.count)
+            self.group.imageNames.insert(Constants.iconName, at: self.group.imageNames.count)
+            self.group.statuses.insert(Constants.emptyString, at: self.group.statuses.count)
             self.groupTableView.reloadData()
         }
     }
@@ -49,7 +56,7 @@ extension GroupViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: Constant.groupIDCellText,
+            withIdentifier: Constants.groupIDCellText,
             for: indexPath
         ) as? GroupTableViewCell else { return UITableViewCell() }
 
@@ -62,7 +69,7 @@ extension GroupViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_: UITableView, titleForHeaderInSection section: Int) -> String? {
-        Constant.allGroupText
+        Constants.allGroupText
     }
 
     func tableView(

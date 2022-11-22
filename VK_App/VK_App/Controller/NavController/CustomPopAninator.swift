@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 /// Кастомный Pop переход
 final class CustomPopAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     

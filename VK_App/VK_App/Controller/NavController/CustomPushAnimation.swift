@@ -10,7 +10,6 @@ import UIKit
 /// Кастомный Push переход
 final class CustomPushAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     
-    
     private enum Constant {
         static let pageOneIDText = "pageOne"
         static let pageButtonIDText = "buttonCell"

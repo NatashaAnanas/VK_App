@@ -18,6 +18,9 @@
 		41549BA52911502200F8331A /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41549BA42911502100F8331A /* GroupViewController.swift */; };
 		41549BA72911512B00F8331A /* NewGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41549BA62911512A00F8331A /* NewGroupViewController.swift */; };
 		4165B71829119ACA00D34B8D /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4165B71729119AC900D34B8D /* EntryViewController.swift */; };
+		4171CC43292CBDB800AC007A /* WKWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4171CC42292CBDB800AC007A /* WKWebViewController.swift */; };
+		4171CC45292CF2B200AC007A /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4171CC44292CF2B100AC007A /* NetworkService.swift */; };
+		4178505B292B9D29006EF2E2 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4178505A292B9D29006EF2E2 /* Session.swift */; };
 		41DF863D291DAF0D00C536F5 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DF863C291DAF0C00C536F5 /* CustomNavigationController.swift */; };
 		41DF863F291DB11400C536F5 /* CustomPushAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DF863E291DB11400C536F5 /* CustomPushAnimation.swift */; };
 		41DF8641291DB71700C536F5 /* CustomPopAninator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DF8640291DB71700C536F5 /* CustomPopAninator.swift */; };
@@ -39,6 +42,7 @@
 		41E25194291D0DB3006690F8 /* PhotoAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E25193291D0DB2006690F8 /* PhotoAlbumViewController.swift */; };
 		41E25196291D0FD1006690F8 /* FriendAlbumPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E25195291D0FD1006690F8 /* FriendAlbumPhotoView.swift */; };
 		41E25198291D62DC006690F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41E25197291D62DC006690F8 /* Assets.xcassets */; };
+		6DECC37D03F7D63932680D59 /* Pods_VK_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA05AAB3D6AC2CB1D378D177 /* Pods_VK_App.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +59,9 @@
 		41549BA42911502100F8331A /* GroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
 		41549BA62911512A00F8331A /* NewGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGroupViewController.swift; sourceTree = "<group>"; };
 		4165B71729119AC900D34B8D /* EntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
+		4171CC42292CBDB800AC007A /* WKWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKWebViewController.swift; sourceTree = "<group>"; };
+		4171CC44292CF2B100AC007A /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		4178505A292B9D29006EF2E2 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		41DF863C291DAF0C00C536F5 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		41DF863E291DB11400C536F5 /* CustomPushAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPushAnimation.swift; sourceTree = "<group>"; };
 		41DF8640291DB71700C536F5 /* CustomPopAninator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopAninator.swift; sourceTree = "<group>"; };
@@ -76,6 +83,9 @@
 		41E25193291D0DB2006690F8 /* PhotoAlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAlbumViewController.swift; sourceTree = "<group>"; };
 		41E25195291D0FD1006690F8 /* FriendAlbumPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendAlbumPhotoView.swift; sourceTree = "<group>"; };
 		41E25197291D62DC006690F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		430C1194285240DA1C91D765 /* Pods-VK_App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VK_App.release.xcconfig"; path = "Target Support Files/Pods-VK_App/Pods-VK_App.release.xcconfig"; sourceTree = "<group>"; };
+		61381A2B8CA4E11B35DE983E /* Pods-VK_App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VK_App.debug.xcconfig"; path = "Target Support Files/Pods-VK_App/Pods-VK_App.debug.xcconfig"; sourceTree = "<group>"; };
+		DA05AAB3D6AC2CB1D378D177 /* Pods_VK_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VK_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6DECC37D03F7D63932680D59 /* Pods_VK_App.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,6 +107,8 @@
 				41549B9C2910120900F8331A /* Color.xcassets */,
 				41E25197291D62DC006690F8 /* Assets.xcassets */,
 				41549B812910053200F8331A /* Products */,
+				BBEEF7513EFE5C814F520E22 /* Pods */,
+				EF0FA8DB4E56C12D083B520C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -110,6 +123,7 @@
 		41549B822910053200F8331A /* VK_App */ = {
 			isa = PBXGroup;
 			children = (
+				41785059292B9D03006EF2E2 /* Session */,
 				41E251812913B48F006690F8 /* Extension */,
 				41E25176291290AF006690F8 /* View */,
 				41E2517029128C1C006690F8 /* Model */,
@@ -126,6 +140,7 @@
 		41549B9929100D3100F8331A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				4171CC41292CBD8C00AC007A /* WKWebView */,
 				41DF863B291DAEE700C536F5 /* NavController */,
 				41DF863A291DAEDA00C536F5 /* News */,
 				41DF8639291DAEC100C536F5 /* Friend */,
@@ -135,6 +150,23 @@
 				41E2518F291A898F006690F8 /* LoadingViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		4171CC41292CBD8C00AC007A /* WKWebView */ = {
+			isa = PBXGroup;
+			children = (
+				4171CC42292CBDB800AC007A /* WKWebViewController.swift */,
+			);
+			path = WKWebView;
+			sourceTree = "<group>";
+		};
+		41785059292B9D03006EF2E2 /* Session */ = {
+			isa = PBXGroup;
+			children = (
+				4178505A292B9D29006EF2E2 /* Session.swift */,
+				4171CC44292CF2B100AC007A /* NetworkService.swift */,
+			);
+			path = Session;
 			sourceTree = "<group>";
 		};
 		41DF8638291DAEA300C536F5 /* Group */ = {
@@ -209,6 +241,23 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		BBEEF7513EFE5C814F520E22 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				61381A2B8CA4E11B35DE983E /* Pods-VK_App.debug.xcconfig */,
+				430C1194285240DA1C91D765 /* Pods-VK_App.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		EF0FA8DB4E56C12D083B520C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DA05AAB3D6AC2CB1D378D177 /* Pods_VK_App.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -216,11 +265,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 41549B942910053400F8331A /* Build configuration list for PBXNativeTarget "VK_App" */;
 			buildPhases = (
+				BF14E26B68BF62F2E8BFFB7D /* [CP] Check Pods Manifest.lock */,
 				41549B7C2910053200F8331A /* Sources */,
 				41549B7D2910053200F8331A /* Frameworks */,
 				41549B7E2910053200F8331A /* Resources */,
 				41549B982910059E00F8331A /* SwiftFormat */,
 				41549B972910054C00F8331A /* SwiftLint */,
+				46A34D2FD730CA5AE4BFD39F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -317,6 +368,45 @@
 
 ";
 		};
+		46A34D2FD730CA5AE4BFD39F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VK_App/Pods-VK_App-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VK_App/Pods-VK_App-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VK_App/Pods-VK_App-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BF14E26B68BF62F2E8BFFB7D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VK_App-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -325,6 +415,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				41E2517529128E27006690F8 /* Group.swift in Sources */,
+				4178505B292B9D29006EF2E2 /* Session.swift in Sources */,
+				4171CC45292CF2B200AC007A /* NetworkService.swift in Sources */,
 				41E2517329128C50006690F8 /* User.swift in Sources */,
 				41E25186291449C9006690F8 /* LikeControl.swift in Sources */,
 				41DF863F291DB11400C536F5 /* CustomPushAnimation.swift in Sources */,
@@ -338,6 +430,7 @@
 				41E25194291D0DB3006690F8 /* PhotoAlbumViewController.swift in Sources */,
 				41E25192291BF602006690F8 /* NewGroup.swift in Sources */,
 				41E2518829148851006690F8 /* PersonImageView.swift in Sources */,
+				4171CC43292CBDB800AC007A /* WKWebViewController.swift in Sources */,
 				41549BA12910570900F8331A /* FriendsViewController.swift in Sources */,
 				41E25183291411F0006690F8 /* FriendCollectionViewCell.swift in Sources */,
 				41DF8643291DB84400C536F5 /* CustomInteractiveTransition.swift in Sources */,
@@ -493,6 +586,7 @@
 		};
 		41549B952910053400F8331A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 61381A2B8CA4E11B35DE983E /* Pods-VK_App.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -505,6 +599,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -520,6 +615,7 @@
 		};
 		41549B962910053400F8331A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 430C1194285240DA1C91D765 /* Pods-VK_App.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -532,6 +628,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

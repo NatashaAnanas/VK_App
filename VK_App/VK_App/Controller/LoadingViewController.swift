@@ -37,14 +37,14 @@ final class LoadingViewController: UIViewController {
                     name: Constants.mainText,
                     bundle: nil
                 ).instantiateViewController(withIdentifier: Constants.loginIDText)
-                    as? LoginViewController
+                as? LoginViewController
             else {
                 return
             }
-            
+
             loginVC.modalPresentationStyle = .fullScreen
             loginVC.modalTransitionStyle = .crossDissolve
-            
+
             self.present(loginVC, animated: true)
         }
     }

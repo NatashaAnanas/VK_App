@@ -16,7 +16,7 @@ extension UIViewController {
             guard let groupName = alertController.textFields?.first?.text else { return }
             handler?(groupName)
         }
-        
+
         alertController.addTextField()
         alertController.addAction(alertControllerAction)
         present(alertController, animated: true)

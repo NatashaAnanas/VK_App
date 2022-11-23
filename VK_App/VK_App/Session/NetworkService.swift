@@ -1,17 +1,13 @@
-//
-//  ssenssion.swift
-//  VK_App
-//
-//  Created by Анастасия Козлова on 22.11.2022.
-//
+// NetworkService.swift
+// Copyright © RoadMap. All rights reserved.
 
 import Alamofire
 import Foundation
 
 /// Сетевой слой Alamofire
 struct NetworkService {
-    
     // MARK: - Private Constants
+
     private enum Constants {
         static let baseURL = "https://api.vk.com/method/"
         static let acessTokenText = "?&access_token=\(Session.instance.token)"
@@ -23,8 +19,9 @@ struct NetworkService {
         static let searchQueryText = "&q="
         static let versionText = "&v=5.81"
     }
-    
+
     // MARK: - Public Methods
+
     func getInfo(path: String) {
         let url = "\(Constants.baseURL)\(path)"
         AF.request(url).responseJSON { response in
@@ -32,25 +29,25 @@ struct NetworkService {
             print(value)
         }
     }
-    
+
     func getFriends() {
         let path =
-        """
-        \(Constants.getFriendRequestText)\(Constants.acessTokenText)
-        \(Constants.friendFieldsText)\(Constants.versionText)
-        """
+            """
+            \(Constants.getFriendRequestText)\(Constants.acessTokenText)
+            \(Constants.friendFieldsText)\(Constants.versionText)
+            """
         getInfo(path: path)
     }
-    
+
     func getUserPhotos() {
         let path =
-        """
-        \(Constants.getUserPhotoRequestText)\(Constants.acessTokenText)
-        \(Constants.friendFieldsText)\(Constants.versionText)
-        """
+            """
+            \(Constants.getUserPhotoRequestText)\(Constants.acessTokenText)
+            \(Constants.friendFieldsText)\(Constants.versionText)
+            """
         getInfo(path: path)
     }
-    
+
     func getGroups() {
         let path = """
         \(Constants.getGroupsRequestText)\(Constants.acessTokenText)
@@ -58,14 +55,14 @@ struct NetworkService {
         """
         getInfo(path: path)
     }
-    
+
     func getGroups(group: String) {
         let path =
-        """
-        \(Constants.getSearchGroupRequestText)\(Constants.acessTokenText)
-        \(Constants.friendFieldsText)
-        \(Constants.searchQueryText)\(group)\(Constants.versionText)
-        """
+            """
+            \(Constants.getSearchGroupRequestText)\(Constants.acessTokenText)
+            \(Constants.friendFieldsText)
+            \(Constants.searchQueryText)\(group)\(Constants.versionText)
+            """
         getInfo(path: path)
     }
 }

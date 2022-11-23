@@ -5,9 +5,8 @@ import UIKit
 
 /// Экран с друзьями
 final class FriendsViewController: UIViewController {
-    
     typealias InfoMap = [Character: [(String, String)]]
-    
+
     // MARK: - Private Constants
 
     private enum Constants {
@@ -32,6 +31,7 @@ final class FriendsViewController: UIViewController {
 
     @IBOutlet private var friendTableView: UITableView!
     @IBOutlet private var friendSearchBar: UISearchBar!
+
     // MARK: - Private Property
 
     private let networkService = NetworkService()
@@ -55,12 +55,12 @@ final class FriendsViewController: UIViewController {
     private func setUpSearchBarDelegate() {
         friendSearchBar.delegate = self
     }
-    
+
     private func createNameSection() {
         for (index, name) in user.names.enumerated() {
             guard let first = name.first else { return }
             let imageName = user.imageNames[index].0
-            
+
             if sectionsMap[first] != nil {
                 sectionsMap[first]?.append((name, imageName))
             } else {
@@ -70,12 +70,12 @@ final class FriendsViewController: UIViewController {
         filteredFriendsMap = sectionsMap
         createSectionTitels()
     }
-    
+
     private func createSectionTitels() {
         sectionTitels = Array(sectionsMap.keys)
         sectionTitels.sort()
     }
-    
+
     private func goToPageVC(viewController: UIViewController) {
         viewController.modalPresentationStyle = .formSheet
         viewController.modalTransitionStyle = .flipHorizontal
@@ -121,16 +121,18 @@ extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
                 withIdentifier: Constants.myFriendIDCellText,
                 for: indexPath
             ) as? FriendsTableViewCell else { return UITableViewCell() }
-            
+
             guard
                 let info = filteredFriendsMap[sectionTitels[indexPath.section - 2]]?[indexPath.row]
             else { return UITableViewCell() }
 
             let city = user.cities[indexPath.row]
 
-            cell.configure(name: info.0,
-                           imageName: info.1,
-                           city: city)
+            cell.configure(
+                name: info.0,
+                imageName: info.1,
+                city: city
+            )
 
             return cell
         }
@@ -174,7 +176,7 @@ extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
 extension FriendsViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         filteredFriendsMap = [:]
-        
+
         guard
             !searchText.isEmpty
         else {

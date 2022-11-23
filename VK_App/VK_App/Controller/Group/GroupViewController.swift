@@ -22,15 +22,23 @@ final class GroupViewController: UIViewController {
     @IBOutlet private var groupTableView: UITableView!
 
     // MARK: - Private Property
+
     private let networkService = NetworkService()
     private var group = Group()
 
+    // MARK: - Life Cycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        networkService.getGroups()
-        networkService.getGroups(group: Constants.itAnanasGroupText)
+        fetchGroups()
     }
     
+    // MARK: - Private Methods
+    private func fetchGroups() {
+        networkService.fetchGroups()
+        networkService.fetchGroups(group: Constants.itAnanasGroupText)
+    }
+
     // MARK: - Private @IBAction
 
     @IBAction private func addGroupAction(_ sender: Any) {

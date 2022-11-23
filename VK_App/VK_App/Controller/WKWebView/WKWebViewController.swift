@@ -1,17 +1,13 @@
-//
-//  WKWebViewController.swift
-//  VK_App
-//
-//  Created by Анастасия Козлова on 22.11.2022.
-//
+// WKWebViewController.swift
+// Copyright © RoadMap. All rights reserved.
 
 import UIKit
 import WebKit
 
-/// WebKit - экран входа в вк
-class WKWebViewController: UIViewController {
-    
+/// Экран входа в вк
+final class WKWebViewController: UIViewController {
     // MARK: - Private Constant
+
     private enum Constants {
         static let shemeUrlComponent = "https"
         static let hostUrlComponent = "oauth.vk.com"
@@ -25,23 +21,37 @@ class WKWebViewController: UIViewController {
         static let clientIdIext = "client_id"
         static let displayText = "display"
         static let mobileText = "mobile"
+        static let redirectUriText = "redirect_uri"
+        static let httpsText = "https://oauth.vk.com/blank.html"
+        static let scopeText = "scope"
+        static let numberText = "262150"
+        static let responseTypeText = "response_type"
+        static let tokenText = "token"
+        static let vText = "v"
+        static let versionText = "5.68"
     }
-    
+
     // MARK: - Private Visual Components
-    private let wkWebView = WKWebView()
+
     private let networkService = NetworkService()
-    
+
     // MARK: - Private Properties
+
     private var userId = Session.instance.userId
-    
+    private let wkWebView = WKWebView()
+
+    // MARK: - Life cycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         createWkWebView()
         addConstraintWkWebView()
-        getURl()
+        loadWebView()
     }
-    
-    private func getURl() {
+
+    // MARK: - Private Methods
+
+    private func loadWebView() {
         var urlComponents = URLComponents()
         urlComponents.scheme = Constants.shemeUrlComponent
         urlComponents.host = Constants.hostUrlComponent
@@ -49,23 +59,23 @@ class WKWebViewController: UIViewController {
         urlComponents.queryItems = [
             URLQueryItem(name: Constants.clientIdIext, value: userId),
             URLQueryItem(name: Constants.displayText, value: Constants.mobileText),
-            URLQueryItem(name: "redirect_uri", value: "https://oauth.vk.com/blank.html"),
-            URLQueryItem(name: "scope", value: "262150"),
-            URLQueryItem(name: "response_type", value: "token"),
-            URLQueryItem(name: "v", value: "5.68")
+            URLQueryItem(name: Constants.redirectUriText, value: Constants.httpsText),
+            URLQueryItem(name: Constants.scopeText, value: Constants.numberText),
+            URLQueryItem(name: Constants.responseTypeText, value: Constants.tokenText),
+            URLQueryItem(name: Constants.vText, value: Constants.versionText)
         ]
         guard let url = urlComponents.url else { return }
         let request = URLRequest(url: url)
 
         wkWebView.load(request)
     }
-    
+
     private func createWkWebView() {
         wkWebView.navigationDelegate = self
         wkWebView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(wkWebView)
     }
-    
+
     private func addConstraintWkWebView() {
         NSLayoutConstraint.activate([
             wkWebView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -76,6 +86,8 @@ class WKWebViewController: UIViewController {
     }
 }
 
+// MARK: - WKNavigationDelegate
+
 extension WKWebViewController: WKNavigationDelegate {
     func webView(
         _ webView: WKWebView,
@@ -83,7 +95,7 @@ extension WKWebViewController: WKNavigationDelegate {
         decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void
     ) {
         guard let url = navigationResponse.response.url, url.path ==
-                Constants.blankHtmlText, let fragment = url.fragment
+            Constants.blankHtmlText, let fragment = url.fragment
         else {
             decisionHandler(.allow)
             return
@@ -100,9 +112,8 @@ extension WKWebViewController: WKNavigationDelegate {
             }
         if let token = params[Constants.accessTokenText] {
             Session.instance.token = token
-            print(token)
-
         }
+
         decisionHandler(.cancel)
         performSegue(withIdentifier: Constants.tabBarID, sender: self)
     }

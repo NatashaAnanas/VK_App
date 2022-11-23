@@ -60,8 +60,10 @@ final class LoginViewController: UIViewController {
     }
 
     private func setUpAction() {
-        let tabGesture = UITapGestureRecognizer(target: self,
-                                                action: #selector(hideKeyboardAction))
+        let tabGesture = UITapGestureRecognizer(
+            target: self,
+            action: #selector(hideKeyboardAction)
+        )
         bigScrollView.addGestureRecognizer(tabGesture)
     }
 
@@ -82,7 +84,7 @@ final class LoginViewController: UIViewController {
         guard
             let info = notification.userInfo as? NSDictionary,
             let keyboard = info.value(forKey: UIResponder.keyboardFrameEndUserInfoKey)
-                as? NSValue
+            as? NSValue
         else { return }
 
         let kbSize = keyboard.cgRectValue.size

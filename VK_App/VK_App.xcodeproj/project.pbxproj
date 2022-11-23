@@ -42,6 +42,7 @@
 		41E25194291D0DB3006690F8 /* PhotoAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E25193291D0DB2006690F8 /* PhotoAlbumViewController.swift */; };
 		41E25196291D0FD1006690F8 /* FriendAlbumPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E25195291D0FD1006690F8 /* FriendAlbumPhotoView.swift */; };
 		41E25198291D62DC006690F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41E25197291D62DC006690F8 /* Assets.xcassets */; };
+		41EFA5C1292E1A6D003C0D1F /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EFA5C0292E1A6C003C0D1F /* Friend.swift */; };
 		6DECC37D03F7D63932680D59 /* Pods_VK_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA05AAB3D6AC2CB1D378D177 /* Pods_VK_App.framework */; };
 /* End PBXBuildFile section */
 
@@ -83,6 +84,7 @@
 		41E25193291D0DB2006690F8 /* PhotoAlbumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAlbumViewController.swift; sourceTree = "<group>"; };
 		41E25195291D0FD1006690F8 /* FriendAlbumPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendAlbumPhotoView.swift; sourceTree = "<group>"; };
 		41E25197291D62DC006690F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		41EFA5C0292E1A6C003C0D1F /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		430C1194285240DA1C91D765 /* Pods-VK_App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VK_App.release.xcconfig"; path = "Target Support Files/Pods-VK_App/Pods-VK_App.release.xcconfig"; sourceTree = "<group>"; };
 		61381A2B8CA4E11B35DE983E /* Pods-VK_App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VK_App.debug.xcconfig"; path = "Target Support Files/Pods-VK_App/Pods-VK_App.debug.xcconfig"; sourceTree = "<group>"; };
 		DA05AAB3D6AC2CB1D378D177 /* Pods_VK_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VK_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -123,10 +125,11 @@
 		41549B822910053200F8331A /* VK_App */ = {
 			isa = PBXGroup;
 			children = (
+				41EFA5BE292E1954003C0D1F /* Model */,
 				41785059292B9D03006EF2E2 /* Session */,
 				41E251812913B48F006690F8 /* Extension */,
 				41E25176291290AF006690F8 /* View */,
-				41E2517029128C1C006690F8 /* Model */,
+				41E2517029128C1C006690F8 /* ModelInfo */,
 				41549B9929100D3100F8331A /* Controller */,
 				41549B832910053200F8331A /* AppDelegate.swift */,
 				41549B852910053200F8331A /* SceneDelegate.swift */,
@@ -207,7 +210,7 @@
 			path = NavController;
 			sourceTree = "<group>";
 		};
-		41E2517029128C1C006690F8 /* Model */ = {
+		41E2517029128C1C006690F8 /* ModelInfo */ = {
 			isa = PBXGroup;
 			children = (
 				41E2517229128C50006690F8 /* User.swift */,
@@ -215,7 +218,7 @@
 				41E2518D291902F0006690F8 /* Post.swift */,
 				41E25191291BF601006690F8 /* NewGroup.swift */,
 			);
-			path = Model;
+			path = ModelInfo;
 			sourceTree = "<group>";
 		};
 		41E25176291290AF006690F8 /* View */ = {
@@ -239,6 +242,14 @@
 				41E2517F2913B488006690F8 /* UIViewController+Extension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		41EFA5BE292E1954003C0D1F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				41EFA5C0292E1A6C003C0D1F /* Friend.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		BBEEF7513EFE5C814F520E22 /* Pods */ = {
@@ -269,8 +280,8 @@
 				41549B7C2910053200F8331A /* Sources */,
 				41549B7D2910053200F8331A /* Frameworks */,
 				41549B7E2910053200F8331A /* Resources */,
-				41549B982910059E00F8331A /* SwiftFormat */,
 				41549B972910054C00F8331A /* SwiftLint */,
+				41549B982910059E00F8331A /* SwiftFormat */,
 				46A34D2FD730CA5AE4BFD39F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
@@ -365,7 +376,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "
-
 ";
 		};
 		46A34D2FD730CA5AE4BFD39F /* [CP] Embed Pods Frameworks */ = {
@@ -445,6 +455,7 @@
 				41549BA52911502200F8331A /* GroupViewController.swift in Sources */,
 				41E2518C29190105006690F8 /* NewsTableViewCell.swift in Sources */,
 				41E2518E291902F0006690F8 /* Post.swift in Sources */,
+				41EFA5C1292E1A6D003C0D1F /* Friend.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

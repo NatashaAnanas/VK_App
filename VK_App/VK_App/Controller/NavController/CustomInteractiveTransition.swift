@@ -1,35 +1,34 @@
-//
-//  CustomInteractiveTransition.swift
-//  VK_App
-//
-//  Created by Анастасия Козлова on 11.11.2022.
-//
+// CustomInteractiveTransition.swift
+// Copyright © RoadMap. All rights reserved.
 
 import UIKit
 
 /// Кастомное закрытие экрана
 final class CustomInteractiveTransition: UIPercentDrivenInteractiveTransition {
-    
     // MARK: - Public Prorerties
+
     var isStarted = false
-    
+
     // MARK: - Public Visual Component
+
     var viewController: UIViewController? {
         didSet {
             let recognizer = UIScreenEdgePanGestureRecognizer(
                 target: self,
                 action: #selector(handlerAction(sender:))
             )
-            
+
             recognizer.edges = [.left]
             viewController?.view.addGestureRecognizer(recognizer)
         }
     }
-    
+
     // MARK: - Private Prorerties
+
     private var isFinished = false
-        
+
     // MARK: - Private Methods
+
     @objc private func handlerAction(sender: UIScreenEdgePanGestureRecognizer) {
         switch sender.state {
         case .began:

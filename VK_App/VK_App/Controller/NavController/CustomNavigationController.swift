@@ -1,31 +1,30 @@
-//
-//  CustomNavigationController.swift
-//  VK_App
-//
-//  Created by Анастасия Козлова on 11.11.2022.
-//
+// CustomNavigationController.swift
+// Copyright © RoadMap. All rights reserved.
 
 import UIKit
 
 /// Кастомный UINavigationController
 final class CustomNavigationController: UINavigationController {
-    
     // MARK: - Private Properties
+
     private let interactive = CustomInteractiveTransition()
-    
+
     // MARK: - Life cycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupDelegate()
     }
-    
+
     // MARK: - Private Methods
+
     private func setupDelegate() {
         delegate = self
     }
 }
 
 // MARK: - UINavigationControllerDelegate
+
 extension CustomNavigationController: UINavigationControllerDelegate {
     func navigationController(
         _ navigationController: UINavigationController,
@@ -46,7 +45,7 @@ extension CustomNavigationController: UINavigationControllerDelegate {
             return nil
         }
     }
-    
+
     func navigationController(
         _ navigationController: UINavigationController,
         interactionControllerFor animationController: UIViewControllerAnimatedTransitioning

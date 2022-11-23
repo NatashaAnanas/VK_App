@@ -10,7 +10,7 @@ final class PageMyFriendViewController: UIViewController {
     private enum Constant {
         static let pageOneIDText = "pageOne"
         static let pageButtonIDText = "buttonCell"
-        static let segueIDText  = "segue"
+        static let segueIDText = "segue"
     }
 
     // MARK: - Public Properies
@@ -19,12 +19,12 @@ final class PageMyFriendViewController: UIViewController {
     var photoIndex = Int()
 
     // MARK: - Public Methods
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         guard segue.identifier == Constant.segueIDText,
               let destination = segue.destination as? PhotoAlbumViewController
         else { return }
-        
+
         destination.photoIndex = photoIndex
         destination.modalTransitionStyle = .crossDissolve
     }

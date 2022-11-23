@@ -1,33 +1,28 @@
-//
-//  CustonPopAninator.swift
-//  VK_App
-//
-//  Created by Анастасия Козлова on 11.11.2022.
-//
+// CustomPopAninator.swift
+// Copyright © RoadMap. All rights reserved.
 
 import UIKit
 
 /// Кастомный Pop переход
 final class CustomPopAnimator: NSObject, UIViewControllerAnimatedTransitioning {
-    
     private enum Constant {
         static let pageOneIDText = "pageOne"
         static let pageButtonIDText = "buttonCell"
-        static let segueIDText  = "segue"
+        static let segueIDText = "segue"
     }
-    
+
     // MARK: Public Methods
+
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         0.6
     }
-    
+
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
-        
         guard let source = transitionContext.viewController(forKey: .from),
               let destination = transitionContext.viewController(forKey: .to) else { return }
-        
+
         transitionContext.containerView.addSubview(destination.view)
-        
+
         destination.view.frame = source.view.frame
         destination.view.transform = CGAffineTransform(
             translationX: -source.view.bounds.width, y: 0
@@ -38,7 +33,7 @@ final class CustomPopAnimator: NSObject, UIViewControllerAnimatedTransitioning {
             x: source.view.bounds.width / 2,
             y: source.view.center.y
         )
-        
+
         UIView.animateKeyframes(
             withDuration: transitionDuration(using: transitionContext),
             delay: 0,

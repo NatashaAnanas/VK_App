@@ -9,7 +9,7 @@ import Alamofire
 import Foundation
 
 /// Сетевой слой Alamofire
-struct VKNetworkService {
+struct NetworkService {
     
     // MARK: - Private Constants
     private enum Constants {

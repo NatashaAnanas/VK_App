@@ -31,15 +31,14 @@ final class FriendsViewController: UIViewController {
     // MARK: - Private IBOutlet
 
     @IBOutlet private var friendTableView: UITableView!
-
     @IBOutlet weak var friendSearchBar: UISearchBar!
     // MARK: - Private Property
 
-    private let networkService = VKNetworkService()
+    private let networkService = NetworkService()
+    private let user = User()
     private var sectionsMap: InfoMap = [:]
     private var filteredFriendsMap: InfoMap = [:]
     private var sectionTitels: [Character] = []
-    private let user = User()
     private var imageNumber = Int()
 
     // MARK: - Life Cycle

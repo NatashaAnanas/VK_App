@@ -19,8 +19,9 @@ final class PhotoAlbumViewController: UIViewController {
     
     // MARK: - Private Properies
     private let user = User()
+    
     // MARK: - Private Property
-    private let networkService = VKNetworkService()
+    private let networkService = NetworkService()
     
     // MARK: - Life cycle
     override func viewDidLoad() {

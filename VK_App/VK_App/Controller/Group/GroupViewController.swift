@@ -16,15 +16,16 @@ final class GroupViewController: UIViewController {
         static let emptyString = ""
         static let iconName = "иконка"
     }
-
+    
     // MARK: - Private @IBOutlet
-
+    
     @IBOutlet private var groupTableView: UITableView!
-
+    
     // MARK: - Private Property
-    private let networkService = VKNetworkService()
+    private let networkService = NetworkService()
     private var group = Group()
-
+    
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         networkService.getGroups()

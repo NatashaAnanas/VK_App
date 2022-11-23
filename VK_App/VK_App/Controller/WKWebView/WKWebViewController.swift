@@ -9,7 +9,7 @@ import UIKit
 import WebKit
 
 /// Экран входа в вк
-class WKWebViewController: UIViewController {
+final class WKWebViewController: UIViewController {
     
     // MARK: - Private Constant
     private enum Constants {
@@ -36,11 +36,11 @@ class WKWebViewController: UIViewController {
     }
     
     // MARK: - Private Visual Components
-    private let wkWebView = WKWebView()
-    private let networkService = VKNetworkService()
+    private let networkService = NetworkService()
     
     // MARK: - Private Properties
     private var userId = Session.instance.userId
+    private let wkWebView = WKWebView()
     
     // MARK: - Life cycle
     override func viewDidLoad() {

@@ -27,7 +27,13 @@ final class PhotoAlbumViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updatePhoto()
-        networkService.getUserPhotos()
+        fetchPhotos()
+    }
+    
+    // MARK: - Private Methods
+    
+    private func fetchPhotos() {
+        networkService.fetchUserPhotos()
     }
 
     private func updatePhoto() {

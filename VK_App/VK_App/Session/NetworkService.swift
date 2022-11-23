@@ -10,11 +10,11 @@ struct NetworkService {
 
     private enum Constants {
         static let baseURL = "https://api.vk.com/method/"
-        static let acessTokenText = "?&access_token=\(Session.instance.token)"
+        static let tokenText = "?&access_token=\(Session.instance.token)"
         static let friendFieldsText = "&fields=first_name"
-        static let getFriendRequestText = "friends.get"
-        static let getUserPhotoRequestText = "photos.getAll"
-        static let getGroupsRequestText = "groups.get"
+        static let getFriendText = "friends.get"
+        static let getUserPhotoText = "photos.getAll"
+        static let getGroupsText = "groups.get"
         static let getSearchGroupRequestText = "groups.search"
         static let searchQueryText = "&q="
         static let versionText = "&v=5.81"
@@ -22,7 +22,7 @@ struct NetworkService {
 
     // MARK: - Public Methods
 
-    func getInfo(path: String) {
+    func sendRequest(path: String) {
         let url = "\(Constants.baseURL)\(path)"
         AF.request(url).responseJSON { response in
             guard let value = response.value else { return }
@@ -30,39 +30,34 @@ struct NetworkService {
         }
     }
 
-    func getFriends() {
+    func fetchFriends() {
         let path =
             """
-            \(Constants.getFriendRequestText)\(Constants.acessTokenText)
-            \(Constants.friendFieldsText)\(Constants.versionText)
+            \(Constants.getFriendText)\(Constants.tokenText)\(Constants.friendFieldsText)\(Constants.versionText)
             """
-        getInfo(path: path)
+        sendRequest(path: path)
     }
 
-    func getUserPhotos() {
+    func fetchUserPhotos() {
         let path =
             """
-            \(Constants.getUserPhotoRequestText)\(Constants.acessTokenText)
-            \(Constants.friendFieldsText)\(Constants.versionText)
+            \(Constants.getUserPhotoText)\(Constants.tokenText)\(Constants.friendFieldsText)\(Constants.versionText)
             """
-        getInfo(path: path)
+        sendRequest(path: path)
     }
 
-    func getGroups() {
+    func fetchGroups() {
         let path = """
-        \(Constants.getGroupsRequestText)\(Constants.acessTokenText)
-        \(Constants.friendFieldsText)\(Constants.versionText)
+        \(Constants.getGroupsText)\(Constants.tokenText)\(Constants.friendFieldsText)\(Constants.versionText)
         """
-        getInfo(path: path)
+        sendRequest(path: path)
     }
 
-    func getGroups(group: String) {
-        let path =
-            """
-            \(Constants.getSearchGroupRequestText)\(Constants.acessTokenText)
-            \(Constants.friendFieldsText)
-            \(Constants.searchQueryText)\(group)\(Constants.versionText)
-            """
-        getInfo(path: path)
+    func fetchGroups(group: String) {
+        
+        let firstPath = "\(Constants.getSearchGroupRequestText)\(Constants.tokenText)\(Constants.friendFieldsText)"
+        let secondPath = "\(Constants.searchQueryText)\(group)\(Constants.versionText)"
+        let path = "\(firstPath)\(secondPath)"
+        sendRequest(path: path)
     }
 }

@@ -46,12 +46,12 @@ final class WKWebViewController: UIViewController {
         super.viewDidLoad()
         createWkWebView()
         addConstraintWkWebView()
-        getURl()
+        loadWebView()
     }
 
     // MARK: - Private Methods
 
-    private func getURl() {
+    private func loadWebView() {
         var urlComponents = URLComponents()
         urlComponents.scheme = Constants.shemeUrlComponent
         urlComponents.host = Constants.hostUrlComponent

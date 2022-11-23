@@ -30,8 +30,13 @@ final class GroupViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        networkService.getGroups()
-        networkService.getGroups(group: Constants.itAnanasGroupText)
+        fetchGroups()
+    }
+    
+    // MARK: - Private Methods
+    private func fetchGroups() {
+        networkService.fetchGroups()
+        networkService.fetchGroups(group: Constants.itAnanasGroupText)
     }
 
     // MARK: - Private @IBAction

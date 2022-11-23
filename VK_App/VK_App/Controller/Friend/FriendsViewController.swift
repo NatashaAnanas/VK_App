@@ -47,7 +47,8 @@ final class FriendsViewController: UIViewController {
         super.viewDidLoad()
         createNameSection()
         setUpSearchBarDelegate()
-        networkService.getFriends()
+        
+        networkService.fetchFriends()
     }
 
     // MARK: - Private Methods

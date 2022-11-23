@@ -31,7 +31,7 @@ final class FriendsViewController: UIViewController {
     // MARK: - Private IBOutlet
 
     @IBOutlet private var friendTableView: UITableView!
-    @IBOutlet weak var friendSearchBar: UISearchBar!
+    @IBOutlet private var friendSearchBar: UISearchBar!
     // MARK: - Private Property
 
     private let networkService = NetworkService()

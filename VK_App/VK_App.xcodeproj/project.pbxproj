@@ -18,6 +18,13 @@
 		41549BA329107ECD00F8331A /* PageMyFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41549BA229107ECC00F8331A /* PageMyFriendViewController.swift */; };
 		41549BA52911502200F8331A /* GroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41549BA42911502100F8331A /* GroupViewController.swift */; };
 		41549BA72911512B00F8331A /* NewGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41549BA62911512A00F8331A /* NewGroupViewController.swift */; };
+		415848412930D6AA0061BD19 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415848402930D6AA0061BD19 /* Response.swift */; };
+		415848432930D6D40061BD19 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415848422930D6D40061BD19 /* Friend.swift */; };
+		415848472930D72F0061BD19 /* PhotoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415848462930D72F0061BD19 /* PhotoResponse.swift */; };
+		415848492930D74E0061BD19 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415848482930D74E0061BD19 /* Photo.swift */; };
+		4158484B2930D7870061BD19 /* Sizes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4158484A2930D7870061BD19 /* Sizes.swift */; };
+		4158484D2930D8690061BD19 /* GroupResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4158484C2930D8690061BD19 /* GroupResponse.swift */; };
+		4158484F2930D8870061BD19 /* Groups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4158484E2930D8870061BD19 /* Groups.swift */; };
 		41654F48292FD51100C55259 /* PhotoResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41654F47292FD51100C55259 /* PhotoResult.swift */; };
 		4165B71829119ACA00D34B8D /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4165B71729119AC900D34B8D /* EntryViewController.swift */; };
 		4170487C29300AD000A77289 /* GroupResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4170487B29300AD000A77289 /* GroupResult.swift */; };
@@ -65,6 +72,13 @@
 		41549BA229107ECC00F8331A /* PageMyFriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageMyFriendViewController.swift; sourceTree = "<group>"; };
 		41549BA42911502100F8331A /* GroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupViewController.swift; sourceTree = "<group>"; };
 		41549BA62911512A00F8331A /* NewGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGroupViewController.swift; sourceTree = "<group>"; };
+		415848402930D6AA0061BD19 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		415848422930D6D40061BD19 /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
+		415848462930D72F0061BD19 /* PhotoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoResponse.swift; sourceTree = "<group>"; };
+		415848482930D74E0061BD19 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		4158484A2930D7870061BD19 /* Sizes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sizes.swift; sourceTree = "<group>"; };
+		4158484C2930D8690061BD19 /* GroupResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupResponse.swift; sourceTree = "<group>"; };
+		4158484E2930D8870061BD19 /* Groups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Groups.swift; sourceTree = "<group>"; };
 		41654F47292FD51100C55259 /* PhotoResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoResult.swift; sourceTree = "<group>"; };
 		4165B71729119AC900D34B8D /* EntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
 		4170487B29300AD000A77289 /* GroupResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupResult.swift; sourceTree = "<group>"; };
@@ -175,6 +189,37 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		415848442930D6F50061BD19 /* Photo */ = {
+			isa = PBXGroup;
+			children = (
+				41654F47292FD51100C55259 /* PhotoResult.swift */,
+				415848462930D72F0061BD19 /* PhotoResponse.swift */,
+				415848482930D74E0061BD19 /* Photo.swift */,
+				4158484A2930D7870061BD19 /* Sizes.swift */,
+			);
+			path = Photo;
+			sourceTree = "<group>";
+		};
+		415848452930D7100061BD19 /* Groug */ = {
+			isa = PBXGroup;
+			children = (
+				4170487B29300AD000A77289 /* GroupResult.swift */,
+				4158484C2930D8690061BD19 /* GroupResponse.swift */,
+				4158484E2930D8870061BD19 /* Groups.swift */,
+			);
+			path = Groug;
+			sourceTree = "<group>";
+		};
+		417048832930D58800A77289 /* Friend */ = {
+			isa = PBXGroup;
+			children = (
+				41EFA5C0292E1A6C003C0D1F /* FriendResult.swift */,
+				415848402930D6AA0061BD19 /* Response.swift */,
+				415848422930D6D40061BD19 /* Friend.swift */,
+			);
+			path = Friend;
+			sourceTree = "<group>";
+		};
 		4171CC41292CBD8C00AC007A /* WKWebView */ = {
 			isa = PBXGroup;
 			children = (
@@ -268,9 +313,9 @@
 		41EFA5BE292E1954003C0D1F /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				41EFA5C0292E1A6C003C0D1F /* FriendResult.swift */,
-				41654F47292FD51100C55259 /* PhotoResult.swift */,
-				4170487B29300AD000A77289 /* GroupResult.swift */,
+				417048832930D58800A77289 /* Friend */,
+				415848442930D6F50061BD19 /* Photo */,
+				415848452930D7100061BD19 /* Groug */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -304,8 +349,8 @@
 				41549B7D2910053200F8331A /* Frameworks */,
 				41549B7E2910053200F8331A /* Resources */,
 				41549B972910054C00F8331A /* SwiftLint */,
-				41549B982910059E00F8331A /* SwiftFormat */,
 				46A34D2FD730CA5AE4BFD39F /* [CP] Embed Pods Frameworks */,
+				41549B982910059E00F8331A /* SwiftFormat */,
 			);
 			buildRules = (
 			);
@@ -453,6 +498,7 @@
 				4171CC45292CF2B200AC007A /* NetworkService.swift in Sources */,
 				41E2517329128C50006690F8 /* User.swift in Sources */,
 				41E25186291449C9006690F8 /* LikeControl.swift in Sources */,
+				4158484B2930D7870061BD19 /* Sizes.swift in Sources */,
 				41DF863F291DB11400C536F5 /* CustomPushAnimation.swift in Sources */,
 				41DF8641291DB71700C536F5 /* CustomPopAninator.swift in Sources */,
 				41E25196291D0FD1006690F8 /* FriendAlbumPhotoView.swift in Sources */,
@@ -467,15 +513,21 @@
 				41E2518829148851006690F8 /* PersonImageView.swift in Sources */,
 				4171CC43292CBDB800AC007A /* WKWebViewController.swift in Sources */,
 				41549BA12910570900F8331A /* FriendsViewController.swift in Sources */,
+				415848492930D74E0061BD19 /* Photo.swift in Sources */,
 				41E25183291411F0006690F8 /* FriendCollectionViewCell.swift in Sources */,
 				41DF8643291DB84400C536F5 /* CustomInteractiveTransition.swift in Sources */,
 				41549BA329107ECD00F8331A /* PageMyFriendViewController.swift in Sources */,
+				415848472930D72F0061BD19 /* PhotoResponse.swift in Sources */,
 				41549B842910053200F8331A /* AppDelegate.swift in Sources */,
+				415848432930D6D40061BD19 /* Friend.swift in Sources */,
 				41DF863D291DAF0D00C536F5 /* CustomNavigationController.swift in Sources */,
 				4165B71829119ACA00D34B8D /* EntryViewController.swift in Sources */,
 				41E25190291A898F006690F8 /* LoadingViewController.swift in Sources */,
+				4158484D2930D8690061BD19 /* GroupResponse.swift in Sources */,
 				41549B862910053200F8331A /* SceneDelegate.swift in Sources */,
 				414F76F2292F564700299949 /* MyFriendViewController.swift in Sources */,
+				415848412930D6AA0061BD19 /* Response.swift in Sources */,
+				4158484F2930D8870061BD19 /* Groups.swift in Sources */,
 				4170488029301D6800A77289 /* PhotoFriendsTableViewCell.swift in Sources */,
 				4170487C29300AD000A77289 /* GroupResult.swift in Sources */,
 				41E2518A2918FC60006690F8 /* NewsViewController.swift in Sources */,

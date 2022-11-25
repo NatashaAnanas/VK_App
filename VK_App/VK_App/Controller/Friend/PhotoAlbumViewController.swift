@@ -27,14 +27,9 @@ final class PhotoAlbumViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updatePhoto()
-        fetchPhotos()
     }
     
     // MARK: - Private Methods
-    
-    private func fetchPhotos() {
-        networkService.fetchUserPhotos()
-    }
 
     private func updatePhoto() {
         friendAlbumPhotoView.updatePhoto(friend: user, imageName: imageName, index: photoIndex)

@@ -19,7 +19,7 @@ final class MyFriendViewController: UIViewController {
     // MARK: - Private Properies
 
     private let networkService = NetworkService()
-    private var apiFriends: [Friend] = []
+    private var friends: [Friend] = []
 
     // MARK: - Life Cycle
 
@@ -34,7 +34,7 @@ final class MyFriendViewController: UIViewController {
         networkService.fetchFriends { [weak self] result in
             switch result {
             case let .success(friend):
-                self?.apiFriends = friend.response.friends
+                self?.friends = friend.response.friends
                 self?.friendTableView.reloadData()
             case let .failure(error):
                 print(error.localizedDescription)
@@ -47,7 +47,7 @@ final class MyFriendViewController: UIViewController {
 
 extension MyFriendViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        apiFriends.count
+        friends.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -57,7 +57,7 @@ extension MyFriendViewController: UITableViewDataSource {
         )
         DispatchQueue.main.async {
             cell.textLabel?
-                .text = "\(self.apiFriends[indexPath.row].firstName) \(self.apiFriends[indexPath.row].lastName)"
+                .text = "\(self.friends[indexPath.row].firstName) \(self.friends[indexPath.row].lastName)"
         }
         return cell
     }

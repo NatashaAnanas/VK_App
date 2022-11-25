@@ -6,6 +6,8 @@ import UIKit
 
 /// Экран с фотографиями пользователя
 final class PhotosFriendViewController: UIViewController {
+    
+    // MARK: - Private @IBOutlet
     @IBOutlet private var photoTableView: UITableView!
 
     // MARK: - Private Constants
@@ -17,7 +19,7 @@ final class PhotosFriendViewController: UIViewController {
     // MARK: - Private Properies
 
     private let networkService = NetworkService()
-    private var apiPhotos: [Photo] = []
+    private var photos: [Photo] = []
 
     // MARK: - Life Cycle
 
@@ -32,7 +34,7 @@ final class PhotosFriendViewController: UIViewController {
         networkService.fetchUserPhotos { [weak self] result in
             switch result {
             case let .success(photo):
-                self?.apiPhotos = photo.response.photos
+                self?.photos = photo.response.photos
                 self?.photoTableView.reloadData()
             case let .failure(error):
                 print(error.localizedDescription)
@@ -45,7 +47,7 @@ final class PhotosFriendViewController: UIViewController {
 
 extension PhotosFriendViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        apiPhotos.count
+        photos.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -55,7 +57,7 @@ extension PhotosFriendViewController: UITableViewDataSource {
         ) as? PhotoFriendsTableViewCell
         else { return UITableViewCell() }
 
-        guard let imageURL = URL(string: apiPhotos[indexPath.row].sizes.first?.url ?? "")
+        guard let imageURL = URL(string: photos[indexPath.row].sizes.first?.url ?? "")
         else { return UITableViewCell() }
 
         DispatchQueue.main.async {

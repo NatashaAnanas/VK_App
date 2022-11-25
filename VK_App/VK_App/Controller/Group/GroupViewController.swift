@@ -40,9 +40,9 @@ final class GroupViewController: UIViewController {
         networkService.fetchGroups(group: Constants.itAnanasGroupText) { [weak self] result in
             switch result {
             case .success(let groups):
-                self.apiGroup = groups.response.group
+                self?.apiGroup = groups.response.group
                 DispatchQueue.main.async {
-                    self.groupTableView.reloadData()
+                    self?.groupTableView.reloadData()
                 }
             case .failure(let error):
                 print(error.localizedDescription)

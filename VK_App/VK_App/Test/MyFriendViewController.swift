@@ -9,7 +9,7 @@ import SDWebImage
 import UIKit
 
 /// Экран со списком друзей
-final class FriendTestViewController: UIViewController {
+final class MyFriendViewController: UIViewController {
     
     // MARK: - Private Constants
     private enum Constants {
@@ -44,9 +44,9 @@ final class FriendTestViewController: UIViewController {
     }
 }
 
-// MARK: - UITableViewDelegate, UITableViewDataSource
+// MARK: - UITableViewDataSource
 
-extension FriendTestViewController: UITableViewDelegate, UITableViewDataSource {
+extension MyFriendViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return apiFriends.count
     }
@@ -56,7 +56,6 @@ extension FriendTestViewController: UITableViewDelegate, UITableViewDataSource {
                                                  for: indexPath)
         DispatchQueue.main.async {
         cell.textLabel?.text = "\(self.apiFriends[indexPath.row].firstName) \(self.apiFriends[indexPath.row].lastName)"
-
         }
         return cell
     }

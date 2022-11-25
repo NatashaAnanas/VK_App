@@ -1,9 +1,5 @@
-//
-//  Photo.swift
-//  VK_App
-//
-//  Created by Анастасия Козлова on 24.11.2022.
-//
+// PhotoResult.swift
+// Copyright © RoadMap. All rights reserved.
 
 import RealmSwift
 
@@ -15,7 +11,7 @@ struct PhotoResult: Decodable {
 /// Средний уровень JSON
 struct PhotoResponse: Codable {
     let photos: [Photo]
-    
+
     enum CodingKeys: String, CodingKey {
         case photos = "items"
     }
@@ -27,6 +23,6 @@ struct Photo: Codable {
 }
 
 /// URL фото
- final class Sizes: Object, Codable {
-     @Persisted var url: String
- }
+final class Sizes: Object, Codable {
+    @Persisted var url: String
+}

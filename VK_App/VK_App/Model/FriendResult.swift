@@ -1,9 +1,5 @@
-//
-//  Friend.swift
-//  VK_App
-//
-//  Created by Анастасия Козлова on 23.11.2022.
-//
+// FriendResult.swift
+// Copyright © RoadMap. All rights reserved.
 
 import RealmSwift
 
@@ -15,7 +11,7 @@ struct FriendResult: Decodable {
 /// Средний уровень JSON
 struct Response: Codable {
     let friends: [Friend]
-    
+
     enum CodingKeys: String, CodingKey {
         case friends = "items"
     }
@@ -25,7 +21,7 @@ struct Response: Codable {
 final class Friend: Object, Codable {
     @Persisted var firstName: String
     @Persisted var lastName: String
-    
+
     private enum CodingKeys: String, CodingKey {
         case firstName = "first_name"
         case lastName = "last_name"

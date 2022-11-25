@@ -52,15 +52,15 @@ final class FriendsViewController: UIViewController {
     }
 
     // MARK: - Private Methods
-    
+
     private func fetchFriends() {
         networkService.fetchFriends { [weak self] result in
             switch result {
-            case .success(let friend):
+            case let .success(friend):
                 self?.apiFriends = friend.response.friends
                 self?.friendTableView.reloadData()
-            case .failure(let error):
-               print(error.localizedDescription)
+            case let .failure(error):
+                print(error.localizedDescription)
             }
         }
     }

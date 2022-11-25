@@ -28,7 +28,7 @@ final class PhotoAlbumViewController: UIViewController {
         super.viewDidLoad()
         updatePhoto()
     }
-    
+
     // MARK: - Private Methods
 
     private func updatePhoto() {

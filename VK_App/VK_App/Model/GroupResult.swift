@@ -1,9 +1,5 @@
-//
-//  GroupMo.swift
-//  VK_App
-//
-//  Created by Анастасия Козлова on 24.11.2022.
-//
+// GroupResult.swift
+// Copyright © RoadMap. All rights reserved.
 
 import RealmSwift
 
@@ -15,7 +11,7 @@ struct GroupResult: Decodable {
 /// Средний уровень JSON
 struct GroupResponse: Codable {
     let group: [Groups]
-    
+
     enum CodingKeys: String, CodingKey {
         case group = "items"
     }
@@ -25,7 +21,7 @@ struct GroupResponse: Codable {
 final class Groups: Object, Codable {
     @Persisted var nameGroup: String
     @Persisted var urlPhoto: String
-    
+
     private enum CodingKeys: String, CodingKey {
         case nameGroup = "name"
         case urlPhoto = "photo_100"

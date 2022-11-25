@@ -41,7 +41,6 @@ struct NetworkService {
     
     func fetchGroups(group: String, completion: @escaping (Result<GroupResult, Error>) -> ()) {
         let path = "\(Constants.groupsFirstUrlText)\(group)\(Constants.versionText)"
-        
         fetchData(urlPath: path, completion: completion)
     }
     
@@ -50,7 +49,6 @@ struct NetworkService {
     private func fetchData<T: Decodable>(urlPath: String, completion: @escaping (Result<T, Error>) -> ()) {
         let url = "\(Constants.baseURL)\(urlPath)"
         AF.request(url).responseJSON { response in
-            
             guard let data = response.data else { return }
             do {
                 let result = try JSONDecoder().decode(T.self, from: data)

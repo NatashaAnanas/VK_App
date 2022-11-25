@@ -55,10 +55,8 @@ extension FriendTestViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.friendTestID,
                                                  for: indexPath)
         DispatchQueue.main.async {
-            cell.textLabel?.text = """
-            \(self.apiFriends[indexPath.row].firstName)
-            \(self.apiFriends[indexPath.row].lastName)
-            """
+        cell.textLabel?.text = "\(self.apiFriends[indexPath.row].firstName) \(self.apiFriends[indexPath.row].lastName)"
+
         }
         return cell
     }

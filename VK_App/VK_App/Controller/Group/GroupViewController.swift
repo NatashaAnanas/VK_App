@@ -37,7 +37,7 @@ final class GroupViewController: UIViewController {
     
     // MARK: - Private Methods
     private func fetchGroups() {
-        networkService.fetchGroups(group: Constants.itAnanasGroupText) { result in
+        networkService.fetchGroups(group: Constants.itAnanasGroupText) { [weak self] result in
             switch result {
             case .success(let groups):
                 self.apiGroup = groups.response.group
@@ -66,9 +66,9 @@ final class GroupViewController: UIViewController {
     }
 }
 
-// MARK: - UITableViewDelegate, UITableViewDataSource
+// MARK: - UITableViewDataSource
 
-extension GroupViewController: UITableViewDelegate, UITableViewDataSource {
+extension GroupViewController: UITableViewDataSource {
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
         apiGroup.count
     }

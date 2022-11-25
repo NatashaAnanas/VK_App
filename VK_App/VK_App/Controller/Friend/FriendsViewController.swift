@@ -85,7 +85,7 @@ final class FriendsViewController: UIViewController {
 
 // MARK: - UITableViewDelegate, UITableViewDataSource
 
-extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
+extension FriendsViewController: UITableViewDataSource {
     func numberOfSections(in _: UITableView) -> Int {
         filteredFriendsMap.count + 2
     }

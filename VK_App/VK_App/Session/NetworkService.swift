@@ -15,49 +15,47 @@ struct NetworkService {
         static let getFriendText = "friends.get"
         static let getUserPhotoText = "photos.getAll"
         static let getGroupsText = "groups.get"
-        static let getSearchGroupRequestText = "groups.search"
+        static let getSearchGroupText = "groups.search"
         static let searchQueryText = "&q="
         static let versionText = "&v=5.81"
+        static let friendsUrlText = """
+        \(Constants.getFriendText)\(Constants.tokenText)\(Constants.friendFieldsText)\(Constants.versionText)
+        """
+        static let groupsFirstUrlText = """
+        \(Constants.getSearchGroupText)\(Constants.tokenText)\(Constants.friendFieldsText)\(Constants.searchQueryText)
+        """
+        static let photosUrlText = """
+        \(Constants.getUserPhotoText)\(Constants.tokenText)\(Constants.friendFieldsText)\(Constants.versionText)
+        """
     }
 
     // MARK: - Public Methods
 
-    func sendRequest(path: String) {
-        let url = "\(Constants.baseURL)\(path)"
+    func fetchFriends(completion: @escaping (Result<FriendResult, Error>) -> ()) {
+        fetchData(urlPath: Constants.friendsUrlText, completion: completion)
+    }
+
+    func fetchUserPhotos(completion: @escaping (Result<PhotoResult, Error>) -> ()) {
+        fetchData(urlPath: Constants.photosUrlText, completion: completion)
+    }
+
+    func fetchGroups(group: String, completion: @escaping (Result<GroupResult, Error>) -> ()) {
+        let path = "\(Constants.groupsFirstUrlText)\(group)\(Constants.versionText)"
+        fetchData(urlPath: path, completion: completion)
+    }
+
+    // MARK: - Private Methods
+
+    private func fetchData<T: Decodable>(urlPath: String, completion: @escaping (Result<T, Error>) -> ()) {
+        let url = "\(Constants.baseURL)\(urlPath)"
         AF.request(url).responseJSON { response in
-            guard let value = response.value else { return }
-            print(value)
+            guard let data = response.data else { return }
+            do {
+                let result = try JSONDecoder().decode(T.self, from: data)
+                completion(.success(result))
+            } catch {
+                completion(.failure(error))
+            }
         }
-    }
-
-    func fetchFriends() {
-        let path =
-            """
-            \(Constants.getFriendText)\(Constants.tokenText)\(Constants.friendFieldsText)\(Constants.versionText)
-            """
-        sendRequest(path: path)
-    }
-
-    func fetchUserPhotos() {
-        let path =
-            """
-            \(Constants.getUserPhotoText)\(Constants.tokenText)\(Constants.friendFieldsText)\(Constants.versionText)
-            """
-        sendRequest(path: path)
-    }
-
-    func fetchGroups() {
-        let path = """
-        \(Constants.getGroupsText)\(Constants.tokenText)\(Constants.friendFieldsText)\(Constants.versionText)
-        """
-        sendRequest(path: path)
-    }
-
-    func fetchGroups(group: String) {
-        
-        let firstPath = "\(Constants.getSearchGroupRequestText)\(Constants.tokenText)\(Constants.friendFieldsText)"
-        let secondPath = "\(Constants.searchQueryText)\(group)\(Constants.versionText)"
-        let path = "\(firstPath)\(secondPath)"
-        sendRequest(path: path)
     }
 }

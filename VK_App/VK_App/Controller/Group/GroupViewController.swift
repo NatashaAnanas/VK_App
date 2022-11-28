@@ -26,17 +26,29 @@ final class GroupViewController: UIViewController {
     private let networkService = NetworkService()
     private var group = Group()
 
+    private var apiGroup: [Groups] = []
+
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchGroups()
     }
-    
+
     // MARK: - Private Methods
+
     private func fetchGroups() {
-        networkService.fetchGroups()
-        networkService.fetchGroups(group: Constants.itAnanasGroupText)
+        networkService.fetchGroups(group: Constants.itAnanasGroupText) { [weak self] result in
+            switch result {
+            case let .success(groups):
+                self?.apiGroup = groups.response.group
+                DispatchQueue.main.async {
+                    self?.groupTableView.reloadData()
+                }
+            case let .failure(error):
+                print(error.localizedDescription)
+            }
+        }
     }
 
     // MARK: - Private @IBAction
@@ -55,11 +67,11 @@ final class GroupViewController: UIViewController {
     }
 }
 
-// MARK: - UITableViewDelegate, UITableViewDataSource
+// MARK: - UITableViewDataSource
 
-extension GroupViewController: UITableViewDelegate, UITableViewDataSource {
+extension GroupViewController: UITableViewDataSource {
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-        group.names.count
+        apiGroup.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -69,10 +81,10 @@ extension GroupViewController: UITableViewDelegate, UITableViewDataSource {
         ) as? GroupTableViewCell else { return UITableViewCell() }
 
         cell.selectionStyle = .none
-        let groupName = group.names[indexPath.row]
-        let imageName = group.imageNames[indexPath.row]
-        let status = group.statuses[indexPath.row]
-        cell.configure(groupName: groupName, imageName: imageName, status: status)
+        let groupName = apiGroup[indexPath.row].nameGroup
+        guard let imageURL = URL(string: apiGroup[indexPath.row].urlPhoto)
+        else { return UITableViewCell() }
+        cell.configure(groupName: groupName, imageURL: imageURL)
         return cell
     }
 

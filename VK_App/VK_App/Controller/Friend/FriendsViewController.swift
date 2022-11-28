@@ -40,6 +40,7 @@ final class FriendsViewController: UIViewController {
     private var filteredFriendsMap: InfoMap = [:]
     private var sectionTitels: [Character] = []
     private var imageNumber = Int()
+    private var apiFriends: [Friend] = []
 
     // MARK: - Life Cycle
 
@@ -47,11 +48,22 @@ final class FriendsViewController: UIViewController {
         super.viewDidLoad()
         createNameSection()
         setUpSearchBarDelegate()
-        
-        networkService.fetchFriends()
+        fetchFriends()
     }
 
     // MARK: - Private Methods
+
+    private func fetchFriends() {
+        networkService.fetchFriends { [weak self] result in
+            switch result {
+            case let .success(friend):
+                self?.apiFriends = friend.response.friends
+                self?.friendTableView.reloadData()
+            case let .failure(error):
+                print(error.localizedDescription)
+            }
+        }
+    }
 
     private func setUpSearchBarDelegate() {
         friendSearchBar.delegate = self
@@ -87,7 +99,7 @@ final class FriendsViewController: UIViewController {
 
 // MARK: - UITableViewDelegate, UITableViewDataSource
 
-extension FriendsViewController: UITableViewDelegate, UITableViewDataSource {
+extension FriendsViewController: UITableViewDataSource {
     func numberOfSections(in _: UITableView) -> Int {
         filteredFriendsMap.count + 2
     }

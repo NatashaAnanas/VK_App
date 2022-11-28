@@ -1,6 +1,7 @@
 // GroupTableViewCell.swift
 // Copyright © RoadMap. All rights reserved.
 
+import SDWebImage
 import UIKit
 
 /// Ячейка c группой
@@ -13,9 +14,8 @@ final class GroupTableViewCell: UITableViewCell {
 
     // MARK: - Public methods
 
-    func configure(groupName: String, imageName: String, status: String) {
-        groupImageView.image = UIImage(named: imageName)
-        statusLabel.text = status
+    func configure(groupName: String, imageURL: URL) {
+        groupImageView.sd_setImage(with: imageURL)
         nameGroupLabel.text = groupName
     }
 }

@@ -40,7 +40,7 @@ final class FriendsViewController: UIViewController {
     private var filteredFriendsMap: InfoMap = [:]
     private var sectionTitels: [Character] = []
     private var imageNumber = Int()
-    private var apiFriends: [Friend] = []
+    private var friends: [Friend] = []
 
     // MARK: - Life Cycle
 
@@ -57,10 +57,10 @@ final class FriendsViewController: UIViewController {
         networkService.fetchFriends { [weak self] result in
             switch result {
             case let .success(friend):
-                self?.apiFriends = friend.response.friends
+                self?.friends = friend.response.friends
                 self?.friendTableView.reloadData()
             case let .failure(error):
-                print(error.localizedDescription)
+                error.localizedDescription
             }
         }
     }

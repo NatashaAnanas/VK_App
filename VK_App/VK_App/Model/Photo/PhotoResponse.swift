@@ -7,7 +7,7 @@
 
 import RealmSwift
 
-/// Средний уровень JSON
+/// Средний уровень JSON PhotoResponse
 struct PhotoResponse: Codable {
     let photos: [Photo]
 

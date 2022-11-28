@@ -37,7 +37,7 @@ final class MyFriendViewController: UIViewController {
                 self?.friends = friend.response.friends
                 self?.friendTableView.reloadData()
             case let .failure(error):
-                print(error.localizedDescription)
+                error.localizedDescription
             }
         }
     }

@@ -26,7 +26,7 @@ final class GroupViewController: UIViewController {
     private let networkService = NetworkService()
     private var group = Group()
 
-    private var apiGroup: [Groups] = []
+    private var groups: [Groups] = []
 
     // MARK: - Life Cycle
 
@@ -41,12 +41,12 @@ final class GroupViewController: UIViewController {
         networkService.fetchGroups(group: Constants.itAnanasGroupText) { [weak self] result in
             switch result {
             case let .success(groups):
-                self?.apiGroup = groups.response.group
+                self?.groups = groups.response.group
                 DispatchQueue.main.async {
                     self?.groupTableView.reloadData()
                 }
             case let .failure(error):
-                print(error.localizedDescription)
+                error.localizedDescription
             }
         }
     }
@@ -71,7 +71,7 @@ final class GroupViewController: UIViewController {
 
 extension GroupViewController: UITableViewDataSource {
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-        apiGroup.count
+        groups.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -81,8 +81,8 @@ extension GroupViewController: UITableViewDataSource {
         ) as? GroupTableViewCell else { return UITableViewCell() }
 
         cell.selectionStyle = .none
-        let groupName = apiGroup[indexPath.row].nameGroup
-        guard let imageURL = URL(string: apiGroup[indexPath.row].urlPhoto)
+        let groupName = groups[indexPath.row].nameGroup
+        guard let imageURL = URL(string: groups[indexPath.row].urlPhoto)
         else { return UITableViewCell() }
         cell.configure(groupName: groupName, imageURL: imageURL)
         return cell

@@ -7,7 +7,7 @@
 
 import RealmSwift
 
-/// Средний уровень JSON
+/// Средний уровень JSON GroupResponse
 struct GroupResponse: Codable {
     let group: [Groups]
 

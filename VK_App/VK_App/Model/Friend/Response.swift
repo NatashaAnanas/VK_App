@@ -7,7 +7,7 @@
 
 import RealmSwift
 
-/// Средний уровень JSON
+/// Средний уровень JSON Response
 struct Response: Codable {
     let friends: [Friend]
 

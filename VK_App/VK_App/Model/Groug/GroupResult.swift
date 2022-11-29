@@ -3,7 +3,7 @@
 
 import RealmSwift
 
-/// Верхний уровень JSON
+/// Верхний уровень JSON GroupResult
 struct GroupResult: Decodable {
     let response: GroupResponse
 }

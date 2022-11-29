@@ -3,7 +3,7 @@
 
 import RealmSwift
 
-/// Верхний уровень JSON
+/// Верхний уровень JSON PhotoResult
 struct PhotoResult: Decodable {
     let response: PhotoResponse
 }

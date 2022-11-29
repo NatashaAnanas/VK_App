@@ -7,7 +7,7 @@
 
 import RealmSwift
 
-/// Информация о фото
+/// Информация о фото Photo
 struct Photo: Codable {
     let sizes: [Sizes]
 }

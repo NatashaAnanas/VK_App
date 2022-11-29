@@ -9,5 +9,9 @@ import RealmSwift
 
 /// URL фото
 final class Sizes: Object, Codable {
-    @Persisted var url: String
+    @objc dynamic var url: String
+    
+    override class func primaryKey() -> String? {
+        return "url"
+    }
 }

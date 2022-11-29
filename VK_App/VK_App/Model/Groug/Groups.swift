@@ -8,12 +8,19 @@
 import RealmSwift
 
 /// Информация о группе
+@objcMembers
 final class Groups: Object, Codable {
-    @Persisted var nameGroup: String
-    @Persisted var urlPhoto: String
-
+    dynamic var id: Int
+    dynamic var nameGroup: String
+    dynamic var urlPhoto: String
+    
     private enum CodingKeys: String, CodingKey {
+        case id
         case nameGroup = "name"
         case urlPhoto = "photo_100"
+    }
+    
+    override class func primaryKey() -> String? {
+        return "id"
     }
 }

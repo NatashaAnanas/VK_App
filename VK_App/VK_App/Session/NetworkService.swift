@@ -28,8 +28,6 @@ struct NetworkService {
         \(Constants.getUserPhotoText)\(Constants.tokenText)\(Constants.friendFieldsText)\(Constants.versionText)
         """
     }
-    
-    private weak var realmService: RealmService?
 
     // MARK: - Public Methods
 

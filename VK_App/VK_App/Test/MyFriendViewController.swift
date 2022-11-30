@@ -45,7 +45,7 @@ final class MyFriendViewController: UIViewController {
                 fetchFriends()
             }
         } catch {
-            print(error)
+            presentAlert(title: Constants.errorText, message: error.localizedDescription)
         }
     }
     
@@ -63,14 +63,15 @@ final class MyFriendViewController: UIViewController {
     
     private func addUserToken(result: Results<Friend>) {
         friendsToken = result.observe { [weak self] change in
+            guard let self = self else { return }
             switch change {
             case .initial:
                 break
             case .update:
-                self?.friends = Array(result)
-                self?.friendTableView.reloadData()
+                self.friends = Array(result)
+                self.friendTableView.reloadData()
             case .error(let error):
-                self?.presentAlert(title: Constants.errorText, message: error.localizedDescription)
+                self.presentAlert(title: Constants.errorText, message: error.localizedDescription)
             }
         }
     }

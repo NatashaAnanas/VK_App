@@ -5,11 +5,15 @@
 //  Created by Анастасия Козлова on 28.11.2022.
 //
 
-import Foundation
 import RealmSwift
 
 /// Работа с методами БД
 final class RealmService {
+    
+    // MARK: - Private Constants
+    private enum Constants {
+        static let errorText = "Error"
+    }
     
     // MARK: - Public Methods
     func saveToRealm<T: Object>(object: [T]) {

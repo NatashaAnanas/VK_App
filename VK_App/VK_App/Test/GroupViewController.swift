@@ -49,19 +49,20 @@ final class GroupViewController: UIViewController {
                 fetchGroups()
             }
         } catch {
-            print(error)
+            presentAlert(title: Constants.errorText, message: error.localizedDescription)
         }
     }
     
     private func fetchGroups() {
         networkService.fetchGroups(group: Constants.itAnanasGroupText) { [weak self] result in
+            guard let self = self else { return }
             switch result {
             case let .success(groups):
-                self?.groups = groups.response.group
-                self?.realmService.saveToRealm(object: groups.response.group)
-                self?.groupTableView.reloadData()
+                self.groups = groups.response.group
+                self.realmService.saveToRealm(object: groups.response.group)
+                self.groupTableView.reloadData()
             case let .failure(error):
-                self?.presentAlert(title: Constants.errorText, message: error.localizedDescription)
+                self.presentAlert(title: Constants.errorText, message: error.localizedDescription)
             }
         }
     }

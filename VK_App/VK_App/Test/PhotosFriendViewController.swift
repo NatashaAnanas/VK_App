@@ -44,7 +44,7 @@ final class PhotosFriendViewController: UIViewController {
                 fetchPhotos()
             }
         } catch {
-            print(error)
+            presentAlert(title: Constants.errorText, message: error.localizedDescription)
         }
     }
     
@@ -71,13 +71,13 @@ extension PhotosFriendViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         guard let cell = tableView.dequeueReusableCell(
             withIdentifier: Constants.photoTestID,
             for: indexPath
-        ) as? PhotoFriendsTableViewCell
+        ) as? PhotoFriendsTableViewCell,
+              let imageURL = URL(string: sizes[indexPath.row].url)
         else { return UITableViewCell() }
-        
-        guard let imageURL = URL(string: sizes[indexPath.row].url) else { return UITableViewCell() }
         
         DispatchQueue.main.async {
             cell.configure(imageURL: imageURL)

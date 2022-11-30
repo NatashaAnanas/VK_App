@@ -7,33 +7,33 @@ import UIKit
 
 /// Экран с фотографиями пользователя
 final class PhotosFriendViewController: UIViewController {
-    
     // MARK: - Private @IBOutlet
+
     @IBOutlet private var photoTableView: UITableView!
-    
+
     // MARK: - Private Constants
-    
+
     private enum Constants {
         static let photoTestID = "photoFriends"
         static let errorText = "Error"
     }
-    
+
     // MARK: - Private Properies
-    
+
     private let networkService = NetworkService()
     private let realmService = RealmService()
     private var photos: [Photo] = []
     private var sizes: [Sizes] = []
-    
+
     // MARK: - Life Cycle
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         loadPhotoToRealm()
     }
-    
+
     // MARK: - Private Methods
-    
+
     private func loadPhotoToRealm() {
         do {
             let realm = try Realm()
@@ -47,7 +47,7 @@ final class PhotosFriendViewController: UIViewController {
             presentAlert(title: Constants.errorText, message: error.localizedDescription)
         }
     }
-    
+
     private func fetchPhotos() {
         networkService.fetchUserPhotos { [weak self] result in
             guard let self = self else { return }
@@ -69,16 +69,15 @@ extension PhotosFriendViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         sizes.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         guard let cell = tableView.dequeueReusableCell(
             withIdentifier: Constants.photoTestID,
             for: indexPath
         ) as? PhotoFriendsTableViewCell,
-              let imageURL = URL(string: sizes[indexPath.row].url)
+            let imageURL = URL(string: sizes[indexPath.row].url)
         else { return UITableViewCell() }
-        
+
         DispatchQueue.main.async {
             cell.configure(imageURL: imageURL)
         }

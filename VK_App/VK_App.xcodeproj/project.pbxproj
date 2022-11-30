@@ -363,8 +363,8 @@
 				41549B7D2910053200F8331A /* Frameworks */,
 				41549B7E2910053200F8331A /* Resources */,
 				41549B972910054C00F8331A /* SwiftLint */,
-				46A34D2FD730CA5AE4BFD39F /* [CP] Embed Pods Frameworks */,
 				41549B982910059E00F8331A /* SwiftFormat */,
+				46A34D2FD730CA5AE4BFD39F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);

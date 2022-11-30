@@ -1,9 +1,5 @@
-//
-//  Friend.swift
-//  VK_App
-//
-//  Created by Анастасия Козлова on 25.11.2022.
-//
+// Friend.swift
+// Copyright © RoadMap. All rights reserved.
 
 import RealmSwift
 
@@ -19,8 +15,8 @@ final class Friend: Object, Codable {
         case firstName = "first_name"
         case lastName = "last_name"
     }
-    
+
     override class func primaryKey() -> String? {
-        return "id"
+        "id"
     }
 }

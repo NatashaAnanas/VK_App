@@ -38,7 +38,7 @@ final class GroupViewController: UIViewController {
     }
 
     // MARK: - Private Methods
-    
+
     private func loadFriendsToRealm() {
         do {
             let realm = try Realm()
@@ -52,7 +52,7 @@ final class GroupViewController: UIViewController {
             presentAlert(title: Constants.errorText, message: error.localizedDescription)
         }
     }
-    
+
     private func fetchGroups() {
         networkService.fetchGroups(group: Constants.itAnanasGroupText) { [weak self] result in
             guard let self = self else { return }
@@ -66,9 +66,9 @@ final class GroupViewController: UIViewController {
             }
         }
     }
-    
+
     // MARK: - Private @IBAction
-    
+
     @IBAction private func addGroupAction(_ sender: Any) {
         showAlert(
             title: Constants.addGroupNameText,

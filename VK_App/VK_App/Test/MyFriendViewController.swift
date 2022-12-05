@@ -45,7 +45,7 @@ final class MyFriendViewController: UIViewController {
                 fetchFriends()
             }
         } catch {
-            presentAlert(title: Constants.errorText, message: error.localizedDescription)
+            showAlert(title: Constants.errorText, message: error.localizedDescription)
         }
     }
 
@@ -56,7 +56,7 @@ final class MyFriendViewController: UIViewController {
             case let .success(friend):
                 self.realmService.saveToRealm(object: friend.response.friends)
             case let .failure(error):
-                self.presentAlert(title: Constants.errorText, message: error.localizedDescription)
+                self.showAlert(title: Constants.errorText, message: error.localizedDescription)
             }
         }
     }
@@ -71,7 +71,7 @@ final class MyFriendViewController: UIViewController {
                 self.friends = Array(result)
                 self.friendTableView.reloadData()
             case let .error(error):
-                self.presentAlert(title: Constants.errorText, message: error.localizedDescription)
+                self.showAlert(title: Constants.errorText, message: error.localizedDescription)
             }
         }
     }

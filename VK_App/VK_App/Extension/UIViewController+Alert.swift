@@ -11,9 +11,9 @@ private enum Constants {
 extension UIViewController {
     // MARK: - Public Methods
 
-    func presentAlert(title: String, message: String?) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: Constants.actionTitleText, style: .default))
-        present(alert, animated: true)
+    func showAlert(title: String, message: String?) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: Constants.actionTitleText, style: .default))
+        present(alertController, animated: true)
     }
 }

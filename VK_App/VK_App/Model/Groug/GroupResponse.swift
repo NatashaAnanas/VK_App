@@ -5,9 +5,9 @@ import RealmSwift
 
 /// Средний уровень JSON GroupResponse
 struct GroupResponse: Codable {
-    let group: [Groups]
+    let groups: [Groups]
 
     enum CodingKeys: String, CodingKey {
-        case group = "items"
+        case groups = "items"
     }
 }

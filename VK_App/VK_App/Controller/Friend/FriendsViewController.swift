@@ -61,7 +61,7 @@ final class FriendsViewController: UIViewController {
                 self?.apiFriends = friend.response.friends
                 self?.friendTableView.reloadData()
             case let .failure(error):
-                self?.presentAlert(title: Constants.errorText, message: error.localizedDescription)
+                self?.showAlert(title: Constants.errorText, message: error.localizedDescription)
             }
         }
     }

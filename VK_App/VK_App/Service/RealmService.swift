@@ -3,7 +3,7 @@
 
 import RealmSwift
 
-/// Работа с методами БД
+/// Раалм сервис
 final class RealmService {
     // MARK: - Private Constants
 

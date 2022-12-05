@@ -44,7 +44,7 @@ final class PhotosFriendViewController: UIViewController {
                 fetchPhotos()
             }
         } catch {
-            presentAlert(title: Constants.errorText, message: error.localizedDescription)
+            showAlert(title: Constants.errorText, message: error.localizedDescription)
         }
     }
 
@@ -57,7 +57,7 @@ final class PhotosFriendViewController: UIViewController {
                 self.realmService.saveToRealm(object: photo.response.photos[0].sizes)
                 self.photoTableView.reloadData()
             case let .failure(error):
-                self.presentAlert(title: Constants.errorText, message: error.localizedDescription)
+                self.showAlert(title: Constants.errorText, message: error.localizedDescription)
             }
         }
     }

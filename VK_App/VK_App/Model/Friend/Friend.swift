@@ -3,7 +3,7 @@
 
 import RealmSwift
 
-/// Информация о друзьях
+/// Друг
 @objcMembers
 final class Friend: Object, Codable {
     dynamic var id: Int

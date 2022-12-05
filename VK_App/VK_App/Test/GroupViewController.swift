@@ -49,7 +49,7 @@ final class GroupViewController: UIViewController {
                 fetchGroups()
             }
         } catch {
-            presentAlert(title: Constants.errorText, message: error.localizedDescription)
+            showAlert(title: Constants.errorText, message: error.localizedDescription)
         }
     }
 
@@ -58,11 +58,11 @@ final class GroupViewController: UIViewController {
             guard let self = self else { return }
             switch result {
             case let .success(groups):
-                self.groups = groups.response.group
-                self.realmService.saveToRealm(object: groups.response.group)
+                self.groups = groups.response.groups
+                self.realmService.saveToRealm(object: groups.response.groups)
                 self.groupTableView.reloadData()
             case let .failure(error):
-                self.presentAlert(title: Constants.errorText, message: error.localizedDescription)
+                self.showAlert(title: Constants.errorText, message: error.localizedDescription)
             }
         }
     }
@@ -97,7 +97,7 @@ extension GroupViewController: UITableViewDataSource {
         ) as? GroupTableViewCell else { return UITableViewCell() }
 
         cell.selectionStyle = .none
-        let groupName = groups[indexPath.row].nameGroup
+        let groupName = groups[indexPath.row].groupName
         guard let imageURL = URL(string: groups[indexPath.row].urlPhoto)
         else { return UITableViewCell() }
         cell.configure(groupName: groupName, imageURL: imageURL)

@@ -3,16 +3,16 @@
 
 import RealmSwift
 
-/// Информация о группе
+/// Информация о группах
 @objcMembers
 final class Groups: Object, Codable {
     dynamic var id: Int
-    dynamic var nameGroup: String
+    dynamic var groupName: String
     dynamic var urlPhoto: String
 
     private enum CodingKeys: String, CodingKey {
         case id
-        case nameGroup = "name"
+        case groupName = "name"
         case urlPhoto = "photo_100"
     }
 

@@ -33,6 +33,8 @@
 		4171CC43292CBDB800AC007A /* WKWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4171CC42292CBDB800AC007A /* WKWebViewController.swift */; };
 		4171CC45292CF2B200AC007A /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4171CC44292CF2B100AC007A /* NetworkService.swift */; };
 		4178505B292B9D29006EF2E2 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4178505A292B9D29006EF2E2 /* Session.swift */; };
+		41C1CB0A2935272D00123FF9 /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C1CB092935272D00123FF9 /* RealmService.swift */; };
+		41C1CB0C2936496500123FF9 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41C1CB0B2936496500123FF9 /* UIViewController+Alert.swift */; };
 		41DF863D291DAF0D00C536F5 /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DF863C291DAF0C00C536F5 /* CustomNavigationController.swift */; };
 		41DF863F291DB11400C536F5 /* CustomPushAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DF863E291DB11400C536F5 /* CustomPushAnimation.swift */; };
 		41DF8641291DB71700C536F5 /* CustomPopAninator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41DF8640291DB71700C536F5 /* CustomPopAninator.swift */; };
@@ -87,6 +89,8 @@
 		4171CC42292CBDB800AC007A /* WKWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKWebViewController.swift; sourceTree = "<group>"; };
 		4171CC44292CF2B100AC007A /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		4178505A292B9D29006EF2E2 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		41C1CB092935272D00123FF9 /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
+		41C1CB0B2936496500123FF9 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		41DF863C291DAF0C00C536F5 /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		41DF863E291DB11400C536F5 /* CustomPushAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPushAnimation.swift; sourceTree = "<group>"; };
 		41DF8640291DB71700C536F5 /* CustomPopAninator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopAninator.swift; sourceTree = "<group>"; };
@@ -131,6 +135,7 @@
 			children = (
 				414F76F1292F564600299949 /* MyFriendViewController.swift */,
 				417048812930B00300A77289 /* PhotosFriendViewController.swift */,
+				41549BA42911502100F8331A /* GroupViewController.swift */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -158,9 +163,10 @@
 		41549B822910053200F8331A /* VK_App */ = {
 			isa = PBXGroup;
 			children = (
+				41785059292B9D03006EF2E2 /* Session */,
+				41C1CB08293526F000123FF9 /* Service */,
 				414F62FC292ECFF700596584 /* Test */,
 				41EFA5BE292E1954003C0D1F /* Model */,
-				41785059292B9D03006EF2E2 /* Session */,
 				41E251812913B48F006690F8 /* Extension */,
 				41E25176291290AF006690F8 /* View */,
 				41E2517029128C1C006690F8 /* ModelInfo */,
@@ -237,11 +243,18 @@
 			path = Session;
 			sourceTree = "<group>";
 		};
+		41C1CB08293526F000123FF9 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				41C1CB092935272D00123FF9 /* RealmService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		41DF8638291DAEA300C536F5 /* Group */ = {
 			isa = PBXGroup;
 			children = (
 				41549BA62911512A00F8331A /* NewGroupViewController.swift */,
-				41549BA42911502100F8331A /* GroupViewController.swift */,
 			);
 			path = Group;
 			sourceTree = "<group>";
@@ -306,6 +319,7 @@
 			isa = PBXGroup;
 			children = (
 				41E2517F2913B488006690F8 /* UIViewController+Extension.swift */,
+				41C1CB0B2936496500123FF9 /* UIViewController+Alert.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -349,8 +363,8 @@
 				41549B7D2910053200F8331A /* Frameworks */,
 				41549B7E2910053200F8331A /* Resources */,
 				41549B972910054C00F8331A /* SwiftLint */,
-				46A34D2FD730CA5AE4BFD39F /* [CP] Embed Pods Frameworks */,
 				41549B982910059E00F8331A /* SwiftFormat */,
+				46A34D2FD730CA5AE4BFD39F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -496,6 +510,7 @@
 				4178505B292B9D29006EF2E2 /* Session.swift in Sources */,
 				417048822930B00300A77289 /* PhotosFriendViewController.swift in Sources */,
 				4171CC45292CF2B200AC007A /* NetworkService.swift in Sources */,
+				41C1CB0A2935272D00123FF9 /* RealmService.swift in Sources */,
 				41E2517329128C50006690F8 /* User.swift in Sources */,
 				41E25186291449C9006690F8 /* LikeControl.swift in Sources */,
 				4158484B2930D7870061BD19 /* Sizes.swift in Sources */,
@@ -526,6 +541,7 @@
 				4158484D2930D8690061BD19 /* GroupResponse.swift in Sources */,
 				41549B862910053200F8331A /* SceneDelegate.swift in Sources */,
 				414F76F2292F564700299949 /* MyFriendViewController.swift in Sources */,
+				41C1CB0C2936496500123FF9 /* UIViewController+Alert.swift in Sources */,
 				415848412930D6AA0061BD19 /* Response.swift in Sources */,
 				4158484F2930D8870061BD19 /* Groups.swift in Sources */,
 				4170488029301D6800A77289 /* PhotoFriendsTableViewCell.swift in Sources */,

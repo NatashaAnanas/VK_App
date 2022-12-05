@@ -1,13 +1,13 @@
-//
-//  Sizes.swift
-//  VK_App
-//
-//  Created by Анастасия Козлова on 25.11.2022.
-//
+// Sizes.swift
+// Copyright © RoadMap. All rights reserved.
 
 import RealmSwift
 
 /// URL фото
 final class Sizes: Object, Codable {
-    @Persisted var url: String
+    @objc dynamic var url: String
+
+    override class func primaryKey() -> String? {
+        "url"
+    }
 }

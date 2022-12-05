@@ -1,6 +1,7 @@
 // GroupViewController.swift
 // Copyright © RoadMap. All rights reserved.
 
+import RealmSwift
 import UIKit
 
 /// Экран с группами
@@ -15,6 +16,7 @@ final class GroupViewController: UIViewController {
         static let changeNameText = "Название можно будет изменить в настройках"
         static let emptyString = ""
         static let iconName = "иконка"
+        static let errorText = "Error"
     }
 
     // MARK: - Private @IBOutlet
@@ -24,29 +26,43 @@ final class GroupViewController: UIViewController {
     // MARK: - Private Property
 
     private let networkService = NetworkService()
+    private let realmService = RealmService()
     private var group = Group()
-
-    private var apiGroup: [Groups] = []
+    private var groups: [Groups] = []
 
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchGroups()
+        loadFriendsToRealm()
     }
 
     // MARK: - Private Methods
 
+    private func loadFriendsToRealm() {
+        do {
+            let realm = try Realm()
+            let group = Array(realm.objects(Groups.self))
+            if groups != group {
+                groups = group
+            } else {
+                fetchGroups()
+            }
+        } catch {
+            presentAlert(title: Constants.errorText, message: error.localizedDescription)
+        }
+    }
+
     private func fetchGroups() {
         networkService.fetchGroups(group: Constants.itAnanasGroupText) { [weak self] result in
+            guard let self = self else { return }
             switch result {
             case let .success(groups):
-                self?.apiGroup = groups.response.group
-                DispatchQueue.main.async {
-                    self?.groupTableView.reloadData()
-                }
+                self.groups = groups.response.group
+                self.realmService.saveToRealm(object: groups.response.group)
+                self.groupTableView.reloadData()
             case let .failure(error):
-                print(error.localizedDescription)
+                self.presentAlert(title: Constants.errorText, message: error.localizedDescription)
             }
         }
     }
@@ -71,7 +87,7 @@ final class GroupViewController: UIViewController {
 
 extension GroupViewController: UITableViewDataSource {
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-        apiGroup.count
+        groups.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -81,8 +97,8 @@ extension GroupViewController: UITableViewDataSource {
         ) as? GroupTableViewCell else { return UITableViewCell() }
 
         cell.selectionStyle = .none
-        let groupName = apiGroup[indexPath.row].nameGroup
-        guard let imageURL = URL(string: apiGroup[indexPath.row].urlPhoto)
+        let groupName = groups[indexPath.row].nameGroup
+        guard let imageURL = URL(string: groups[indexPath.row].urlPhoto)
         else { return UITableViewCell() }
         cell.configure(groupName: groupName, imageURL: imageURL)
         return cell

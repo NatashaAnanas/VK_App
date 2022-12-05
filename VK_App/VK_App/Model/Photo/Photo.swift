@@ -1,13 +1,9 @@
-//
-//  Photo.swift
-//  VK_App
-//
-//  Created by Анастасия Козлова on 25.11.2022.
-//
+// Photo.swift
+// Copyright © RoadMap. All rights reserved.
 
 import RealmSwift
 
-/// Информация о фото
+/// Информация о фото Photo
 struct Photo: Codable {
     let sizes: [Sizes]
 }

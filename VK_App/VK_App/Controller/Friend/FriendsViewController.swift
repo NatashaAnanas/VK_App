@@ -18,6 +18,7 @@ final class FriendsViewController: UIViewController {
         static let friendSegueText = "friendSegue"
         static let storyboardText = "Main"
         static let emptyString = ""
+        static let errorText = "Error"
         static let cellTypes: [CellTypes] = [.addFriend, .birthday, .alfa]
     }
 
@@ -60,7 +61,7 @@ final class FriendsViewController: UIViewController {
                 self?.apiFriends = friend.response.friends
                 self?.friendTableView.reloadData()
             case let .failure(error):
-                print(error.localizedDescription)
+                self?.presentAlert(title: Constants.errorText, message: error.localizedDescription)
             }
         }
     }

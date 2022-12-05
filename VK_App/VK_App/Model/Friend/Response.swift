@@ -1,13 +1,9 @@
-//
-//  PhotoResponse.swift
-//  VK_App
-//
-//  Created by Анастасия Козлова on 25.11.2022.
-//
+// Response.swift
+// Copyright © RoadMap. All rights reserved.
 
 import RealmSwift
 
-/// Средний уровень JSON
+/// Средний уровень JSON Response
 struct Response: Codable {
     let friends: [Friend]
 

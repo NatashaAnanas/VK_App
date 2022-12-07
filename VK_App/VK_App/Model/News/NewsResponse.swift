@@ -10,14 +10,14 @@ import Foundation
 /// Новости
 struct NewsResponse: Decodable {
     /// Новости
-    let news: [NewsFeed]
+    let newsFeed: [NewsFeed]
     /// Группы
     let groups: [Groups]
     /// Друзья
     let friends: [Friend]
 
     enum CodingKeys: String, CodingKey {
-        case news = "items"
+        case newsFeed = "items"
         case friends = "profiles"
         case groups
     }

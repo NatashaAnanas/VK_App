@@ -35,9 +35,9 @@ final class NewsViewController: UIViewController {
             guard let self = self else { return }
             switch result {
             case .success(let success):
-                self.fetchSome(response: success.response)
+                self.filterResponse(response: success.response)
                 DispatchQueue.main.async {
-                    self.newsFeeds = success.response.news
+                    self.newsFeeds = success.response.newsFeed
                     self.newsTableView.reloadData()
                 }
             case .failure(let failure):
@@ -46,8 +46,8 @@ final class NewsViewController: UIViewController {
         }
     }
     
-    private func fetchSome(response: NewsResponse) {
-        response.news.forEach { item in
+    private func filterResponse(response: NewsResponse) {
+        response.newsFeed.forEach { item in
             if item.sourceID < 0 {
                 guard let group = response.groups.filter({ group in
                     group.id == item.sourceID * -1

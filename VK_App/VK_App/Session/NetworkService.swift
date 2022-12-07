@@ -53,8 +53,24 @@ struct NetworkService {
         fetchData(urlPath: path, completion: completion)
     }
     
-    func fetchNewsN(completion: @escaping (Result<NewsResult, Error>) -> ()) {
-        fetchData(urlPath: Constants.newsUrlText, completion: completion)
+    func fetchNews(completion: @escaping (Result<NewsResult, Error>) -> ()) {
+        let parameters: Parameters = [
+            Constants.acessTokenParameterText: Session.instance.token,
+            Constants.filtersText: Constants.postText,
+            Constants.versionParameterText: Constants.versionValueText
+        ]
+        let path = "\(Constants.baseURL)\(Constants.getNewsText)"
+        
+        AF.request(path, parameters: parameters).responseData { response in
+            guard let data = response.data else { return }
+            do {
+                let request = try JSONDecoder().decode(NewsResult.self, from: data)
+                completion(.success(request))
+                
+            } catch {
+                completion(.failure(error))
+            }
+        }
     }
     
     // MARK: - Private Methods
@@ -71,24 +87,4 @@ struct NetworkService {
             }
         }
     }
-    
-    func fetchNews(completion: @escaping (Result<NewsResult, Error>) -> ()) {
-            let parameters: Parameters = [
-                Constants.acessTokenParameterText: Session.instance.token,
-                Constants.filtersText: Constants.postText,
-                Constants.versionParameterText: Constants.versionValueText
-            ]
-            let path = "\(Constants.baseURL)\(Constants.getNewsText)"
-
-            AF.request(path, parameters: parameters).responseData { response in
-                guard let data = response.data else { return }
-                do {
-                    let request = try JSONDecoder().decode(NewsResult.self, from: data)
-                    completion(.success(request))
-
-                } catch {
-                    completion(.failure(error))
-                }
-            }
-        }
 }

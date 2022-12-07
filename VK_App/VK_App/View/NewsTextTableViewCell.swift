@@ -9,7 +9,7 @@ import SDWebImage
 import UIKit
 
 /// Ячейка с текстовым контентом в разделе новости
-class NewsTextTableViewCell: UITableViewCell {
+final class NewsTextTableViewCell: UITableViewCell {
     
     // MARK: - Private constants
 

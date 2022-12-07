@@ -9,12 +9,17 @@ import Foundation
 
 /// Новость
 final class NewsFeed: Decodable {
+    
     var id: Int
     var sourceID: Int
+    /// Текстовый контент
     var text: String
-    var authorName: String?
-    var avatarPath: String?
+    /// Дата поста
     var date: Int
+    /// Имя автора поста
+    var authorName: String?
+    /// Фото автора поста
+    var avatarPath: String?
    
     enum CodingKeys: String, CodingKey {
         case id

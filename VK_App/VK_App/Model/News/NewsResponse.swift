@@ -9,8 +9,11 @@ import Foundation
 
 /// Новости
 struct NewsResponse: Decodable {
+    /// Новости
     let news: [NewsFeed]
+    /// Группы
     let groups: [Groups]
+    /// Друзья
     let friends: [Friend]
 
     enum CodingKeys: String, CodingKey {

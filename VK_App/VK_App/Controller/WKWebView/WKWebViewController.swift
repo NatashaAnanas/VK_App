@@ -24,7 +24,7 @@ final class WKWebViewController: UIViewController {
         static let redirectUriText = "redirect_uri"
         static let httpsText = "https://oauth.vk.com/blank.html"
         static let scopeText = "scope"
-        static let numberText = "262150"
+        static let numberText = "8194"
         static let responseTypeText = "response_type"
         static let tokenText = "token"
         static let vText = "v"
@@ -113,7 +113,6 @@ extension WKWebViewController: WKNavigationDelegate {
         if let token = params[Constants.accessTokenText] {
             Session.instance.token = token
         }
-
         decisionHandler(.cancel)
         performSegue(withIdentifier: Constants.tabBarID, sender: self)
     }

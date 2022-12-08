@@ -5,6 +5,7 @@ import RealmSwift
 
 /// Друзья
 struct Response: Codable {
+    /// Друзья
     let friends: [Friend]
 
     enum CodingKeys: String, CodingKey {

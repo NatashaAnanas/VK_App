@@ -736,12 +736,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="xtX-Xg-ld7"/>
                     <connections>
-                        <segue destination="zPB-Zb-Eec" kind="modal" identifier="tabBar" modalPresentationStyle="fullScreen" id="1RR-2E-bCv"/>
+                        <segue destination="vzy-Bl-Xfr" kind="presentation" identifier="tabBar" id="ZCP-p5-6rq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TgL-Th-8f9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1394.2028985507247" y="-656.25"/>
+            <point key="canvasLocation" x="-990" y="321"/>
         </scene>
         <!--Photos Friend View Controller-->
         <scene sceneID="zbN-V9-InB">
@@ -1126,13 +1126,6 @@
                                                     <color key="textColor" name="White Color"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="14.10.2022" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xn2-RW-JdH">
-                                                    <rect key="frame" x="88" y="50" width="149" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <color key="highlightedColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Привет всем! Привет всем! Привет всем! Привет всем!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EdR-8q-1Xp">
                                                     <rect key="frame" x="20" y="86" width="374" height="46"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -1208,6 +1201,13 @@
                                                         <color key="baseForegroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </buttonConfiguration>
                                                 </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="14.10.2022" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xn2-RW-JdH">
+                                                    <rect key="frame" x="88" y="34" width="281" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="highlightedColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" name="Gray Main"/>
                                             <constraints>
@@ -1238,6 +1238,144 @@
                                             <outlet property="userNameLabel" destination="r2K-Nh-XGZ" id="w3e-lK-Upf"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="newsText" rowHeight="206" id="0L1-7N-0C2" customClass="NewsTextTableViewCell" customModule="VK_App" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="646" width="414" height="206"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0L1-7N-0C2" id="ATH-Tv-0mE">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="206"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Наташа Ананас" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rtr-dx-Wer">
+                                                    <rect key="frame" x="88" y="11" width="306" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" name="White Color"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ekU-iV-hQf">
+                                                    <rect key="frame" x="20" y="11" width="60" height="67"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="30"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Привет всем! Привет всем! Привет всем! Привет всем!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CLb-tt-ygG">
+                                                    <rect key="frame" x="20" y="86" width="374" height="46"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" name="White Color"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="right" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lrj-um-OcJ">
+                                                    <rect key="frame" x="301" y="140" width="93" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="5ro-VA-uZw"/>
+                                                        <constraint firstAttribute="width" constant="93" id="o7T-Da-Cqm"/>
+                                                    </constraints>
+                                                    <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" image="eye" catalog="system" titleAlignment="trailing">
+                                                        <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="15"/>
+                                                        <attributedString key="attributedTitle">
+                                                            <fragment content="231">
+                                                                <attributes>
+                                                                    <font key="NSFont" size="15" name="Helvetica"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                        </attributedString>
+                                                        <color key="baseForegroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </buttonConfiguration>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="933-n3-nLa">
+                                                    <rect key="frame" x="20" y="140" width="70" height="40"/>
+                                                    <color key="backgroundColor" systemColor="placeholderTextColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="X5y-yg-vw1"/>
+                                                        <constraint firstAttribute="width" constant="70" id="hW7-7s-hsz"/>
+                                                    </constraints>
+                                                    <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" image="heart" catalog="system" title="0">
+                                                        <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="18"/>
+                                                    </buttonConfiguration>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="20"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N3X-r2-hir">
+                                                    <rect key="frame" x="98" y="141" width="70" height="40"/>
+                                                    <color key="backgroundColor" systemColor="placeholderTextColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="5QL-Md-8Yv"/>
+                                                        <constraint firstAttribute="width" constant="70" id="lFh-Lc-ACt"/>
+                                                    </constraints>
+                                                    <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" image="message" catalog="system" title="0">
+                                                        <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="18"/>
+                                                    </buttonConfiguration>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="20"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0vp-sp-qYb">
+                                                    <rect key="frame" x="176" y="140" width="70" height="40"/>
+                                                    <color key="backgroundColor" systemColor="placeholderTextColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="RWI-Fb-Uei"/>
+                                                        <constraint firstAttribute="width" constant="70" id="sMA-xR-K9R"/>
+                                                    </constraints>
+                                                    <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" image="arrowshape.turn.up.right" catalog="system" title="0">
+                                                        <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="18"/>
+                                                    </buttonConfiguration>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="20"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="14.10.2022" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vQc-XM-3Ne">
+                                                    <rect key="frame" x="88" y="40" width="306" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="highlightedColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" name="Gray Main"/>
+                                            <constraints>
+                                                <constraint firstItem="933-n3-nLa" firstAttribute="leading" secondItem="ATH-Tv-0mE" secondAttribute="leading" constant="20" symbolic="YES" id="0No-VQ-gVC"/>
+                                                <constraint firstItem="lrj-um-OcJ" firstAttribute="leading" secondItem="0vp-sp-qYb" secondAttribute="trailing" constant="55" id="0Pr-wa-0VX"/>
+                                                <constraint firstItem="0vp-sp-qYb" firstAttribute="leading" secondItem="N3X-r2-hir" secondAttribute="trailing" constant="8" symbolic="YES" id="5ly-KT-2Ol"/>
+                                                <constraint firstItem="CLb-tt-ygG" firstAttribute="leading" secondItem="ATH-Tv-0mE" secondAttribute="leading" constant="20" symbolic="YES" id="6fK-M5-v4q"/>
+                                                <constraint firstItem="CLb-tt-ygG" firstAttribute="centerX" secondItem="ATH-Tv-0mE" secondAttribute="centerX" id="8Rz-SS-jF0"/>
+                                                <constraint firstAttribute="trailing" secondItem="CLb-tt-ygG" secondAttribute="trailing" constant="20" symbolic="YES" id="OI8-hW-51g"/>
+                                                <constraint firstItem="N3X-r2-hir" firstAttribute="leading" secondItem="933-n3-nLa" secondAttribute="trailing" constant="8" symbolic="YES" id="WSW-i9-3SD"/>
+                                                <constraint firstItem="933-n3-nLa" firstAttribute="top" secondItem="CLb-tt-ygG" secondAttribute="bottom" constant="8" symbolic="YES" id="baD-Pz-QtK"/>
+                                                <constraint firstItem="0vp-sp-qYb" firstAttribute="top" secondItem="CLb-tt-ygG" secondAttribute="bottom" constant="8" symbolic="YES" id="fhf-p7-OvY"/>
+                                                <constraint firstAttribute="bottom" secondItem="CLb-tt-ygG" secondAttribute="bottom" constant="74" id="gwl-F2-YBV"/>
+                                                <constraint firstAttribute="trailing" secondItem="lrj-um-OcJ" secondAttribute="trailing" constant="20" symbolic="YES" id="h18-Q4-tIR"/>
+                                                <constraint firstItem="N3X-r2-hir" firstAttribute="top" secondItem="CLb-tt-ygG" secondAttribute="bottom" constant="9" id="lBG-YZ-hmD"/>
+                                                <constraint firstItem="CLb-tt-ygG" firstAttribute="top" secondItem="ATH-Tv-0mE" secondAttribute="top" constant="86" id="ujq-8Q-TYa"/>
+                                                <constraint firstItem="lrj-um-OcJ" firstAttribute="top" secondItem="CLb-tt-ygG" secondAttribute="bottom" constant="8" symbolic="YES" id="xsD-5c-2vw"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="contentLabel" destination="CLb-tt-ygG" id="VS6-6N-60v"/>
+                                            <outlet property="dateLabel" destination="vQc-XM-3Ne" id="EyW-Qa-4zV"/>
+                                            <outlet property="likeButton" destination="933-n3-nLa" id="lPj-kF-GBz"/>
+                                            <outlet property="nameLabel" destination="Rtr-dx-Wer" id="3tj-g3-pTx"/>
+                                            <outlet property="userImageView" destination="ekU-iV-hQf" id="7nK-Lg-mfY"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="ebe-xZ-PQf" id="sUY-1L-MCQ"/>
@@ -1249,6 +1387,9 @@
                         <color key="backgroundColor" name="Gray Main"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Новости" image="house.fill" catalog="system" selectedImage="house" id="EeA-Jn-MIt"/>
+                    <connections>
+                        <outlet property="newsTableView" destination="5eB-3q-BiD" id="uZs-p2-X5r"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tbc-fa-0K9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1333,7 +1474,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AtJ-57-10C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2304.3478260869565" y="-656.25"/>
+            <point key="canvasLocation" x="-2045" y="20"/>
         </scene>
     </scenes>
     <resources>

@@ -5,6 +5,7 @@ import RealmSwift
 
 /// Средний уровень JSON PhotoResponse
 struct PhotoResponse: Codable {
+    /// Фотографии
     let photos: [Photo]
 
     enum CodingKeys: String, CodingKey {

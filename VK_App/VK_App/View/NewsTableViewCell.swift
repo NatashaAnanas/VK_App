@@ -3,7 +3,7 @@
 
 import UIKit
 
-/// Ячейка с контентом в разделе новости
+/// Ячейка с фото - контентом в разделе новости
 final class NewsTableViewCell: UITableViewCell {
     // MARK: - Private constants
 
@@ -29,7 +29,7 @@ final class NewsTableViewCell: UITableViewCell {
 
     // MARK: - Public Methods
 
-    func setUpUI(
+    func configure(
         userName: String,
         userImageText: String,
         datePost: String,

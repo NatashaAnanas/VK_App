@@ -5,6 +5,7 @@ import RealmSwift
 
 /// Средний уровень JSON GroupResponse
 struct GroupResponse: Codable {
+    /// Группы
     let groups: [Groups]
 
     enum CodingKeys: String, CodingKey {

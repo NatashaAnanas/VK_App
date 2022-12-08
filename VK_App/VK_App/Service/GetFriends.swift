@@ -8,8 +8,8 @@
 import Alamofire
 import PromiseKit
 
-/// Сетевой запрос
-class GetFriends {
+/// Network service with PromiseKit
+class NetworkServicePromise {
     
     // MARK: - Private Constants
     

@@ -7,7 +7,7 @@
 
 import Foundation
 
-/// AsyncOperation
+/// Async Operation
 class AsyncOperation: Operation {
     
     private enum Constants {

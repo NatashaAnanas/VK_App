@@ -24,7 +24,7 @@ final class MyFriendViewController: UIViewController {
     
     private let networkService = NetworkService()
     private let realmService = RealmService()
-    private let getData = GetFriends()
+    private let networkServicePromise = NetworkServicePromise()
     private var friendsToken: NotificationToken?
     private var friends: [Friend] = []
     
@@ -45,16 +45,16 @@ final class MyFriendViewController: UIViewController {
             if friends != Array(users) {
                 friends = Array(users)
             } else {
-                getFriends()
+                fetchFriends()
             }
         } catch {
             showAlert(title: Constants.errorText, message: error.localizedDescription)
         }
     }
     
-    private func getFriends() {
+    private func fetchFriends() {
         firstly {
-            getData.fetchFriends()
+            networkServicePromise.fetchFriends()
         }.done { [weak self] friends in
             self?.realmService.saveToRealm(object: friends)
         }.catch { error in

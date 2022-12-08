@@ -10,9 +10,9 @@ import Foundation
 /// Новость
 final class NewsFeed: Decodable {
     
-    /// идентификатор новости
+    /// Идентификатор новости
     var id: Int
-    /// идентификатор источника новости
+    /// Идентификатор источника новости
     var sourceID: Int
     /// Текстовый контент
     var text: String

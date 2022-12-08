@@ -6,8 +6,11 @@ import RealmSwift
 /// Друг
 @objcMembers
 final class Friend: Object, Codable {
+    /// Идентификатор новости
     dynamic var id: Int
+    /// Имя друга
     dynamic var firstName: String
+    /// Фамилия друга
     dynamic var lastName: String
 
     private enum CodingKeys: String, CodingKey {

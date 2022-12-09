@@ -73,6 +73,21 @@ struct NetworkService {
         }
     }
     
+    func getGroups () {
+        let opq = OperationQueue()
+        let request = getRequest()
+        let getDataOperation = GetDataOperations(request: request)
+        opq.addOperation(getDataOperation)
+    
+        let parseData = ParseGroupData()
+        parseData.addDependency(getDataOperation)
+        opq.addOperation(parseData)
+    
+        let saveToRealm = ReloadTable()
+        saveToRealm.addDependency(parseData)
+        OperationQueue.main.addOperation(saveToRealm)
+    }
+    
     // MARK: - Private Methods
     
     private func fetchData<T: Decodable>(urlPath: String, completion: @escaping (Result<T, Error>) -> ()) {
@@ -86,5 +101,19 @@ struct NetworkService {
                 completion(.failure(error))
             }
         }
+    }
+    
+    private func getRequest() -> DataRequest {
+        let baseURL = "https://api.vk.com/method/"
+        let version = "5.131"
+        let token = Session.instance.token
+        let path = "groups.get"
+        let parameters: Parameters = [
+            "v": version,
+            "extended": "1",
+            "access_token": token]
+        let url = (baseURL + path)
+        let request = AF.request(url, parameters: parameters)
+        return request
     }
 }

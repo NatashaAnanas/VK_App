@@ -28,8 +28,12 @@ final class GroupViewController: UIViewController {
     private let networkService = NetworkService()
     private let realmService = RealmService()
     private var group = Group()
-    private var groups: [Groups] = []
-
+    private var groups: [Groups] = [] {
+        didSet {
+            groupTableView.reloadData()
+        }
+    }
+    
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
@@ -54,17 +58,7 @@ final class GroupViewController: UIViewController {
     }
 
     private func fetchGroups() {
-        networkService.fetchGroups(group: Constants.itAnanasGroupText) { [weak self] result in
-            guard let self = self else { return }
-            switch result {
-            case let .success(groups):
-                self.groups = groups.response.groups
-                self.realmService.saveToRealm(object: groups.response.groups)
-                self.groupTableView.reloadData()
-            case let .failure(error):
-                self.showAlert(title: Constants.errorText, message: error.localizedDescription)
-            }
-        }
+        networkService.getGroups()
     }
 
     // MARK: - Private @IBAction

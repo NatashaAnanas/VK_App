@@ -736,12 +736,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="xtX-Xg-ld7"/>
                     <connections>
-                        <segue destination="vzy-Bl-Xfr" kind="presentation" identifier="tabBar" id="ZCP-p5-6rq"/>
+                        <segue destination="zPB-Zb-Eec" kind="modal" identifier="tabBar" modalPresentationStyle="fullScreen" id="fkx-8X-nUv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TgL-Th-8f9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-990" y="321"/>
+            <point key="canvasLocation" x="-1357" y="-86"/>
         </scene>
         <!--Photos Friend View Controller-->
         <scene sceneID="zbN-V9-InB">
@@ -1458,6 +1458,21 @@
             </objects>
             <point key="canvasLocation" x="3614" y="810"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="M6j-QE-V1w">
+            <objects>
+                <viewController id="4Tj-wg-FXF" customClass="FMViewController" customModule="VK_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fwY-Ha-gMf">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="aqC-qz-xNq"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e55-1E-hYv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3454" y="-86"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="8Ar-Em-Kpt">
             <objects>
@@ -1474,7 +1489,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AtJ-57-10C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2045" y="20"/>
+            <point key="canvasLocation" x="-2401" y="-86"/>
         </scene>
     </scenes>
     <resources>

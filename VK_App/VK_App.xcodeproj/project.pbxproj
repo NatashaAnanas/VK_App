@@ -37,7 +37,7 @@
 		4176BA4D2942604000071F25 /* AsyncOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4176BA4C2942604000071F25 /* AsyncOperation.swift */; };
 		4176BA4F2942609D00071F25 /* ReloadTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4176BA4E2942609D00071F25 /* ReloadTableController.swift */; };
 		4176BA51294260BE00071F25 /* ParseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4176BA50294260BE00071F25 /* ParseData.swift */; };
-		4176BA5329426B9100071F25 /* GetFriends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4176BA5229426B9100071F25 /* GetFriends.swift */; };
+		4176BA5329426B9100071F25 /* NetworkServicePromise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4176BA5229426B9100071F25 /* NetworkServicePromise.swift */; };
 		4178505B292B9D29006EF2E2 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4178505A292B9D29006EF2E2 /* Session.swift */; };
 		41A6A60E293F7A8400CF7A40 /* NewsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A6A60D293F7A8400CF7A40 /* NewsResult.swift */; };
 		41A6A610293F7AEA00CF7A40 /* NewsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A6A60F293F7AEA00CF7A40 /* NewsResponse.swift */; };
@@ -102,7 +102,7 @@
 		4176BA4C2942604000071F25 /* AsyncOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncOperation.swift; sourceTree = "<group>"; };
 		4176BA4E2942609D00071F25 /* ReloadTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReloadTableController.swift; sourceTree = "<group>"; };
 		4176BA50294260BE00071F25 /* ParseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseData.swift; sourceTree = "<group>"; };
-		4176BA5229426B9100071F25 /* GetFriends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFriends.swift; sourceTree = "<group>"; };
+		4176BA5229426B9100071F25 /* NetworkServicePromise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServicePromise.swift; sourceTree = "<group>"; };
 		4178505A292B9D29006EF2E2 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		41A6A60D293F7A8400CF7A40 /* NewsResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsResult.swift; sourceTree = "<group>"; };
 		41A6A60F293F7AEA00CF7A40 /* NewsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsResponse.swift; sourceTree = "<group>"; };
@@ -279,7 +279,7 @@
 				4176BA50294260BE00071F25 /* ParseData.swift */,
 				4176BA4E2942609D00071F25 /* ReloadTableController.swift */,
 				4176BA4C2942604000071F25 /* AsyncOperation.swift */,
-				4176BA5229426B9100071F25 /* GetFriends.swift */,
+				4176BA5229426B9100071F25 /* NetworkServicePromise.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -584,7 +584,7 @@
 				41549B862910053200F8331A /* SceneDelegate.swift in Sources */,
 				414F76F2292F564700299949 /* MyFriendViewController.swift in Sources */,
 				41C1CB0C2936496500123FF9 /* UIViewController+Alert.swift in Sources */,
-				4176BA5329426B9100071F25 /* GetFriends.swift in Sources */,
+				4176BA5329426B9100071F25 /* NetworkServicePromise.swift in Sources */,
 				415848412930D6AA0061BD19 /* Response.swift in Sources */,
 				4158484F2930D8870061BD19 /* Groups.swift in Sources */,
 				4176BA4B2941DA3300071F25 /* GetDataOperations.swift in Sources */,

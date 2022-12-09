@@ -10,10 +10,12 @@ import Foundation
 /// Async Operation
 class AsyncOperation: Operation {
     
+    // MARK: - Private Constants
     private enum Constants {
         static let isText = "is"
     }
     
+    // MARK: - Public State
     enum State: String {
         case ready, executing, finished
         fileprivate var keyPath: String {
@@ -21,6 +23,7 @@ class AsyncOperation: Operation {
         }
     }
 
+    // MARK: - Public Properties
     var state = State.ready {
         willSet {
             willChangeValue(forKey: state.keyPath)

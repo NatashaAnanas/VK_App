@@ -7,9 +7,11 @@
 
 import RealmSwift
 
-/// ReloadTableController
+/// Загрузка данных из сети
 final class ReloadTableController: Operation {
-    // MARK: Initializers
+    
+    // MARK: - Public Methods
+    
     override func main() {
         guard let getParseData = dependencies.first as? ParseData else { return }
         let parseData = getParseData.outputData

@@ -9,7 +9,7 @@ import Alamofire
 import PromiseKit
 
 /// Network service with PromiseKit
-class NetworkServicePromise {
+final class NetworkServicePromise {
     
     // MARK: - Private Constants
     
@@ -25,6 +25,7 @@ class NetworkServicePromise {
         }
     
     // MARK: - Public Methods
+    
     func fetchFriends() -> Promise<[Friend]> {
         let parameters: Parameters = [
             Constants.acessTokenParameter: Session.instance.token,

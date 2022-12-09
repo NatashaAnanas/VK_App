@@ -8,7 +8,7 @@
 import Alamofire
 import Foundation
 
-/// GetDataOperations
+/// Получение данных
 final class GetDataOperations: AsyncOperation {
 
     // MARK: - Public Properties
@@ -16,8 +16,8 @@ final class GetDataOperations: AsyncOperation {
 
     // MARK: - Private Properties
     private var request: DataRequest
+    
     // MARK: Initializers
-
     init (request: DataRequest) {
         self.request = request
     }

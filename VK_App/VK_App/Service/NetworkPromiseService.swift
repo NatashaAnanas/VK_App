@@ -14,15 +14,15 @@ final class NetworkPromiseService {
     // MARK: - Private Constants
     
     private enum Constants {
-            static let baseURL = "https://api.vk.com/method/"
-            static let friendFields = "fields"
-            static let friendFieldsValue = "nickname, photo_100"
-            static let getFriends = "friends.get"
-            static let filters = "filters"
-            static let acessTokenParameter = "access_token"
-            static let versionParameter = "v"
-            static let versionValue = "5.131"
-        }
+        static let baseURL = "https://api.vk.com/method/"
+        static let friendFields = "fields"
+        static let friendFieldsValue = "nickname, photo_100"
+        static let getFriends = "friends.get"
+        static let filters = "filters"
+        static let acessTokenParameter = "access_token"
+        static let versionParameter = "v"
+        static let versionValue = "5.131"
+    }
     
     // MARK: - Public Methods
     

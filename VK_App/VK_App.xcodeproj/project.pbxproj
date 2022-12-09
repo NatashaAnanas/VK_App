@@ -35,9 +35,10 @@
 		4171CC45292CF2B200AC007A /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4171CC44292CF2B100AC007A /* NetworkService.swift */; };
 		4176BA4B2941DA3300071F25 /* GetDataOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4176BA4A2941DA3300071F25 /* GetDataOperations.swift */; };
 		4176BA4D2942604000071F25 /* AsyncOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4176BA4C2942604000071F25 /* AsyncOperation.swift */; };
-		4176BA4F2942609D00071F25 /* ReloadTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4176BA4E2942609D00071F25 /* ReloadTableController.swift */; };
-		4176BA51294260BE00071F25 /* ParseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4176BA50294260BE00071F25 /* ParseData.swift */; };
-		4176BA5329426B9100071F25 /* NetworkServicePromise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4176BA5229426B9100071F25 /* NetworkServicePromise.swift */; };
+		4176BA4F2942609D00071F25 /* ReloadTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4176BA4E2942609D00071F25 /* ReloadTable.swift */; };
+		4176BA51294260BE00071F25 /* ParseGroupData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4176BA50294260BE00071F25 /* ParseGroupData.swift */; };
+		4176BA5329426B9100071F25 /* NetworkPromiseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4176BA5229426B9100071F25 /* NetworkPromiseService.swift */; };
+		4176BA5629431FDD00071F25 /* FMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4176BA5529431FDD00071F25 /* FMViewController.swift */; };
 		4178505B292B9D29006EF2E2 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4178505A292B9D29006EF2E2 /* Session.swift */; };
 		41A6A60E293F7A8400CF7A40 /* NewsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A6A60D293F7A8400CF7A40 /* NewsResult.swift */; };
 		41A6A610293F7AEA00CF7A40 /* NewsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A6A60F293F7AEA00CF7A40 /* NewsResponse.swift */; };
@@ -100,9 +101,10 @@
 		4171CC44292CF2B100AC007A /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		4176BA4A2941DA3300071F25 /* GetDataOperations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDataOperations.swift; sourceTree = "<group>"; };
 		4176BA4C2942604000071F25 /* AsyncOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncOperation.swift; sourceTree = "<group>"; };
-		4176BA4E2942609D00071F25 /* ReloadTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReloadTableController.swift; sourceTree = "<group>"; };
-		4176BA50294260BE00071F25 /* ParseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseData.swift; sourceTree = "<group>"; };
-		4176BA5229426B9100071F25 /* NetworkServicePromise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServicePromise.swift; sourceTree = "<group>"; };
+		4176BA4E2942609D00071F25 /* ReloadTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReloadTable.swift; sourceTree = "<group>"; };
+		4176BA50294260BE00071F25 /* ParseGroupData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseGroupData.swift; sourceTree = "<group>"; };
+		4176BA5229426B9100071F25 /* NetworkPromiseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkPromiseService.swift; sourceTree = "<group>"; };
+		4176BA5529431FDD00071F25 /* FMViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMViewController.swift; sourceTree = "<group>"; };
 		4178505A292B9D29006EF2E2 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		41A6A60D293F7A8400CF7A40 /* NewsResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsResult.swift; sourceTree = "<group>"; };
 		41A6A60F293F7AEA00CF7A40 /* NewsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsResponse.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 		41549B822910053200F8331A /* VK_App */ = {
 			isa = PBXGroup;
 			children = (
+				4176BA5429431FAE00071F25 /* FileManager */,
 				41785059292B9D03006EF2E2 /* Session */,
 				41C1CB08293526F000123FF9 /* Service */,
 				414F62FC292ECFF700596584 /* Test */,
@@ -224,14 +227,14 @@
 			path = Photo;
 			sourceTree = "<group>";
 		};
-		415848452930D7100061BD19 /* Groug */ = {
+		415848452930D7100061BD19 /* Group */ = {
 			isa = PBXGroup;
 			children = (
 				4170487B29300AD000A77289 /* GroupResult.swift */,
 				4158484C2930D8690061BD19 /* GroupResponse.swift */,
 				4158484E2930D8870061BD19 /* Groups.swift */,
 			);
-			path = Groug;
+			path = Group;
 			sourceTree = "<group>";
 		};
 		417048832930D58800A77289 /* Friend */ = {
@@ -250,6 +253,14 @@
 				4171CC42292CBDB800AC007A /* WKWebViewController.swift */,
 			);
 			path = WKWebView;
+			sourceTree = "<group>";
+		};
+		4176BA5429431FAE00071F25 /* FileManager */ = {
+			isa = PBXGroup;
+			children = (
+				4176BA5529431FDD00071F25 /* FMViewController.swift */,
+			);
+			path = FileManager;
 			sourceTree = "<group>";
 		};
 		41785059292B9D03006EF2E2 /* Session */ = {
@@ -276,10 +287,10 @@
 			children = (
 				41C1CB092935272D00123FF9 /* RealmService.swift */,
 				4176BA4A2941DA3300071F25 /* GetDataOperations.swift */,
-				4176BA50294260BE00071F25 /* ParseData.swift */,
-				4176BA4E2942609D00071F25 /* ReloadTableController.swift */,
+				4176BA50294260BE00071F25 /* ParseGroupData.swift */,
+				4176BA4E2942609D00071F25 /* ReloadTable.swift */,
 				4176BA4C2942604000071F25 /* AsyncOperation.swift */,
-				4176BA5229426B9100071F25 /* NetworkServicePromise.swift */,
+				4176BA5229426B9100071F25 /* NetworkPromiseService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -364,7 +375,7 @@
 				41A6A60C293F756D00CF7A40 /* News */,
 				417048832930D58800A77289 /* Friend */,
 				415848442930D6F50061BD19 /* Photo */,
-				415848452930D7100061BD19 /* Groug */,
+				415848452930D7100061BD19 /* Group */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -560,10 +571,11 @@
 				41654F48292FD51100C55259 /* PhotoResult.swift in Sources */,
 				41549BA72911512B00F8331A /* NewGroupViewController.swift in Sources */,
 				41E25178291290E8006690F8 /* FriendsTableViewCell.swift in Sources */,
+				4176BA5629431FDD00071F25 /* FMViewController.swift in Sources */,
 				41549B882910053200F8331A /* LoginViewController.swift in Sources */,
 				41E25194291D0DB3006690F8 /* PhotoAlbumViewController.swift in Sources */,
-				4176BA51294260BE00071F25 /* ParseData.swift in Sources */,
-				4176BA4F2942609D00071F25 /* ReloadTableController.swift in Sources */,
+				4176BA51294260BE00071F25 /* ParseGroupData.swift in Sources */,
+				4176BA4F2942609D00071F25 /* ReloadTable.swift in Sources */,
 				41E25192291BF602006690F8 /* NewGroup.swift in Sources */,
 				41E2518829148851006690F8 /* PersonImageView.swift in Sources */,
 				4171CC43292CBDB800AC007A /* WKWebViewController.swift in Sources */,
@@ -584,7 +596,7 @@
 				41549B862910053200F8331A /* SceneDelegate.swift in Sources */,
 				414F76F2292F564700299949 /* MyFriendViewController.swift in Sources */,
 				41C1CB0C2936496500123FF9 /* UIViewController+Alert.swift in Sources */,
-				4176BA5329426B9100071F25 /* NetworkServicePromise.swift in Sources */,
+				4176BA5329426B9100071F25 /* NetworkPromiseService.swift in Sources */,
 				415848412930D6AA0061BD19 /* Response.swift in Sources */,
 				4158484F2930D8870061BD19 /* Groups.swift in Sources */,
 				4176BA4B2941DA3300071F25 /* GetDataOperations.swift in Sources */,

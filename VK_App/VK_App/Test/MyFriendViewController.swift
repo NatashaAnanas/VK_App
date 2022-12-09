@@ -22,9 +22,8 @@ final class MyFriendViewController: UIViewController {
     
     // MARK: - Private Properies
     
-    private let networkService = NetworkService()
     private let realmService = RealmService()
-    private let networkServicePromise = NetworkServicePromise()
+    private let networkServicePromise = NetworkPromiseService()
     private var friendsToken: NotificationToken?
     private var friends: [Friend] = []
     

@@ -8,8 +8,8 @@
 import Alamofire
 import PromiseKit
 
-/// Network service with PromiseKit
-final class NetworkServicePromise {
+/// Сетевой слой PromiseKit
+final class NetworkPromiseService {
     
     // MARK: - Private Constants
     

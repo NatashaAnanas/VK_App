@@ -7,11 +7,11 @@
 
 import Foundation
 
-/// ParseData
-final class ParseData: Operation {
+/// Парсинг групп асинх
+final class ParseGroupData: Operation {
     // MARK: Public Properties
 
-    var outputData: [Groups] = []
+    var groups: [Groups] = []
 
     // MARK: Initializers
 
@@ -21,7 +21,7 @@ final class ParseData: Operation {
 
         do {
             let response = try JSONDecoder().decode(GroupResult.self, from: data)
-            outputData = response.response.groups
+            groups = response.response.groups
         } catch {
             print(error.localizedDescription)
         }

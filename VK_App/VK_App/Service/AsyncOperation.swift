@@ -7,7 +7,7 @@
 
 import Foundation
 
-/// Async Operation
+/// Асинхронная операция
 class AsyncOperation: Operation {
     
     // MARK: - Private Constants

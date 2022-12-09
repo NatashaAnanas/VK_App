@@ -79,11 +79,11 @@ struct NetworkService {
         let getDataOperation = GetDataOperations(request: request)
         opq.addOperation(getDataOperation)
     
-        let parseData = ParseData()
+        let parseData = ParseGroupData()
         parseData.addDependency(getDataOperation)
         opq.addOperation(parseData)
     
-        let saveToRealm = ReloadTableController()
+        let saveToRealm = ReloadTable()
         saveToRealm.addDependency(parseData)
         OperationQueue.main.addOperation(saveToRealm)
     }

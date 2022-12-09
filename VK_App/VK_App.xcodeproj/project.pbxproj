@@ -38,7 +38,6 @@
 		4176BA4F2942609D00071F25 /* ReloadTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4176BA4E2942609D00071F25 /* ReloadTable.swift */; };
 		4176BA51294260BE00071F25 /* ParseGroupData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4176BA50294260BE00071F25 /* ParseGroupData.swift */; };
 		4176BA5329426B9100071F25 /* NetworkPromiseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4176BA5229426B9100071F25 /* NetworkPromiseService.swift */; };
-		4176BA5629431FDD00071F25 /* FMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4176BA5529431FDD00071F25 /* FMViewController.swift */; };
 		4178505B292B9D29006EF2E2 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4178505A292B9D29006EF2E2 /* Session.swift */; };
 		41A6A60E293F7A8400CF7A40 /* NewsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A6A60D293F7A8400CF7A40 /* NewsResult.swift */; };
 		41A6A610293F7AEA00CF7A40 /* NewsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41A6A60F293F7AEA00CF7A40 /* NewsResponse.swift */; };
@@ -104,7 +103,6 @@
 		4176BA4E2942609D00071F25 /* ReloadTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReloadTable.swift; sourceTree = "<group>"; };
 		4176BA50294260BE00071F25 /* ParseGroupData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseGroupData.swift; sourceTree = "<group>"; };
 		4176BA5229426B9100071F25 /* NetworkPromiseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkPromiseService.swift; sourceTree = "<group>"; };
-		4176BA5529431FDD00071F25 /* FMViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMViewController.swift; sourceTree = "<group>"; };
 		4178505A292B9D29006EF2E2 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		41A6A60D293F7A8400CF7A40 /* NewsResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsResult.swift; sourceTree = "<group>"; };
 		41A6A60F293F7AEA00CF7A40 /* NewsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsResponse.swift; sourceTree = "<group>"; };
@@ -183,7 +181,6 @@
 		41549B822910053200F8331A /* VK_App */ = {
 			isa = PBXGroup;
 			children = (
-				4176BA5429431FAE00071F25 /* FileManager */,
 				41785059292B9D03006EF2E2 /* Session */,
 				41C1CB08293526F000123FF9 /* Service */,
 				414F62FC292ECFF700596584 /* Test */,
@@ -253,14 +250,6 @@
 				4171CC42292CBDB800AC007A /* WKWebViewController.swift */,
 			);
 			path = WKWebView;
-			sourceTree = "<group>";
-		};
-		4176BA5429431FAE00071F25 /* FileManager */ = {
-			isa = PBXGroup;
-			children = (
-				4176BA5529431FDD00071F25 /* FMViewController.swift */,
-			);
-			path = FileManager;
 			sourceTree = "<group>";
 		};
 		41785059292B9D03006EF2E2 /* Session */ = {
@@ -571,7 +560,6 @@
 				41654F48292FD51100C55259 /* PhotoResult.swift in Sources */,
 				41549BA72911512B00F8331A /* NewGroupViewController.swift in Sources */,
 				41E25178291290E8006690F8 /* FriendsTableViewCell.swift in Sources */,
-				4176BA5629431FDD00071F25 /* FMViewController.swift in Sources */,
 				41549B882910053200F8331A /* LoginViewController.swift in Sources */,
 				41E25194291D0DB3006690F8 /* PhotoAlbumViewController.swift in Sources */,
 				4176BA51294260BE00071F25 /* ParseGroupData.swift in Sources */,

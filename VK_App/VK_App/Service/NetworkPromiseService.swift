@@ -1,18 +1,13 @@
-//
-//  FetchFriends.swift
-//  VK_App
-//
-//  Created by Анастасия Козлова on 08.12.2022.
-//
+// NetworkPromiseService.swift
+// Copyright © RoadMap. All rights reserved.
 
 import Alamofire
 import PromiseKit
 
 /// Сетевой слой PromiseKit
 final class NetworkPromiseService {
-    
     // MARK: - Private Constants
-    
+
     private enum Constants {
         static let baseURL = "https://api.vk.com/method/"
         static let friendFields = "fields"
@@ -23,9 +18,9 @@ final class NetworkPromiseService {
         static let versionParameter = "v"
         static let versionValue = "5.131"
     }
-    
+
     // MARK: - Public Methods
-    
+
     func fetchFriends() -> Promise<[Friend]> {
         let parameters: Parameters = [
             Constants.acessTokenParameter: Session.instance.token,

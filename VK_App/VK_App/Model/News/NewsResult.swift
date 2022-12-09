@@ -1,9 +1,5 @@
-//
-//  NewsResult.swift
-//  VK_App
-//
-//  Created by Анастасия Козлова on 06.12.2022.
-//
+// NewsResult.swift
+// Copyright © RoadMap. All rights reserved.
 
 import Foundation
 

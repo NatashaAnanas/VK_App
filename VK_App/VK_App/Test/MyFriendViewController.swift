@@ -9,33 +9,33 @@ import UIKit
 /// Экран со списком друзей
 final class MyFriendViewController: UIViewController {
     // MARK: - Private Constants
-    
+
     private enum Constants {
         static let friendTestID = "friendTest"
         static let errorText = "Error"
         static let emptyTitel = ""
     }
-    
+
     // MARK: - Private IBOutlet
-    
+
     @IBOutlet private var friendTableView: UITableView!
-    
+
     // MARK: - Private Properies
-    
+
     private let realmService = RealmService()
     private let networkServicePromise = NetworkPromiseService()
     private var friendsToken: NotificationToken?
     private var friends: [Friend] = []
-    
+
     // MARK: - Life Cycle
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         loadFriendsFromRealm()
     }
-    
+
     // MARK: - Private Methods
-    
+
     private func loadFriendsFromRealm() {
         do {
             let realm = try Realm()
@@ -50,7 +50,7 @@ final class MyFriendViewController: UIViewController {
             showAlert(title: Constants.errorText, message: error.localizedDescription)
         }
     }
-    
+
     private func fetchFriends() {
         firstly {
             networkServicePromise.fetchFriends()
@@ -60,7 +60,7 @@ final class MyFriendViewController: UIViewController {
             self.showAlert(title: Constants.emptyTitel, message: error.localizedDescription)
         }
     }
-    
+
     private func addUserToken(result: Results<Friend>) {
         friendsToken = result.observe { [weak self] change in
             guard let self = self else { return }
@@ -83,7 +83,7 @@ extension MyFriendViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         friends.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(
             withIdentifier: Constants.friendTestID,

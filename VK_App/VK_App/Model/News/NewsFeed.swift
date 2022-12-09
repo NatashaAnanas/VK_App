@@ -1,15 +1,10 @@
-//
-//  Items.swift
-//  VK_App
-//
-//  Created by Анастасия Козлова on 06.12.2022.
-//
+// NewsFeed.swift
+// Copyright © RoadMap. All rights reserved.
 
 import Foundation
 
 /// Новость
 final class NewsFeed: Decodable {
-    
     /// Идентификатор новости
     var id: Int
     /// Идентификатор источника новости
@@ -22,7 +17,7 @@ final class NewsFeed: Decodable {
     var authorName: String?
     /// Фото автора поста
     var avatarPath: String?
-   
+
     enum CodingKeys: String, CodingKey {
         case id
         case sourceID = "source_id"

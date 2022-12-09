@@ -33,7 +33,7 @@ final class GroupViewController: UIViewController {
             groupTableView.reloadData()
         }
     }
-    
+
     // MARK: - Life Cycle
 
     override func viewDidLoad() {

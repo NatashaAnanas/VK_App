@@ -33,7 +33,8 @@ final class PageMyFriendViewController: UIViewController {
 // MARK: - UICollectionViewDelegate, UICollectionViewDataSource
 
 extension PageMyFriendViewController: UICollectionViewDelegate,
-    UICollectionViewDataSource {
+    UICollectionViewDataSource
+{
     func collectionView(_: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         1
     }

@@ -26,6 +26,7 @@ final class MyFriendViewController: UIViewController {
     private let networkServicePromise = NetworkPromiseService()
     private var friendsToken: NotificationToken?
     private var friends: [Friend] = []
+    private var photoCacheService: PhotoCacheService?
 
     // MARK: - Life Cycle
 
@@ -89,9 +90,16 @@ extension MyFriendViewController: UITableViewDataSource {
             withIdentifier: Constants.friendTestID,
             for: indexPath
         )
+        cell.backgroundColor = .magenta
         DispatchQueue.main.async {
             cell.textLabel?
                 .text = "\(self.friends[indexPath.row].firstName) \(self.friends[indexPath.row].lastName)"
+
+            self.photoCacheService = PhotoCacheService(container: self.friendTableView)
+            cell.imageView?.image = self.photoCacheService?.photo(
+                atIndexpath: indexPath,
+                byUrl: self.friends[indexPath.row].photo
+            )
         }
         return cell
     }

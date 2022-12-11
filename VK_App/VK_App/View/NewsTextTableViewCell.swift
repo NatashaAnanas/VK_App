@@ -15,7 +15,7 @@ final class NewsTextTableViewCell: UITableViewCell {
         static let oneText = "1"
     }
 
-    // MARK: - Private IBOutlet
+    // MARK: - Private IBOutlets
 
     @IBOutlet private var userImageView: UIImageView!
     @IBOutlet private var dateLabel: UILabel!
@@ -23,18 +23,21 @@ final class NewsTextTableViewCell: UITableViewCell {
     @IBOutlet private var contentLabel: UILabel!
     @IBOutlet private var likeButton: UIButton!
 
-    // MARK: - Private Property
+    // MARK: - Private Properties
 
     private var isLiked: Bool = true
 
     // MARK: - Public Methods
 
     func configure(
-        userName: String,
-        userImageText: String,
+        userName: String?,
+        userImageText: String?,
         datePost: String,
         descriptionPost: String
     ) {
+        guard let userImageText = userImageText,
+              let userName = userName
+        else { return }
         nameLabel.text = userName
         userImageView.sd_setImage(with: URL(string: userImageText))
         dateLabel.text = datePost

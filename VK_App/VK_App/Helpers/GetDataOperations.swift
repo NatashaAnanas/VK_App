@@ -2,7 +2,6 @@
 // Copyright © RoadMap. All rights reserved.
 
 import Alamofire
-import Foundation
 
 /// Получение данных
 final class GetDataOperations: AsyncOperation {
@@ -19,6 +18,8 @@ final class GetDataOperations: AsyncOperation {
     init(request: DataRequest) {
         self.request = request
     }
+
+    // MARK: Public Methods
 
     override func cancel() {
         request.cancel()

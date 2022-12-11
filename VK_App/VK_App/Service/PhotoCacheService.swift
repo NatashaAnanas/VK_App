@@ -18,9 +18,6 @@ final class PhotoCacheService {
     // MARK: - Private Properies
 
     private let container: DataReloadable
-    init(container: UITableView) {
-        self.container = Table(table: container)
-    }
 
     private let cacheLifeTime: TimeInterval = Constants.cacheLifeTime
 
@@ -48,6 +45,12 @@ final class PhotoCacheService {
     }()
 
     private var images = [String: UIImage]()
+
+    // MARK: Init
+
+    init(container: UITableView) {
+        self.container = Table(table: container)
+    }
 
     // MARK: - Public Methods
 
@@ -119,20 +122,5 @@ final class PhotoCacheService {
             self.images[url] = image
         }
         return image
-    }
-}
-
-// MARK: - Расширение для PhotoCacheService
-
-extension PhotoCacheService {
-    private class Table: DataReloadable {
-        let table: UITableView
-        init(table: UITableView) {
-            self.table = table
-        }
-
-        func reloadRow(atIndexpath indexPath: IndexPath) {
-            table.reloadRows(at: [indexPath], with: .none)
-        }
     }
 }

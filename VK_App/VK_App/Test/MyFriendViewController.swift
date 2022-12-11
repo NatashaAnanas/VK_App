@@ -20,7 +20,7 @@ final class MyFriendViewController: UIViewController {
 
     @IBOutlet private var friendTableView: UITableView!
 
-    // MARK: - Private Properies
+    // MARK: - Private Properties
 
     private let realmService = RealmService()
     private let networkServicePromise = NetworkPromiseService()
@@ -38,17 +38,15 @@ final class MyFriendViewController: UIViewController {
     // MARK: - Private Methods
 
     private func loadFriendsFromRealm() {
-        do {
-            let realm = try Realm()
-            guard let users = RealmService.get(Friend.self) else { return }
-            addUserToken(result: users)
-            if friends != Array(users) {
-                friends = Array(users)
-            } else {
-                fetchFriends()
-            }
-        } catch {
-            showAlert(title: Constants.errorText, message: error.localizedDescription)
+        realmService.saveToRealm(object: friends)
+        guard let users = RealmService.get(Friend.self)
+        else { return }
+        addUserToken(result: users)
+        if friends != Array(users) {
+            friends = Array(users)
+            photoCacheService = PhotoCacheService(container: friendTableView)
+        } else {
+            fetchFriends()
         }
     }
 
@@ -94,8 +92,6 @@ extension MyFriendViewController: UITableViewDataSource {
         DispatchQueue.main.async {
             cell.textLabel?
                 .text = "\(self.friends[indexPath.row].firstName) \(self.friends[indexPath.row].lastName)"
-
-            self.photoCacheService = PhotoCacheService(container: self.friendTableView)
             cell.imageView?.image = self.photoCacheService?.photo(
                 atIndexpath: indexPath,
                 byUrl: self.friends[indexPath.row].photo

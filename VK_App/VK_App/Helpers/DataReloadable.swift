@@ -3,7 +3,7 @@
 
 import Foundation
 
-/// Методы для перезагрузки UITableView
+/// Метод для обновления ячеек
 protocol DataReloadable {
     func reloadRow(atIndexpath indexPath: IndexPath)
 }

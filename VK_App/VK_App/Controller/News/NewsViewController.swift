@@ -30,7 +30,7 @@ final class NewsViewController: UIViewController {
         fetchNews()
     }
 
-    // MARK: - Private Method
+    // MARK: - Private Methods
 
     private func fetchNews() {
         networkService.fetchNews { [weak self] result in
@@ -66,7 +66,7 @@ final class NewsViewController: UIViewController {
         }
     }
 
-    private func formatData(timestamp: Int) -> String {
+    private func convert(timestamp: Int) -> String {
         let date = NSDate(timeIntervalSince1970: TimeInterval(timestamp))
         let dateFormatter = DateFormatter()
         dateFormatter.timeStyle = DateFormatter.Style.medium
@@ -90,15 +90,12 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
             for: indexPath
         ) as? NewsTextTableViewCell else { return UITableViewCell() }
 
-        let item = newsFeeds[indexPath.row]
-
         cell.configure(
-            userName: item.authorName ?? "",
-            userImageText: item.avatarPath ?? "",
-            datePost: formatData(timestamp: item.date),
-            descriptionPost: item.text
+            userName: newsFeeds[indexPath.row].authorName,
+            userImageText: newsFeeds[indexPath.row].avatarPath,
+            datePost: convert(timestamp: newsFeeds[indexPath.row].date),
+            descriptionPost: newsFeeds[indexPath.row].text
         )
-
         return cell
     }
 }

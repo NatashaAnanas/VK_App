@@ -19,12 +19,11 @@ final class RealmService {
         do {
             let config = Realm.Configuration(deleteRealmIfMigrationNeeded: true)
             let realm = try Realm(configuration: config)
-
             try realm.write {
                 realm.add(object, update: .modified)
             }
         } catch {
-            print(error)
+            print(error.localizedDescription)
         }
     }
 
@@ -36,7 +35,7 @@ final class RealmService {
             let realm = try Realm(configuration: deleteIfMigration)
             return realm.objects(type)
         } catch {
-            print(error)
+            print(error.localizedDescription)
         }
         return nil
     }

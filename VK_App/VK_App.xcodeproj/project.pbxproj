@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4147FE5229436BA400F12113 /* PhotoCacheService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4147FE5129436BA400F12113 /* PhotoCacheService.swift */; };
+		4147FE552944DD9A00F12113 /* DataReloadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4147FE542944DD9A00F12113 /* DataReloadable.swift */; };
+		4147FE572946157A00F12113 /* PhotoCacheService+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4147FE562946157A00F12113 /* PhotoCacheService+Extension.swift */; };
 		414F76F2292F564700299949 /* MyFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414F76F1292F564600299949 /* MyFriendViewController.swift */; };
 		41549B842910053200F8331A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41549B832910053200F8331A /* AppDelegate.swift */; };
 		41549B862910053200F8331A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41549B852910053200F8331A /* SceneDelegate.swift */; };
@@ -70,6 +73,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4147FE5129436BA400F12113 /* PhotoCacheService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCacheService.swift; sourceTree = "<group>"; };
+		4147FE542944DD9A00F12113 /* DataReloadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataReloadable.swift; sourceTree = "<group>"; };
+		4147FE562946157A00F12113 /* PhotoCacheService+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PhotoCacheService+Extension.swift"; sourceTree = "<group>"; };
 		414F76F1292F564600299949 /* MyFriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFriendViewController.swift; sourceTree = "<group>"; };
 		41549B802910053200F8331A /* VK_App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VK_App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41549B832910053200F8331A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -148,6 +154,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4147FE532944DC6900F12113 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				4176BA4C2942604000071F25 /* AsyncOperation.swift */,
+				4176BA4A2941DA3300071F25 /* GetDataOperations.swift */,
+				4176BA50294260BE00071F25 /* ParseGroupData.swift */,
+				4176BA4E2942609D00071F25 /* ReloadTable.swift */,
+				4147FE542944DD9A00F12113 /* DataReloadable.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		414F62FC292ECFF700596584 /* Test */ = {
 			isa = PBXGroup;
 			children = (
@@ -181,6 +199,7 @@
 		41549B822910053200F8331A /* VK_App */ = {
 			isa = PBXGroup;
 			children = (
+				4147FE532944DC6900F12113 /* Helpers */,
 				41785059292B9D03006EF2E2 /* Session */,
 				41C1CB08293526F000123FF9 /* Service */,
 				414F62FC292ECFF700596584 /* Test */,
@@ -256,7 +275,6 @@
 			isa = PBXGroup;
 			children = (
 				4178505A292B9D29006EF2E2 /* Session.swift */,
-				4171CC44292CF2B100AC007A /* NetworkService.swift */,
 			);
 			path = Session;
 			sourceTree = "<group>";
@@ -274,11 +292,9 @@
 		41C1CB08293526F000123FF9 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				4171CC44292CF2B100AC007A /* NetworkService.swift */,
+				4147FE5129436BA400F12113 /* PhotoCacheService.swift */,
 				41C1CB092935272D00123FF9 /* RealmService.swift */,
-				4176BA4A2941DA3300071F25 /* GetDataOperations.swift */,
-				4176BA50294260BE00071F25 /* ParseGroupData.swift */,
-				4176BA4E2942609D00071F25 /* ReloadTable.swift */,
-				4176BA4C2942604000071F25 /* AsyncOperation.swift */,
 				4176BA5229426B9100071F25 /* NetworkPromiseService.swift */,
 			);
 			path = Service;
@@ -354,6 +370,7 @@
 			children = (
 				41E2517F2913B488006690F8 /* UIViewController+Extension.swift */,
 				41C1CB0B2936496500123FF9 /* UIViewController+Alert.swift */,
+				4147FE562946157A00F12113 /* PhotoCacheService+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -492,8 +509,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "
-";
+			shellScript = "if which swiftformat >/dev/null; then\n  swiftformat .\nelse\n  echo \"warning: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\nfi\n";
 		};
 		46A34D2FD730CA5AE4BFD39F /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -570,10 +586,12 @@
 				41549BA12910570900F8331A /* FriendsViewController.swift in Sources */,
 				41A6A60E293F7A8400CF7A40 /* NewsResult.swift in Sources */,
 				415848492930D74E0061BD19 /* Photo.swift in Sources */,
+				4147FE572946157A00F12113 /* PhotoCacheService+Extension.swift in Sources */,
 				41DD17F9293FBFD20075C99A /* NewsFeed.swift in Sources */,
 				41E25183291411F0006690F8 /* FriendCollectionViewCell.swift in Sources */,
 				41DF8643291DB84400C536F5 /* CustomInteractiveTransition.swift in Sources */,
 				41549BA329107ECD00F8331A /* PageMyFriendViewController.swift in Sources */,
+				4147FE5229436BA400F12113 /* PhotoCacheService.swift in Sources */,
 				415848472930D72F0061BD19 /* PhotoResponse.swift in Sources */,
 				41549B842910053200F8331A /* AppDelegate.swift in Sources */,
 				415848432930D6D40061BD19 /* Friend.swift in Sources */,
@@ -593,6 +611,7 @@
 				41E2518A2918FC60006690F8 /* NewsViewController.swift in Sources */,
 				41E2517B291291C0006690F8 /* GroupTableViewCell.swift in Sources */,
 				41549BA52911502200F8331A /* GroupViewController.swift in Sources */,
+				4147FE552944DD9A00F12113 /* DataReloadable.swift in Sources */,
 				41E2518C29190105006690F8 /* NewsTableViewCell.swift in Sources */,
 				41E2518E291902F0006690F8 /* Post.swift in Sources */,
 				41EFA5C1292E1A6D003C0D1F /* FriendResult.swift in Sources */,

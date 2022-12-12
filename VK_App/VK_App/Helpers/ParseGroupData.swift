@@ -1,9 +1,5 @@
-//
-//  ParseData.swift
-//  VK_App
-//
-//  Created by Анастасия Козлова on 08.12.2022.
-//
+// ParseGroupData.swift
+// Copyright © RoadMap. All rights reserved.
 
 import Foundation
 

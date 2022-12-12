@@ -12,11 +12,14 @@ final class Friend: Object, Codable {
     dynamic var firstName: String
     /// Фамилия друга
     dynamic var lastName: String
+    /// Фото друга
+    dynamic var photo: String
 
     private enum CodingKeys: String, CodingKey {
         case id
         case firstName = "first_name"
         case lastName = "last_name"
+        case photo = "photo_100"
     }
 
     override class func primaryKey() -> String? {

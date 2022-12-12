@@ -1,16 +1,11 @@
-//
-//  NewsTextTableViewCell.swift
-//  VK_App
-//
-//  Created by Анастасия Козлова on 05.12.2022.
-//
+// NewsTextTableViewCell.swift
+// Copyright © RoadMap. All rights reserved.
 
 import SDWebImage
 import UIKit
 
 /// Ячейка с текстовым контентом в разделе новости
 final class NewsTextTableViewCell: UITableViewCell {
-    
     // MARK: - Private constants
 
     private enum Constants {
@@ -19,26 +14,30 @@ final class NewsTextTableViewCell: UITableViewCell {
         static let zeroText = "0"
         static let oneText = "1"
     }
-    
-    // MARK: - Private IBOutlet
+
+    // MARK: - Private IBOutlets
+
     @IBOutlet private var userImageView: UIImageView!
     @IBOutlet private var dateLabel: UILabel!
     @IBOutlet private var nameLabel: UILabel!
     @IBOutlet private var contentLabel: UILabel!
     @IBOutlet private var likeButton: UIButton!
-    
-    // MARK: - Private Property
+
+    // MARK: - Private Properties
 
     private var isLiked: Bool = true
 
     // MARK: - Public Methods
 
     func configure(
-        userName: String,
-        userImageText: String,
+        userName: String?,
+        userImageText: String?,
         datePost: String,
         descriptionPost: String
     ) {
+        guard let userImageText = userImageText,
+              let userName = userName
+        else { return }
         nameLabel.text = userName
         userImageView.sd_setImage(with: URL(string: userImageText))
         dateLabel.text = datePost

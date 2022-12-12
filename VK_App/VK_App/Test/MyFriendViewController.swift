@@ -33,9 +33,14 @@ final class MyFriendViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadFriendsFromRealm()
+        initPhotoCacheService()
     }
 
     // MARK: - Private Methods
+
+    private func initPhotoCacheService() {
+        photoCacheService = PhotoCacheService(container: friendTableView)
+    }
 
     private func loadFriendsFromRealm() {
         realmService.saveToRealm(object: friends)
@@ -44,7 +49,6 @@ final class MyFriendViewController: UIViewController {
         addUserToken(result: users)
         if friends != Array(users) {
             friends = Array(users)
-            photoCacheService = PhotoCacheService(container: friendTableView)
         } else {
             fetchFriends()
         }

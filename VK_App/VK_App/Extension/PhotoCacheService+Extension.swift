@@ -13,7 +13,7 @@ extension PhotoCacheService {
         }
 
         func reloadRow(atIndexpath indexPath: IndexPath) {
-            table.reloadRows(at: [indexPath], with: .none)
+            table.reloadRows(at: [indexPath], with: .left)
         }
     }
 }

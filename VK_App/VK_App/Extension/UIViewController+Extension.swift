@@ -10,6 +10,9 @@ private enum Constant {
 
 extension UIViewController {
     typealias Closure = ((String?) -> ())?
+
+    // MARK: - Вызов Alert
+
     func showAlert(title: String?, message: String, handler: Closure) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let alertControllerAction = UIAlertAction(title: Constant.okTextString, style: .default) { _ in
@@ -20,5 +23,17 @@ extension UIViewController {
         alertController.addTextField()
         alertController.addAction(alertControllerAction)
         present(alertController, animated: true)
+    }
+
+    // MARK: - Конвертатор date
+
+    func convert(timeStamp: Int) -> String {
+        let date = NSDate(timeIntervalSince1970: TimeInterval(timeStamp))
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeStyle = DateFormatter.Style.medium
+        dateFormatter.dateStyle = DateFormatter.Style.medium
+        dateFormatter.timeZone = .current
+        let localDate = dateFormatter.string(from: date as Date)
+        return String(localDate)
     }
 }

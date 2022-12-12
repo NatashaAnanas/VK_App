@@ -65,16 +65,6 @@ final class NewsViewController: UIViewController {
             }
         }
     }
-
-    private func convert(timestamp: Int) -> String {
-        let date = NSDate(timeIntervalSince1970: TimeInterval(timestamp))
-        let dateFormatter = DateFormatter()
-        dateFormatter.timeStyle = DateFormatter.Style.medium
-        dateFormatter.dateStyle = DateFormatter.Style.medium
-        dateFormatter.timeZone = .current
-        let localDate = dateFormatter.string(from: date as Date)
-        return String(localDate)
-    }
 }
 
 // MARK: - UITableViewDelegate, UITableViewDataSource
@@ -93,7 +83,7 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
         cell.configure(
             userName: newsFeeds[indexPath.row].authorName,
             userImageText: newsFeeds[indexPath.row].avatarPath,
-            datePost: convert(timestamp: newsFeeds[indexPath.row].date),
+            datePost: convert(timeStamp: newsFeeds[indexPath.row].date),
             descriptionPost: newsFeeds[indexPath.row].text
         )
         return cell

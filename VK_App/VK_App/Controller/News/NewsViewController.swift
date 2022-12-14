@@ -17,20 +17,53 @@ final class NewsViewController: UIViewController {
 
     @IBOutlet private var newsTableView: UITableView!
 
+    // MARK: - Private Visual Components
+
+    private let refreshControl: UIRefreshControl = {
+        let refresh = UIRefreshControl()
+        refresh.tintColor = .white
+        return refresh
+    }()
+
     // MARK: - Private Properties
 
     private let post = Post()
     private let networkService = NetworkService()
     private var newsFeeds: [NewsFeed] = []
+    private var photos: [Photo] = []
 
     // MARK: - Life cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpRefreshControl()
         fetchNews()
+        newsTableView.prefetchDataSource = self
+        networkService.fetchUserPhotos { result in
+            switch result {
+            case let .success(success):
+                DispatchQueue.main.async {
+                    self.photos = success.response.photos
+
+                    print(self.photos)
+                    self.newsTableView.reloadData()
+                }
+            case let .failure(failure):
+                print(failure.localizedDescription)
+            }
+        }
     }
 
     // MARK: - Private Methods
+
+    private func setUpRefreshControl() {
+        newsTableView.addSubview(refreshControl)
+        refreshControl.addTarget(
+            self,
+            action: #selector(refreshControlAction(sender:)),
+            for: .valueChanged
+        )
+    }
 
     private func fetchNews() {
         networkService.fetchNews { [weak self] result in
@@ -39,7 +72,7 @@ final class NewsViewController: UIViewController {
             case let .success(success):
                 self.filterResponse(response: success.response)
                 DispatchQueue.main.async {
-                    self.newsFeeds = success.response.newsFeed
+                    self.newsFeeds = success.response.newsFeed + self.newsFeeds
                     self.newsTableView.reloadData()
                 }
             case let .failure(failure):
@@ -65,6 +98,14 @@ final class NewsViewController: UIViewController {
             }
         }
     }
+
+    @objc private func refreshControlAction(sender: UIRefreshControl) {
+        refreshControl.beginRefreshing()
+        fetchNews()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            self.refreshControl.endRefreshing()
+        }
+    }
 }
 
 // MARK: - UITableViewDelegate, UITableViewDataSource
@@ -76,16 +117,45 @@ extension NewsViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: Constants.newsTextIDCellText,
+            withIdentifier: Constants.newsIDCellText,
             for: indexPath
-        ) as? NewsTextTableViewCell else { return UITableViewCell() }
+        ) as? NewsTableViewCell else { return UITableViewCell() }
+
+        let news = newsFeeds[indexPath.row]
 
         cell.configure(
-            userName: newsFeeds[indexPath.row].authorName,
-            userImageText: newsFeeds[indexPath.row].avatarPath,
-            datePost: convert(timeStamp: newsFeeds[indexPath.row].date),
-            descriptionPost: newsFeeds[indexPath.row].text
+            userNameText: news.authorName ?? Constants.emptyText,
+            userImageText: news.avatarPath ?? Constants.emptyText,
+            dateText: convert(timeStamp: Int(news.date)),
+            descriptionText: news.text,
+            postImageText: news.attachments?.first?.photo?.sizes.first?.url
+                ?? Constants.emptyText,
+            likes: String(news.likes.count)
         )
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let newsFeeds = newsFeeds[indexPath.row]
+        guard
+            let height = newsFeeds.attachments?.first?.photo?.sizes.first?.height,
+            let width = newsFeeds.attachments?.first?.photo?.sizes.first?.width
+        else { return CGFloat() }
+        let tableWidth = tableView.bounds.width
+        let aspectRatio = CGFloat(height) / CGFloat(width)
+        let cellHeight = tableWidth * aspectRatio
+        return cellHeight
+    }
+}
+
+// MARK: - UITableViewDataSourcePrefetching
+
+extension NewsViewController: UITableViewDataSourcePrefetching {
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        guard let maxSection = indexPaths.map(\.row).max() else { return }
+        if maxSection > newsFeeds.count - 20 {
+            newsTableView.reloadData()
+            fetchNews()
+        }
     }
 }

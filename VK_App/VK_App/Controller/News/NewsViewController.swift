@@ -30,7 +30,6 @@ final class NewsViewController: UIViewController {
     private let post = Post()
     private let networkService = NetworkService()
     private var newsFeeds: [NewsFeed] = []
-    private var photos: [Photo] = []
 
     // MARK: - Life cycle
 
@@ -38,23 +37,14 @@ final class NewsViewController: UIViewController {
         super.viewDidLoad()
         setUpRefreshControl()
         fetchNews()
-        newsTableView.prefetchDataSource = self
-        networkService.fetchUserPhotos { result in
-            switch result {
-            case let .success(success):
-                DispatchQueue.main.async {
-                    self.photos = success.response.photos
-
-                    print(self.photos)
-                    self.newsTableView.reloadData()
-                }
-            case let .failure(failure):
-                print(failure.localizedDescription)
-            }
-        }
+        setupTableView()
     }
 
     // MARK: - Private Methods
+
+    private func setupTableView() {
+        newsTableView.prefetchDataSource = self
+    }
 
     private func setUpRefreshControl() {
         newsTableView.addSubview(refreshControl)

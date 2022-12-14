@@ -24,6 +24,8 @@ struct NetworkService {
         static let versionValueText = "5.131"
         static let postText = "post"
         static let filtersText = "filters"
+        static let extendedText = "extended"
+        static let oneText = "1"
         static let friendsUrlText = """
         \(Constants.getFriendText)\(Constants.tokenText)\(Constants.friendFieldsText)\(Constants.versionText)
         """
@@ -53,7 +55,9 @@ struct NetworkService {
         fetchData(urlPath: path, completion: completion)
     }
 
-    func fetchNews(completion: @escaping (Result<NewsResult, Error>) -> ()) {
+    func fetchNews(
+        completion: @escaping (Result<NewsResult, Error>) -> ()
+    ) {
         let parameters: Parameters = [
             Constants.acessTokenParameterText: Session.instance.token,
             Constants.filtersText: Constants.postText,
@@ -104,14 +108,14 @@ struct NetworkService {
     }
 
     private func getRequest() -> DataRequest {
-        let baseURL = "https://api.vk.com/method/"
-        let version = "5.131"
+        let baseURL = Constants.baseURL
+        let version = Constants.versionValueText
         let token = Session.instance.token
-        let path = "groups.get"
+        let path = Constants.getGroupsText
         let parameters: Parameters = [
-            "v": version,
-            "extended": "1",
-            "access_token": token
+            Constants.versionParameterText: version,
+            Constants.extendedText: Constants.oneText,
+            Constants.acessTokenParameterText: token
         ]
         let url = (baseURL + path)
         let request = AF.request(url, parameters: parameters)
